@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension point="org.eclipse.ui.actionSets">
+  <actionSet
+      label="Tutorials"
+      visible="true"
+      id="org.eclipse.ui.cheatsheets.actionSet">
+     <action
+           class="org.eclipse.ui.internal.cheatsheets.actions.CheatSheetHelpMenuAction"
+           id="org.dawb.cheat.sheets"
+           label="Cheat Sheets and Tutorials..."
+           menubarPath="help/group.help">
+     </action>
+  </actionSet>
+</extension>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            icon="icons/workbench16.png"
+            visible="true">
+         <run
+               class="org.edna.workbench.application.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="org.dawb.workbench.product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.dawb.workbench.application.application"
+            name="Data Analysis Workbench">
+            
+         <property
+               name="windowImages"
+               value="icons/workbench16.png,icons/workbench32.png,icons/workbench48.png">
+         </property>
+         <property
+               name="aboutText"
+               value="Welcome to Data Analysis Workbench&#x0A;the tools set for online data analysis&#x0A;Copyright, 2010 - 2011&#x0A;email: gerring@esrf.fr&#x0A;&#x0A;This version of Data Analysis Workbench is licensed under the GNU General Public License, Version 3.&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.esrf.fr&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;EDNA and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/workbench.png">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="appName"
+               value="Data Analysis Workbench">
+         </property>
+            
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.dawb.workbench.application.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.dawb.workbench.application.application"
+            name="Data Analysis Workbench">
+         <property
+               name="windowImages"
+               value="icons/workbench16.png,icons/workbench32.png,icons/workbench48.png">
+         </property>
+         <property
+               name="aboutText"
+               value="Welcome to Data Analysis Workbench&#x0A;the tools set for online data analysis&#x0A;Copyright, 2010 - 2011&#x0A;email: gerring@esrf.fr&#x0A;&#x0A;This version is licensed under the Eclipse Public License, Version 1.&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.dawb.org&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;EDNA and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/workbench48.png">
+         </property>
+         <property
+               name="appName"
+               value="Data Analysis Workbench">
+         </property>
+      </product>
+   </extension>
+   <extension point="org.eclipse.ui.intro">
+      <intro
+            class="org.edna.workbench.application.intro.DawbIntroPart"
+            icon="icons/edna16.png"
+            id="org.edna.workbench.application.intro"/>
+      <introProductBinding
+            introId="org.edna.workbench.application.intro"
+            productId="org.dawb.workbench.application.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.eclipse.ui.internal.dialogs.EmptyPreferencePage"
+            id="org.edna.workbench.preferences.root"
+            name="Data Analysis">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.dawb.workbench.application.data.ac"
+            name="Data Acquisition">
+      </category>
+      <category
+            id="org.dawb.workbench.application.data.analysis"
+            name="Data Analysis">
+      </category>
+   </extension>
+      <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            description="Disable stuff we don&apos;t need like Java Perspectivective"
+            id="org.dawb.workbench.ui.disable"
+            name="disable stuf">
+         <enabledWhen>
+            <with variable="true">
+               <equals value="false">
+               </equals>
+            </with>
+         </enabledWhen>
+      </activity>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.jdt.ui.Java.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/com.isencia.passerelle.workbench.model.ui.perspective">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.pde.ui.PDEPerspective">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.ui.internal.ide.application.ResourcePerspective">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.ui.examples.rcp.texteditor.TextEditorPerspective">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.jdt.hello.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.pde.hello.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.pde.hello.*">
+      </activityPatternBinding>
+       <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.ant.ui..*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.jdt.ui..*">
+      </activityPatternBinding>
+      <!-- This one disables seeing the eclipse application launch
+           as well as PDE views and preferences. TODO find ids
+           for PDE views and prefs and leave launch.
+      <activityPatternBinding
+            activityId="org.dawb.workbench.ui.disable"
+            pattern=".*/org.eclipse.pde.ui..*">
+      </activityPatternBinding>
+      -->
+    
+   </extension>
+   
+ </plugin>
