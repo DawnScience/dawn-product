@@ -27,36 +27,6 @@
       </application>
    </extension>
    <extension
-         id="org.dawb.workbench.product"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.dawb.workbench.application.application"
-            name="Data Analysis Workbench">
-            
-         <property
-               name="windowImages"
-               value="icons/workbench16.png,icons/workbench32.png,icons/workbench48.png">
-         </property>
-         <property
-               name="aboutText"
-               value="Welcome to Data Analysis Workbench&#x0A;the tools set for online data analysis&#x0A;Copyright, 2010 - 2011&#x0A;email: gerring@esrf.fr&#x0A;&#x0A;This version of Data Analysis Workbench is licensed under the GNU General Public License, Version 3.&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.esrf.fr&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;EDNA and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
-         </property>
-         <property
-               name="aboutImage"
-               value="icons/workbench.png">
-         </property>
-         <property
-               name="preferenceCustomization"
-               value="plugin_customization.ini">
-         </property>
-         <property
-               name="appName"
-               value="Data Analysis Workbench">
-         </property>
-            
-      </product>
-   </extension>
-   <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
             class="org.dawb.workbench.application.preferences.PreferenceInitializer">
@@ -70,15 +40,15 @@
             name="Data Analysis Workbench">
          <property
                name="windowImages"
-               value="icons/workbench16.png,icons/workbench32.png,icons/workbench48.png">
+               value="images/workbench16.png,images/workbench32.png,images/workbench48.png">
          </property>
          <property
                name="aboutText"
-               value="Welcome to Data Analysis Workbench&#x0A;the tools set for online data analysis&#x0A;Copyright, 2010 - 2011&#x0A;email: gerring@esrf.fr&#x0A;&#x0A;This version is licensed under the Eclipse Public License, Version 1.&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.dawb.org&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;EDNA and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
+               value="Welcome to Data Analysis Workbench&#x0A;the tools set for online data analysis&#x0A;Copyright, 2010 - 2012&#x0A;email: support@dawb.org&#x0A;&#x0A;This version of Data Analysis workbench is licensed under&#x0A;the Eclipse Public License version 1.0.&#x0A;&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.dawb.org&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;EDNA and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
          </property>
          <property
                name="aboutImage"
-               value="icons/workbench48.png">
+               value="images/workbench48.png">
          </property>
          <property
                name="appName"
