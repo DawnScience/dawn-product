@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Data Analysis Workbench" uid="org.dawb.workbench.product" id="org.dawb.workbench.application.product" application="org.dawb.workbench.application.application" version="0.9.0" useFeatures="true" includeLaunchers="false">
+<product name="Data Analysis Workbench" uid="org.dawb.workbench.product" id="org.dawb.workbench.application.product" application="org.dawb.workbench.application.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.dawb.workbench.application/images/workbench48.png"/>
       <text>
          Welcome to Data Analysis Workbench
 the tools set for online data analysis
-Copyright, 2010 - 2011
-email: gerring@esrf.fr
+Copyright, 2010 - 2012
+email: support@dawb.org
 
-This version of Data Analysis workbench is licensed under the GNU General Public License, Version 3.
+This version of Data Analysis workbench is licensed under
+the Eclipse Public License version 1.0.
+
 Please see the license file in the installation directory and 
 contact us if you cannot locate it. More details can be found at
-http://www.esrf.fr
+http://www.dawb.org
 
 Based on Eclipse, www.eclipse.org 
 Uses: Java, GEF, Log4J, Passerelle
@@ -32,8 +34,7 @@ All other trademarks are the property of their respective owners.
 org.dawb.workbench.application
 --launcher.XXMaxPermSize
 258M</programArgs>
-      <vmArgs>-Djava.library.path=${project_loc:uk.ac.gda.libs}/lib/${target.os}-${target.arch}
--Dosgi.locking=none
+      <vmArgs>-Dosgi.locking=none
 -Dcom.isencia.require.file.source=true
 -Xms128m
 -Xmx1024m
@@ -60,6 +61,7 @@ org.dawb.workbench.application
             winLargeLow="/org.dawb.workbench.application/icons/workbench48-8bit.bmp"/>
       </win>
    </launcher>
+
 
    <vm>
       <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
