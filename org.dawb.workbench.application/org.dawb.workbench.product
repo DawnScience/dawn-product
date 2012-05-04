@@ -31,6 +31,7 @@ All other trademarks are the property of their respective owners.
 
    <launcherArgs>
       <programArgs>-showsplash
+-console
 org.dawb.workbench.application
 --launcher.XXMaxPermSize
 258M</programArgs>
@@ -39,7 +40,8 @@ org.dawb.workbench.application
 -Xms128m
 -Xmx1024m
 -XX:PermSize=128m
--XX:MaxPermSize=256m</vmArgs>
+-XX:MaxPermSize=256m
+-Dorg.dawb.editor.ascii.hide.diamond.image.editor=1</vmArgs>
       <vmArgsLin>-Dorg.eclipse.swt.browser.XULRunnerPath=/usr/bin/xulrunner</vmArgsLin>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
@@ -61,7 +63,6 @@ org.dawb.workbench.application
             winLargeLow="/org.dawb.workbench.application/icons/workbench48-8bit.bmp"/>
       </win>
    </launcher>
-
 
    <vm>
       <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
