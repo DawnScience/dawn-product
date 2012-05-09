@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="DAWN Science" uid="org.dawnsci.product" id="org.dawnsci.product.plugin.DAWN" application="org.eclipse.ui.ide.workbench" version="1.0" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/org.dawnsci.product.plugin/icons/Temp-3Col-Splash.png"/>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/org.dawnsci.product.plugin/icons/Temp-16x16-icon.png" i48="/org.dawnsci.product.plugin/icons/Temp-48x48-icon.png"/>
+
+   <splash
+      location="org.dawnsci.product.plugin"
+      startupProgressRect="0,0,200,15"
+      startupMessageRect="0,20,200,20"
+      startupForegroundColor="0000FF" />
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.dawnsci.product.feature" version="1.0.0.qualifier"/>
+   </features>
+
+
+</product>
