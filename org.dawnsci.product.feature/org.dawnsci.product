@@ -11,7 +11,20 @@
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+      <vmArgs>-Xms512m
+-XX:PermSize=128m
+-XX:MaxPermSize=256m
+-Djava.library.path=${project_loc:uk.ac.gda.libs}/lib/${target.os}-${target.arch}
+-Ddbconnect=config/dbconnect.ispyb.properties
+-Dentry=MyVisitsEntryPoint
+-DidaEmbedded=yes
+-Dcolour=on
+-Dosgi.locking=none
+-Dcom.isencia.require.file.source=true</vmArgs>
+      <vmArgsLin>-Xmx2048m</vmArgsLin>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+-Xmx2048m</vmArgsMac>
+      <vmArgsSol>-Xmx2048m</vmArgsSol>
    </launcherArgs>
 
    <windowImages i16="/org.dawnsci.product.plugin/icons/Temp-16x16-icon.png" i48="/org.dawnsci.product.plugin/icons/Temp-48x48-icon.png"/>
@@ -21,7 +34,7 @@
       startupProgressRect="0,0,200,15"
       startupMessageRect="0,20,200,20"
       startupForegroundColor="0000FF" />
-   <launcher>
+   <launcher name="DAWN">
       <solaris/>
       <win useIco="false">
          <bmp/>
