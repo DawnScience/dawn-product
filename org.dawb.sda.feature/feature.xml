@@ -3,7 +3,7 @@
       id="org.dawb.sda.feature"
       label="SDA for DAWB"
       version="1.0.0.qualifier"
-      provider-name="DLS Ltd."
+      provider-name="Diamond Light Source"
       plugin="uk.ac.diamond.scisoft.analysis">
 
    <description>
