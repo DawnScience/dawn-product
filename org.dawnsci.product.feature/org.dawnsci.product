@@ -34,17 +34,15 @@
       startupProgressRect="0,0,200,15"
       startupMessageRect="0,20,200,20"
       startupForegroundColor="0000FF" />
-   <launcher name="DAWN">
+   <launcher name="dawn">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
