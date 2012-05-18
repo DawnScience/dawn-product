@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="uk.ac.diamond.scisoft.introRegister" name="IntroRegister" schema="schema/uk.ac.diamond.scisoft.introRegister.exsd"/>
+   <extension
+         point="org.eclipse.ui.intro">
+      <!--<intro
+            class="uk.ac.diamond.scisoft.intro.IntroPart"
+            icon="icons/welcome16.gif"
+            id="uk.ac.diamond.scisoft.intro">
+      </intro>-->
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="icons/Temp-16x16-icon.png"
+            id="org.dawnsci.intro">
+      </intro>
+      <introProductBinding
+            introId="org.dawnsci.intro"
+            productId="org.dawnsci.product.plugin.DAWN">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introContent.xml"
+            id="org.dawnsci.intro.configId"
+            introId="org.dawnsci.intro">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+
+</plugin>

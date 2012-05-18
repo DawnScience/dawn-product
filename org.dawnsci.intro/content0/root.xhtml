@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Scientific Data Analysis</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	
+	<!-- Scripts -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.roundabout-1.0.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript">		
+		$(document).ready(function() { //Start up our Featured Project Carosuel
+			$('#featured ul').roundabout({
+				easing: 'easeOutInCirc',
+				duration: 600
+			});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		function showmenu(elmnt){
+			document.getElementById(elmnt).style.visibility="visible";
+		}
+		function hidemenu(elmnt){
+			document.getElementById(elmnt).style.visibility="hidden";
+		}
+	</script>
+	<!--[if IE 6]>
+	<script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+	<script>
+	  /* EXAMPLE */
+	  DD_belatedPNG.fix('.button');
+	  
+	  /* string argument can be any CSS selector */
+	  /* .png_bg example is unnecessary */
+	  /* change it to what suits you! */
+	</script>
+	<![endif]-->
+</head>
+<body>
+	<div id="wrapper" class="container_12 clearfix">
+
+		<!-- Text Logo -->
+		<h1 id="logo" class="grid_4">Scientific Data Analysis</h1>
+		
+		<!-- Navigation Menu -->
+		<ul id="navigation" class="grid_8">
+			<li><a href="contact.html"><span class="meta">Get in touch</span><br />Contact Us</a></li>
+			<li><a href="blog.html"><span class="meta">Latest news</span><br />Blog</a></li>
+			<li><a href="perspective.xhtml"><span class="meta">Available Perspectives</span><br />Perspectives</a></li>
+			<li><a href="about.html"><span class="meta">Who are we?</span><br />About</a></li>
+			<li><a href="root.xhtml" class="current"><span class="meta">Welcome</span><br />Home</a></li>
+		</ul>
+		
+		<div class="hr grid_12">&nbsp;</div>
+		<div class="clear"></div>
+ 
+		<!-- Featured Image Slider -->
+		<div id="featured" class="clearfix grid_12">
+				<li>
+					<a href="dexplore.html">
+						<span>DExplore perspective</span>
+						<img src="images/dexplore_intro.png" alt="" />
+					</a>	
+				</li>
+				<li>
+					<a href="python.html">
+						<span>PyDev perspective</span>
+						<img src="images/python_intro.png" alt="" />
+					</a>
+				</li>  
+				<li>
+					<a href="icat.html">
+						<span>ICat perspective</span>
+						<img src="images/icat_logo.gif" alt="" />
+					</a>
+				</li> 
+				<li>
+					<a href="workflow.html">
+						<span>Workflow perspective</span>
+						<img src="images/workflow_intro.png" alt="" />
+					</a>
+				</li>
+			
+		</div>
+		<div class="hr grid_12 clearfix">&nbsp;</div>
+			
+		<!-- Caption Line -->
+		<h2 class="grid_12 caption clearfix">Welcome to the <span>SDA/DAWN</span> workbench, an Open Source scientific data analysis software based on the <u>Eclipse Technology</u> &amp; <u></u></h2>
+		
+		<div class="hr grid_12 clearfix quicknavhr">&nbsp;</div>
+		<div id="quicknav" class="grid_12">
+			<a class="quicknavgrid_3 quicknav alpha" href="portfolio.html">
+					<h4 class="title ">Recent Work</h4>
+					<p>Recent news about the DAWN collaboration</p>
+					<p style="text-align:center;"><img alt="" src="images/Art_Artdesigner.lv.png" /></p>
+				
+			</a>
+			<a class="quicknavgrid_3 quicknav" href="about.html">
+					<h4 class="title ">Learn about us</h4>
+					<p>About the DAWN collaboration</p>
+					<p style="text-align:center;"><img alt="" src="images/info.png" /></p>
+				
+			</a>
+			<a class="quicknavgrid_3 quicknav" href="blog.html">
+					<h4 class="title ">Read our blog</h4>
+					<p>DAWN collaboration blog</p>
+					<p style="text-align:center;"><img alt="" src="images/Blog_Artdesigner.lv.png" /></p>
+				
+			</a>
+			<a class="quicknavgrid_3 quicknav" href="#">
+					<h4 class="title ">Follow on Twitter</h4>
+					<p>DAWN collaboration on Twitter</p>
+					<p style="text-align:center;"><img alt="" src="images/hungry_bird.png" /></p>
+			</a>
+		</div>
+		<div class="hr grid_12 clearfix">&nbsp;</div>
+		<!-- Footer -->
+		<p class="grid_12 footer clearfix">
+			<span class="float"><b>&copy; Copyright</b> <a href="">Diamond Light Source</a> </span>
+			<a class="float right" href="#">top</a>
+		</p>
+		
+	</div><!--end wrapper-->
+	
+</body>
+</html>

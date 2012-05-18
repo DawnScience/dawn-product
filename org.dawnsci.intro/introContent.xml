@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+    <page id="root" url="content/root.html"/>
+    <page id="perspectives" content="content/perspectives.html"/>
+    <page id="single" content="content/singleperspective.html"/>
+    <page id="blog" url="content/blog.html"/>
+    <page id="contact" url="content/contact.html"/>
+    <page id="about" url="content/about.html"/>
+</introContent>
