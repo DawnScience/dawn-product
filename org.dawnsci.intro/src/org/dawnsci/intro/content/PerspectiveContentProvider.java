@@ -121,9 +121,10 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 //		System.out.println("parent:" + parent.getLocalName());
 
 		Document dom = parent.getOwnerDocument();
-		Element div = dom.createElement("div");
-		div.setAttribute("class", "grid_" + introActions.size());
+	//	Element div = dom.createElement("div");
+		//parent.setAttribute("class", "grid_" + introActions.size());
 		// parent.appendChild(div);
+		parent.setAttribute("class","left");
 
 		Iterator<IConfigurationElement> iter = introActions.iterator();
 		while (iter.hasNext()) {
@@ -131,7 +132,6 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				IConfigurationElement config = iter.next();
 				String perspectiveClass = config.getAttribute(ATT_CLASS);
 				String description = config.getAttribute(ATT_DESCRIPTION);
-			//	String image = config.getAttribute(ATT_ICON);
 				String name = config.getAttribute(ATT_NAME);
 				IContributor contrib = config.getContributor();
 				String contribName = contrib instanceof RegistryContributor ? ((RegistryContributor) contrib)
@@ -142,36 +142,50 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				URL imgURL = null;
 
 				imgURL = FileLocator.toFileURL(bundleURL);
+				Element div = dom.createElement("div");
 				Element a = dom.createElement("a");
 				Element span = dom.createElement("span");
 				Element img = dom.createElement("img");
 				Element p = dom.createElement("p");
+				Element b = dom.createElement("b");
+				div.setAttribute("class", "left");
+				div.setAttribute("style", "text-align: center;");
 				a.setAttribute(
 						"href",
 						"http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&class=org.dawnsci.intro.actions.OpenPerspectiveAction&name="
 								+ perspectiveClass);
 				// a.setAttribute("onClick", "sessionStorage.id=");
-				a.setAttribute("class", "portfolio_item float alpha");
+				a.setAttribute("class", "tooltip portfolio_item float");
 				//a.setAttribute("class", "tooltip");
-				img.setAttribute("src", imgURL.getPath());
-			//	img.setAttribute("class", "portfolio_item");
-				img.setAttribute("alt", "");
-				//span.setAttribute("class", "portfolio_item");
+				String imgPath = imgURL.getPath();
+				if(isWindows())
+					imgPath = "file:/"+imgPath;//.substring(1);
+				img.setAttribute("src", imgPath);
+				img.setAttribute("class", "tooltip portfolio_item float");
+				//img.setAttribute("alt", "");
+				span.setAttribute("class", "classic info");
 				
-				span.appendChild(dom.createTextNode(name+":</br>"+description));
-
-				
-			
+				span.appendChild(dom.createTextNode(description));
+				b.appendChild(dom.createTextNode(name));
+				p.appendChild(b);
 				a.appendChild(img);
-				//a.appendChild(span);
-				div.appendChild(span);
+				a.appendChild(span);
 				div.appendChild(a);
+				div.appendChild(p);
+				parent.appendChild(div);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				logger.error("TODO put description of error here", e);
 			}
 		}
-		parent.appendChild(div);
+
+		//parent.appendChild(div);
+	}
+
+	public static boolean isWindows() {
+		String os = System.getProperty("os.name").toLowerCase();
+		// windows
+		return (os.indexOf("win") >= 0); 
 	}
 
 	private static final String INTROREGISTER_EXTENSION_ID = "uk.ac.diamond.scisoft.introRegister"; //$NON-NLS-1$	
@@ -197,6 +211,7 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 		}
 		// ordering of the items
 		introActions = orderElements(introActions);
+
 	}
 
 	/**
