@@ -125,11 +125,11 @@
 
 	#quicknav							{background:url(../images/link_border.png) repeat-x;}
 	a .title 							{color:#000000;}
-	.quicknavgrid_3						{width:204px; margin:0px; padding:20px 20px 0; display:inline; float:left; position:relative; margin-left:1px;}
+	.quicknavgrid_3						{width:149px; margin:0px; padding:20px 20px 0; display:inline; float:left; position:relative; margin-left:1px;}
 	.quicknav							{background:#FFFFFF;}
 	.quicknav:hover						{background:url(../images/link_bg.png) repeat-x;}
 	.quicknavhr							{margin-bottom:0;}
-	.quicknav.alpha						{margin-left:0; width:205px;}
+	.quicknav.alpha						{margin-left:0; width:150px;}
 
 /* About Us Page Timeline */
 
@@ -172,12 +172,13 @@
 
 /* Tool tips styles */
 	.tooltip {
-		border-bottom: 1px dotted #000000; color: #000000; outline: none;
+		color: #000000; outline: none; /*border-bottom: 1px dotted #000000;*/
 		cursor: hand; text-decoration: none;
 		position: relative;
 	}
 	.tooltip span {
 		margin-left: -999em;
+		font-size: 1.2em;
 		position: absolute;
 	}
 	.tooltip:hover span {
@@ -185,14 +186,14 @@
 		box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 		font-family: Calibri, Tahoma, Geneva, sans-serif;
 		position: absolute; left: 1em; top: 2em; z-index: 99;
-		margin-left: 0; width: 250px;
+		margin-left: 0; width: 180px;
 	}
 	/*.tooltip:hover img {
 		border: 0; margin: -10px 0 0 -55px;
 		float: left; position: absolute;
 	}*/
 	.tooltip:hover em {
-		font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold;
+		font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 5em; font-weight: bold;
 		display: block; padding: 0.2em 0 0.6em 0;
 	}
 	.classic { padding: 0.8em 1em; }

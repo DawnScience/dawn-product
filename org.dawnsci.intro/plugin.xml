@@ -18,6 +18,22 @@
             introId="org.dawnsci.intro"
             productId="org.dawnsci.product.plugin.DAWN">
       </introProductBinding>
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="org.dawnsci.intro.intro">
+      </intro>
+      <introProductBinding
+            introId="org.dawnsci.intro.intro"
+            productId="ouk.ac.diamond.dawn.product">
+      </introProductBinding>
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="org.dawnsci.intro.base">
+      </intro>
+      <introProductBinding
+            introId="org.dawnsci.intro.base"
+            productId="uk.ac.diamond.dawn.base.product">
+      </introProductBinding>
    </extension>
    <extension
          point="org.eclipse.ui.intro.config">
@@ -30,6 +46,32 @@
             <implementation
                   kind="html"
                   os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+      <config
+            content="introContent.xml"
+            id="org.dawnsci.intro.introConfigId"
+            introId="org.dawnsci.intro.intro">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css">
+            </implementation>
+         </presentation>
+      </config>
+      <config
+            content="introContent.xml"
+            id="org.dawnsci.intro.introConfigId"
+            introId="org.dawnsci.intro.base">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css">
             </implementation>
          </presentation>
       </config>
