@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <introContent>
-    <page id="root" url="content/root.html"/>
+    <page id="root" content="content/root.html"/>
     <page id="perspectives" content="content/perspectives.html"/>
     <page id="single" content="content/singleperspective.html"/>
     <page id="blog" url="content/blog.html"/>
