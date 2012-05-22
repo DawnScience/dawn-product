@@ -12,24 +12,16 @@ package org.dawnsci.intro.content;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IContributor;
-import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.spi.RegistryContributor;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.intro.config.IIntroContentProviderSite;
 import org.eclipse.ui.intro.config.IIntroXHTMLContentProvider;
@@ -40,7 +32,7 @@ import org.w3c.dom.Element;
 
 /**
  * Content provider for the xhtml page describing a specific perspective
- *
+ * TODO
  * @author Baha El Kassaby
  */
 public class ASinglePerspectiveContentProvider implements IIntroXHTMLContentProvider {
@@ -83,8 +75,8 @@ public class ASinglePerspectiveContentProvider implements IIntroXHTMLContentProv
 
 	private static final String ATT_CLASS = "class"; //$NON-NLS-1$
 	private static final String ATT_NAME= "name"; //$NON-NLS-1$
-	//private static final String ATT_DESCRIPTION= "description"; //$NON-NLS-1$
 	private static final String ATT_ICON= "icon"; //$NON-NLS-1$
+	private LinkedList<IConfigurationElement> introActions;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.intro.config.IIntroXHTMLContentProvider#createContent(java.lang.String, org.w3c.dom.Element)
@@ -142,111 +134,5 @@ public class ASinglePerspectiveContentProvider implements IIntroXHTMLContentProv
 				logger .error("TODO put description of error here", e);
 			}
 		}
-	}
-
-	private static final String INTROREGISTER_EXTENSION_ID = "uk.ac.diamond.scisoft.introRegister"; //$NON-NLS-1$	
-	private static final int MAXCHARSPERLINE = 60;
-	private LinkedList<IConfigurationElement> introActions;
-
-	private String[] buildOpenPerspectiveGroup() {
-		introActions = new LinkedList<IConfigurationElement>();
-
-		final IExtension[] extensions = getExtensions(INTROREGISTER_EXTENSION_ID);
-		for(int i=0; i<extensions.length; i++) {
-			
-			IExtension extension = extensions[i];
-			IConfigurationElement[] configElements = extension.getConfigurationElements();
-			
-			for(int j=0; j<configElements.length; j++) {
-				IConfigurationElement config = configElements[j];
-				introActions.add(config);			
-			}
-		}
-		// ordering of the items
-		introActions = orderElements(introActions);
-
-		Iterator<IConfigurationElement> iter = introActions.iterator();
-		
-		String[] imageURLs = new String[introActions.size()];
-		int i = 0;
-		while (iter.hasNext()) {
-
-			IConfigurationElement config = iter.next();
-			IActionDelegate delegate = null;
-			try {
-				delegate = (IActionDelegate)config.createExecutableExtension(ATT_CLASS);
-			} catch (CoreException e1) {
-				e1.printStackTrace();
-			}
-			final IActionDelegate aDelegate = delegate;
-
-			// fetch bundle that contributes to extension point and find the icon
-			IContributor contrib = config.getContributor();
-			String contribName = contrib instanceof RegistryContributor ? ((RegistryContributor) contrib).getActualName() : contrib.getName();
-			URL imgURL = FileLocator.find(Platform.getBundle(contribName), new Path(config.getAttribute(ATT_ICON)), null);
-			System.out.println("Contribution name:"+contribName+"; Image URL:"+imgURL);
-			imageURLs[i] = imgURL.toString();
-			i++;
-		}
-		return imageURLs;
-
-	}
-
-	/**
-	 * Discover extensions for the given extensionPointId
-	 * 
-	 * @param extensionPointId the extension point id
-	 * @return an array of discovered extensions
-	 */
-	private IExtension[] getExtensions(String extensionPointId) {
-		IExtensionRegistry registry = Platform. getExtensionRegistry();
-		IExtensionPoint point = registry.getExtensionPoint(extensionPointId);
-		IExtension[] extensions = point.getExtensions();
-		return extensions;
-	}
-
-	/**
-	 * Sorts the LinkedList of IConfigurationElements according to their ATT_NAME
-	 * 
-	 * @param elems
-	 * @return orderedElems
-	 */
-	private LinkedList<IConfigurationElement> orderElements(LinkedList<IConfigurationElement> elems) {
-		LinkedList<IConfigurationElement> orderedElems = new LinkedList<IConfigurationElement>();
-		
-		List<String> items = new ArrayList<String>();
-		List<String> prerelease = new ArrayList<String>();
-		for (int i = 0; i < elems.size(); i++) {
-			if (!elems.get(i).getAttribute(ATT_NAME).startsWith("(Pre-release")){
-				items.add(elems.get(i).getAttribute(ATT_NAME));
-			}else{
-				prerelease.add(elems.get(i).getAttribute(ATT_NAME));
-			}
-		}
-		
-		Object[] strItems=items.toArray();
-		Object[] strPrerelease=prerelease.toArray();
-		
-		Arrays.sort(strItems);
-		Arrays.sort(strPrerelease);
-		Object[] allItems = concat(strItems,strPrerelease);
-		
-		for (int j = 0; j < allItems.length; j++) {
-			for (int i = 0; i < elems.size(); i++) {
-				if(elems.get(i).getAttribute(ATT_NAME).equals(allItems[j].toString())){
-					orderedElems.add(elems.get(i));
-					break;
-				}
-			}
-		}
-
-		return orderedElems;
-	}
-
-	private Object[] concat(Object[] strItems, Object[] strPrerelease) {
-		Object[] C= new String[strItems.length+strPrerelease.length];
-		System.arraycopy(strItems, 0, C, 0, strItems.length);
-		System.arraycopy(strPrerelease, 0, C, strItems.length, strPrerelease.length);
-		return C;
 	}
 }

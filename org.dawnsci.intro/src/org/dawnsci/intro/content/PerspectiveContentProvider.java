@@ -1,18 +1,12 @@
 /*-
- * Copyright 2012 Diamond Light Source Ltd.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+ * Copyright (c) 2012 European Synchrotron Radiation Facility,
+ *                    Diamond Light Source Ltd.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */ 
 package org.dawnsci.intro.content;
 
 import java.io.IOException;
@@ -189,9 +183,6 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 	}
 
 	private static final String INTROREGISTER_EXTENSION_ID = "uk.ac.diamond.scisoft.introRegister"; //$NON-NLS-1$	
-	private static final int MAXCHARSPERLINE = 60;
-	private boolean hasJOGL = false;
-	private boolean hasJOGLshaders = false;
 	private LinkedList<IConfigurationElement> introActions;
 
 	private void buildOpenPerspectiveGroup() {
