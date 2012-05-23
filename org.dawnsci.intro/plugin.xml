@@ -20,18 +20,19 @@
       </introProductBinding>
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            id="org.dawnsci.intro.intro">
+            icon="icons/Temp-16x16-icon.png"
+            id="uk.ac.diamond.dawn.intro">
       </intro>
       <introProductBinding
-            introId="org.dawnsci.intro.intro"
-            productId="ouk.ac.diamond.dawn.product">
+            introId="uk.ac.diamond.dawn.intro"
+            productId="uk.ac.diamond.dawn.product">
       </introProductBinding>
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            id="org.dawnsci.intro.base">
+            id="uk.ac.diamond.dawn.base.intro">
       </intro>
       <introProductBinding
-            introId="org.dawnsci.intro.base"
+            introId="uk.ac.diamond.dawn.base.intro"
             productId="uk.ac.diamond.dawn.base.product">
       </introProductBinding>
    </extension>
@@ -51,8 +52,8 @@
       </config>
       <config
             content="introContent.xml"
-            id="org.dawnsci.intro.introConfigId"
-            introId="org.dawnsci.intro.intro">
+            id="uk.ac.diamond.dawn.intro.introConfigId"
+            introId="uk.ac.diamond.dawn.intro">
          <presentation
                home-page-id="root">
             <implementation
@@ -64,8 +65,8 @@
       </config>
       <config
             content="introContent.xml"
-            id="org.dawnsci.intro.introConfigId"
-            introId="org.dawnsci.intro.base">
+            id="uk.ac.diamond.dawn.base.intro.introConfigId"
+            introId="uk.ac.diamond.dawn.base.intro">
          <presentation
                home-page-id="root">
             <implementation
@@ -75,6 +76,30 @@
             </implementation>
          </presentation>
       </config>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.dawnsci.intro.actions.OpenWelcomePageAction"
+            id="org.dawnsci.intro.show.welcome"
+            name="Show welcome screen">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.dawnsci.intro.show.welcome"
+               label="Show Welcome Screen">
+            <command
+                  commandId="org.dawnsci.intro.show.welcome"
+                  icon="icons/nav_home.gif"
+                  label="Home"
+                  tooltip="Show Welcome Screen">
+            </command>
+         </toolbar>
+      </menuContribution>
    </extension>
 
 </plugin>
