@@ -148,7 +148,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </plugins>
 
    <features>
-      <feature id="org.python.pydev.feature" version="2.2.4.2011110216"/>
+      <feature id="org.python.pydev.feature" version="2.5.0.2012040618"/>
       <feature id="org.dawb.sda.feature" version="1.0.0.qualifier"/>
       <feature id="org.dawb.workbench.application.feature" version="1.0.0.qualifier"/>
       <feature id="org.dawb.edna.feature" version="1.0.0.qualifier"/>
