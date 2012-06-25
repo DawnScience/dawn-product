@@ -10,7 +10,7 @@ REM # The full path to where the model is located
 set MODEL=%WORKSPACE%/workflows/examples/maths_example.moml
 
 
-##################################################################
-# Nothing to do here...
+REM ##################################################################
+REM # Nothing to do here...
 
 dawn -noSplash -application com.isencia.passerelle.workbench.model.launch -data %WORKSPACE% -consolelog -vmargs -Dorg.dawb.workbench.jmx.headless=true -Dcom.isencia.jmx.service.terminate=true -Dmodel=%MODEL%
