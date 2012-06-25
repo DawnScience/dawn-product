@@ -13,4 +13,4 @@ set MODEL=%WORKSPACE%/workflows/examples/maths_example.moml
 REM ##################################################################
 REM # Nothing to do here...
 
-dawn -noSplash -application com.isencia.passerelle.workbench.model.launch -data %WORKSPACE% -consolelog -vmargs -Dmodel=%MODEL%
+dawn -noSplash -application com.isencia.passerelle.workbench.model.launch -data %WORKSPACE% -consolelog -vmargs -Dorg.dawb.workbench.jmx.headless=true -Dcom.isencia.jmx.service.terminate=true -Dmodel=%MODEL%
