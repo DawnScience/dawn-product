@@ -16,4 +16,4 @@ MODEL=~/dawn_workspace/workflows/examples/maths_example.moml
 ##################################################################
 # Nothing to do here...
 
-./dawn -noSplash -application com.isencia.passerelle.workbench.model.launch -data $WORKSPACE -consolelog -os linux -ws gtk -arch $HOSTTYPE -vmargs -Dmodel=$MODEL
+./dawn -noSplash -application com.isencia.passerelle.workbench.model.launch -data $WORKSPACE -consolelog -os linux -ws gtk -arch $HOSTTYPE -vmargs -Dorg.dawb.workbench.jmx.headless=true -Dcom.isencia.jmx.service.terminate=true -Dmodel=$MODEL
