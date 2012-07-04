@@ -143,7 +143,7 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				Element p = dom.createElement("p");
 				Element b = dom.createElement("b");
 				div.setAttribute("class", "left");
-				div.setAttribute("style", "text-align: center;");
+				div.setAttribute("style", "text-align: left;");
 				a.setAttribute(
 						"href",
 						"http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&class=org.dawnsci.intro.actions.OpenPerspectiveAction&name="
@@ -160,11 +160,11 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				span.setAttribute("class", "classic info");
 				
 				span.appendChild(dom.createTextNode(description));
-				b.appendChild(dom.createTextNode(name));
 				p.appendChild(b);
+				p.appendChild(dom.createTextNode("   "+name));
 				a.appendChild(img);
 				a.appendChild(span);
-				div.appendChild(a);
+				p.appendChild(a);
 				div.appendChild(p);
 				parent.appendChild(div);
 			} catch (IOException e) {
