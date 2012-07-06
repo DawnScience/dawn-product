@@ -142,7 +142,11 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				Element img = dom.createElement("img");
 				Element p = dom.createElement("p");
 				Element b = dom.createElement("b");
-				div.setAttribute("class", "left");
+				if (isWindows()) {
+				    div.setAttribute("class", "left");
+				} else{
+					div.setAttribute("class", "center");
+				}
 				div.setAttribute("style", "text-align: left;");
 				a.setAttribute(
 						"href",
@@ -160,11 +164,19 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				span.setAttribute("class", "classic info");
 				
 				span.appendChild(dom.createTextNode(description));
-				p.appendChild(b);
-				p.appendChild(dom.createTextNode("   "+name));
-				a.appendChild(img);
-				a.appendChild(span);
-				p.appendChild(a);
+				if (isWindows()) {
+					p.appendChild(b);
+					p.appendChild(dom.createTextNode("   "+name));
+					a.appendChild(img);
+					a.appendChild(span);
+					p.appendChild(a);
+				} else {
+					b.appendChild(dom.createTextNode(name));
+					p.appendChild(b);
+					a.appendChild(img);
+					a.appendChild(span);
+					div.appendChild(a);
+				}
 				div.appendChild(p);
 				parent.appendChild(div);
 			} catch (IOException e) {
