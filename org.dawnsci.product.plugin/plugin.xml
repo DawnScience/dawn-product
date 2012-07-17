@@ -42,15 +42,5 @@
          </property>
       </product>
    </extension>
-   <extension
-         point="org.eclipse.ui.startup">
-      <startup
-            class="org.dawnsci.product.plugin.JRECleanup">
-      </startup>
-   </extension>
-   <extension
-         point="org.eclipse.ui.startup">
-      <startup></startup>
-   </extension>
 
 </plugin>
