@@ -52,49 +52,44 @@
 		<div class="grid_8">
 			<p>Thank you for using this form to let us know about your feedbacks and comments, which will help us to improve this product.</p>
 			<!-- Contact Form -->
-			
-			<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dHpOak9iVG90WHdtMzVxVU9WT1lWZ0E6MQ" width="650" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-			<!-- form action='#' name='contact_us' id='contact_form'>
+			<form action='index.html' method='post' id='contact_form'>
 					<h3>Contact Form</h3>
 				<div class="hr dotted clearfix">&nbsp;</div>
-				<ul>
+				<ul>						
 					<li class="clearfix"> 
 						<label for="name">Name</label>
-						<input type='text' name='name' id='txt_name' />
+						<input type='text' name='name' id='name' />
 						<div class="clear"></div>
 						<p id='name_error' class='error'>Insert a Name</p>
 					</li> 
 					<li class="clearfix"> 
 						<label for="email">Email Address</label>
-						<input type='text' name='email' id='txt_email' />
+						<input type='text' name='email' id='email' />
 						<div class="clear"></div>
 						<p id='email_error' class='error'>Enter a valid email address</p>
 					</li> 
 					<li class="clearfix"> 
 						<label for="subject">Subject</label>
-						<input type='text' name='subject' id='txt_subject' />
+						<input type='text' name='subject' id='subject' />
 						<div class="clear"></div>
 						<p id='subject_error' class='error'>Enter a message subject</p>
 					</li> 
 					<li class="clearfix"> 
 						<label for="message">Message</label>
-						<textarea name='message' id='txt_message' rows="30" cols="30"></textarea>
+						<textarea name='message' id='message' rows="30" cols="30"></textarea>
 						<div class="clear"></div>
 						<p id='message_error' class='error'>Enter a message</p>
 					</li> 
 					<li class="clearfix"> 
 						
-					<p id='mail_success' class='success'>Thank you. We will get back to you as soon as possible.</p>
+					<p id='mail_success' class='success'>Thank you. I'll get back to you as soon as possible.</p>
 					<p id='mail_fail' class='error'>Sorry, an error has occurred. Please try again later.</p>
 					<div id="button">
-						<a href="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&class=org.dawnsci.intro.actions.SendMailAction&from=">
-						<!-- input type='submit' id='send_message' class="button" value='Submit' /-->
-						<input type='button' name='submit' value='submit' onclick='processFormData();'/>
-						</a>
+					<input type='submit' id='send_message' class="button" value='Submit' />
 					</div>
 					</li> 
 				</ul> 
-			</form-->  
+			</form>  
 		</div>
 		
 		<!-- Column 2 / Sidebar -->
