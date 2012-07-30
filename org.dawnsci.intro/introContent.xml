@@ -3,7 +3,7 @@
     <page id="root" content="content/root.html"/>
     <page id="perspectives" content="content/perspectives.html"/>
     <page id="single" content="content/singleperspective.html"/>
-    <page id="blog" url="content/blog.html"/>
+    <page id="help" url="content/help.html"/>
     <page id="contact" url="content/contact.html"/>
     <page id="about" url="content/about.html"/>
     <page id="progress" url="content/inprogress.html"/>
