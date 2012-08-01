@@ -3,7 +3,7 @@
 	body								{background:url(../images/bg.png) repeat-x #FFFFFF; font-size:12px;	font-family:'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Arial, san-serif; color:#000000;}
 	a:focus								{outline:1px dotted;}
 	a									{color:#717171; text-decoration:none;}
-	a:hover								{text-decoration:none;}
+	a:hover								{text-decoration:underline;}
 	a span								{font-size:90%;}
 	h1									{font-size:25px;}
 	h2									{font-size:23px;}
