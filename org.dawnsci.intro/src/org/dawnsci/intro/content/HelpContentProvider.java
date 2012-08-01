@@ -111,12 +111,8 @@ public class HelpContentProvider implements IIntroXHTMLContentProvider {
 		
 		Document dom = parent.getOwnerDocument();
 		
-
-		//parent.setAttribute("class", "treeMenu");
-		
 		Element ul = dom.createElement("ul");
-		//ul.setAttribute("id", "help");
-		ul.setAttribute("class", "treeMenu");
+		ul.setAttribute("class", "tree");
 		Iterator<IConfigurationElement> iter = introActions.iterator();
 		
 		List<T<String, String, String>> categories = new ArrayList<T<String, String, String>>();
@@ -150,35 +146,22 @@ public class HelpContentProvider implements IIntroXHTMLContentProvider {
 		
 		categories = orderElements(categories);
 		//cheatsheets = orderElements(cheatsheets);
-	
+		
 		for (int i = 0; i < categories.size(); i++) {
 			
 			//category
 			Element li = dom.createElement("li");
-			Element input = dom.createElement("input");
 			Element label = dom.createElement("label");
-			Element img = dom.createElement("img");
-			Element a = dom.createElement("a");
+			Element input = dom.createElement("input");
 			
-			input.setAttribute("name", "tree");
-			input.setAttribute("id", "t"+i);
+			label.setAttribute("for", "folder"+i);
+			label.appendChild(dom.createTextNode(categories.get(i).getName()));
+			
 			input.setAttribute("type", "checkbox");
+			input.setAttribute("id", "folder"+i);
 			
-			label.setAttribute("for", "t"+i);
-			label.setAttribute("class", "open");
-			
-			img.setAttribute("src", "images/trans.gif");
-			img.setAttribute("alt", "");
-			
-			a.setAttribute("href", "http://org.eclipse.ui.intro/showPage?id=help");
-			//a.setAttribute("href", "http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&class=org.dawnsci.intro.actions.OpenCheatsheetAction&id="+categories.get(i).getID());
-
-			a.appendChild(dom.createTextNode(categories.get(i).getName()));
-			
-			label.appendChild(img);
-			li.appendChild(input);
 			li.appendChild(label);
-			li.appendChild(a);
+			li.appendChild(input);
 			ul.appendChild(li);
 			
 			Element ul2 = dom.createElement("ul");
@@ -190,13 +173,12 @@ public class HelpContentProvider implements IIntroXHTMLContentProvider {
 					Element li2 = dom.createElement("li");
 					Element a2 = dom.createElement("a");
 					
+					li2.setAttribute("class", "file");
 					a2.setAttribute("href", "http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&class=org.dawnsci.intro.actions.OpenCheatsheetAction&id="+cheatsheets.get(j).getID());
 					a2.appendChild(dom.createTextNode(cheatsheets.get(j).getName()));
 					li2.appendChild(a2);
 					ul2.appendChild(li2);
 				}
-				
-
 			}
 			li.appendChild(ul2);
 			ul.appendChild(li);
