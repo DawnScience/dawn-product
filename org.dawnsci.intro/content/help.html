@@ -5,6 +5,19 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	<!-- Stylesheets -->
+	<style type="text/css">
+ul.treeMenu,
+ul.treeMenu ul {padding:0; margin:0; list-style:none; padding-left:25px;}
+ul.treeMenu ul {display:none; background:url(images/dots.gif) repeat-y 10px 0; margin:5px 0;}
+ul.treeMenu input {display:none;}
+ul.treeMenu li a {font:normal 13px/20px arial, sans-serif; color:#000; text-decoration:none;}
+ul.treeMenu li a:hover {text-decoration:underline;}
+ul.treeMenu label {display:block; width:20px; height:20px; float:left; margin-right:5px;}
+ul.treeMenu label img {display:block; width:16px; height:16px; background:url(images/sq_plus.png);}
+ul.treeMenu input:checked + label + a + ul {display:block;}
+ul.treeMenu input:checked + label img {background:url(images/sq_minus.png);}
+	</style>
+
 	<link rel="stylesheet" href="css/reset.css" />
 	<link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -20,113 +33,37 @@
 		<!-- Navigation Menu -->
 		<ul id="navigation" class="grid_8">
 			<li><a href="http://org.eclipse.ui.intro/showPage?id=contact"><span class="meta">Get in touch</span><br />Contact Us</a></li>
-			<li><a href="http://org.eclipse.ui.intro/showPage?id=help" class="current"><span class="meta">Help Cheatsheets</span><br />Help</a></li>
+			<li><a href="http://org.eclipse.ui.intro/showPage?id=help" class="current"><span class="meta">Tutorials</span><br />Help</a></li>
 			<li><a href="http://org.eclipse.ui.intro/showPage?id=perspectives"><span class="meta">Available Perspectives</span><br />Perspectives</a></li>
 			<li><a href="http://org.eclipse.ui.intro/showPage?id=about"><span class="meta">Who are we?</span><br />About</a></li>
 			<li><a href="http://org.eclipse.ui.intro/showPage?id=root"><span class="meta">Welcome</span><br />Home</a></li>
 		</ul>
 		
-		<div class="hr grid_12 clearfix">&nbsp;</div>
-			
-		<!-- Caption Line -->
-		<h2 class="grid_12 caption clearfix">List of <span>DAWN Help Cheatsheets</span></h2>
-		
-		<div class="hr grid_12 clearfix">&nbsp;</div>
-		
-		<!-- Column 1 /Content -->
-		<div class="grid_8">
-			
-			<!-- Blog Post -->
-			<div class="post">
-				<!-- Post Title -->
-				<h3 class="title"><a href="single.html">Loreum ipsium massa cras phasellus</a></h3>
-				<!-- Post Data -->
-				<p class="sub"><a href="#">News</a>, <a href="#">Products</a> &bull; 31st Sep, 09 &bull; <a href="#">1 Comment</a></p>
-				<div class="hr dotted clearfix">&nbsp;</div>
-				<!-- Post Image -->
-				<img class="thumb" alt="" src="images/610x150.gif" />
-				<!-- Post Content -->
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <b>Mauris vel porta erat.</b> Quisque sit amet risus at odio pellentesque sollicitudin. Proin suscipit molestie facilisis. Aenean vel massa magna. Proin nec lacinia augue. Mauris venenatis libero nec odio viverra consequat. In hac habitasse platea dictumst.</p>
-				<p>Cras vestibulum lorem et dui mollis sed posuere leo semper. Integer ac ultrices neque. Cras lacinia orci a augue tempor egestas. Sed cursus, sem ut vehicula vehicula, ipsum est mattis justo, at volutpat nibh arcu sit amet risus. Vestibulum tincidunt, eros ut commodo laoreet, arcu eros ultrices nibh, ac auctor est dui vel nibh.</p>
-				<!-- Read More Button -->
-				<p class="clearfix"><a href="single.html" class="button right"> Read More...</a></p>
-			</div>
-			<div class="hr clearfix">&nbsp;</div>
-			
-			<!-- Blog Post -->
-			<div class="post">
-				<!-- Post Title -->
-				<h3 class="title"><a href="single.html">Loreum ipsium massa cras phasellus</a></h3>
-				<!-- Post Data -->
-				<p class="sub"><a href="#">News</a>, <a href="#">Products</a> &bull; 31st Sep, 09 &bull; <a href="#">1 Comment</a></p>
-				<div class="hr dotted clearfix">&nbsp;</div>
-				<!-- Post Image -->
-				<img class="thumb" alt="" src="images/610x150.gif" />
-				<!-- Post Content -->
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <b>Mauris vel porta erat.</b> Quisque sit amet risus at odio pellentesque sollicitudin. Proin suscipit molestie facilisis. Aenean vel massa magna. Proin nec lacinia augue. Mauris venenatis libero nec odio viverra consequat. In hac habitasse platea dictumst.</p>
-				<p>Cras vestibulum lorem et dui mollis sed posuere leo semper. Integer ac ultrices neque. Cras lacinia orci a augue tempor egestas. Sed cursus, sem ut vehicula vehicula, ipsum est mattis justo, at volutpat nibh arcu sit amet risus. Vestibulum tincidunt, eros ut commodo laoreet, arcu eros ultrices nibh, ac auctor est dui vel nibh.</p>
-				<!-- Read More Button -->
-				<p class="clearfix"><a href="single.html" class="button right"> Read More...</a></p>
-			</div>
-			<div class="hr clearfix">&nbsp;</div>
-			
-			<!-- Blog Post -->
-			<div class="post">
-				<!-- Post Title -->
-				<h3 class="title"><a href="single.html">Loreum ipsium massa cras phasellus</a></h3>
-				<!-- Post Data -->
-				<p class="sub"><a href="#">News</a>, <a href="#">Products</a> &bull; 31st Sep, 09 &bull; <a href="#">1 Comment</a></p>
-				<div class="hr dotted clearfix">&nbsp;</div>
-				<!-- Post Image -->
-				<img class="thumb" alt="" src="images/610x150.gif" />
-				<!-- Post Content -->
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <b>Mauris vel porta erat.</b> Quisque sit amet risus at odio pellentesque sollicitudin. Proin suscipit molestie facilisis. Aenean vel massa magna. Proin nec lacinia augue. Mauris venenatis libero nec odio viverra consequat. In hac habitasse platea dictumst.</p>
-				<p>Cras vestibulum lorem et dui mollis sed posuere leo semper. Integer ac ultrices neque. Cras lacinia orci a augue tempor egestas. Sed cursus, sem ut vehicula vehicula, ipsum est mattis justo, at volutpat nibh arcu sit amet risus. Vestibulum tincidunt, eros ut commodo laoreet, arcu eros ultrices nibh, ac auctor est dui vel nibh.</p>
-				<!-- Read More Button -->
-				<p class="clearfix"><a href="single.html" class="button right"> Read More...</a></p>
-			</div>
-			<div class="hr clearfix">&nbsp;</div>
-			
-			<!-- Blog Navigation -->
-			<p class="clearfix">
-				<a href="#" class="button float">&lt;&lt; Previous Posts</a>
-				<a href="#" class="button float right">Newer Posts >></a>
-			</p>
-		</div>
-		
-		<!-- Column 2 / Sidebar -->
-		<div class="grid_4">
-		
-			<h4>Categories</h4>
-			<ul class="sidebar">
-				<li><a href="">So who are we?</a></li>
-				<li><a href="">Philosophy</a></li>
-				<li><a href="">History</a></li>
-				<li><a href="">Jobs</a></li>
-				<li><a href="">Staff</a></li>
-				<li><a href="">Clients</a></li>
-			</ul>
-			
-			<h4>Archives</h4>
-			<ul class="sidebar">
-				<li><a href="">January 2010</a></li>
-				<li><a href="">December 2009</a></li>
-				<li><a href="">November 2009</a></li>
-				<li><a href="">October 2009</a></li>
-				<li><a href="">September 2009</a></li>
-				<li><a href="">August 2009</a></li>
-			</ul>
-		</div>
-		
-		<div class="hr grid_12 clearfix">&nbsp;</div>
-		
-		<!-- Footer -->
+	<h2 class="grid_12 caption clearfix">List of all <span>Cheat Sheets</span> and tutorials available.</h2>
+	<br/><br/>
+</div>
+
+<div>
+<br/>
+</div>
+
+<div id="container" class="container_12">
+
+
+
+<div id="container" class="container_12">
+<contentProvider id="helpContent" pluginId="org.dawnsci.intro" class="org.dawnsci.intro.content.HelpContentProvider">
+</contentProvider>
+</div>
+
+<div><br/><br/><br/></div>
+
+<div>
 		<p class="grid_12 footer clearfix">
 			<span class="float"><b>&copy; Copyright</b> <a href="http://www.dawnsci.org">DAWN Collaboration</a></span>
 			<a class="float right" href="http://org.eclipse.ui.intro/showPage?id=help">top</a>
 		</p>
-		
-	</div><!--end wrapper-->
-
+</div>
+</div>
 </body>
-</html>
+</html> 
