@@ -66,6 +66,9 @@ public class SystemInfoContentProvider implements IIntroXHTMLContentProvider{
 
 		String viewer = Secure.getProperty(SystemProperties.VIEWER, SystemProperties.VIEWER_DEFAULT_JOGL);
 		hasJOGL = JOGLChecker.canUseJOGL_OpenGL(viewer, comp);
+		// re-check a second time if false
+		if(!hasJOGL)
+			hasJOGL = JOGLChecker.canUseJOGL_OpenGL(viewer, comp);
 		SystemInformation.setOpenGLSupport(hasJOGL);
 		SystemInformation.setOpenGLMaxTex(JOGLChecker.getMaxTextureWidth());
 		SystemInformation.setOpenGLVendor(JOGLChecker.getVendorName());
