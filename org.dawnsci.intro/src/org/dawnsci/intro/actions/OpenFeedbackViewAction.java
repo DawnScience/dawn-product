@@ -19,7 +19,7 @@ import org.eclipse.ui.intro.config.IIntroAction;
 
 public class OpenFeedbackViewAction implements IIntroAction {
 
-	public static final String ID = "uk.ac.diamond.scisoft.views.FeedbackView";
+	public static final String ID = "uk.ac.diamond.scisoft.feedback.FeedbackView";
 
 	@Override
 	public void run(IIntroSite site, Properties params) {
