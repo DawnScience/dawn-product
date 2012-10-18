@@ -11,6 +11,7 @@ package org.dawnsci.intro.content;
 
 import java.io.PrintWriter;
 
+import org.dawnsci.plotting.jreality.util.JOGLChecker;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -19,10 +20,7 @@ import org.eclipse.ui.intro.config.IIntroXHTMLContentProvider;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import uk.ac.diamond.scisoft.system.info.JOGLChecker;
 import uk.ac.diamond.scisoft.system.info.SystemInformation;
-import de.jreality.util.Secure;
-import de.jreality.util.SystemProperties;
 
 /**
  * Content provider for the welcome intro page: system information checking
@@ -64,11 +62,10 @@ public class SystemInfoContentProvider implements IIntroXHTMLContentProvider{
 		SystemInformation.initialize();
 		Composite comp = PlatformUI.getWorkbench().getDisplay().getActiveShell();
 
-		String viewer = Secure.getProperty(SystemProperties.VIEWER, SystemProperties.VIEWER_DEFAULT_JOGL);
-		hasJOGL = JOGLChecker.canUseJOGL_OpenGL(viewer, comp);
+		hasJOGL = JOGLChecker.canUseJOGL_OpenGL(null, comp);
 		// re-check a second time if false
 		if(!hasJOGL)
-			hasJOGL = JOGLChecker.canUseJOGL_OpenGL(viewer, comp);
+			hasJOGL = JOGLChecker.canUseJOGL_OpenGL(null, comp);
 		SystemInformation.setOpenGLSupport(hasJOGL);
 		SystemInformation.setOpenGLMaxTex(JOGLChecker.getMaxTextureWidth());
 		SystemInformation.setOpenGLVendor(JOGLChecker.getVendorName());
