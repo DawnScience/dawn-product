@@ -194,7 +194,7 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 		return (os.indexOf("win") >= 0); 
 	}
 
-	private static final String INTROREGISTER_EXTENSION_ID = "uk.ac.diamond.scisoft.introRegister"; //$NON-NLS-1$	
+	private static final String INTROREGISTER_EXTENSION_ID = "org.dawnsci.introRegister"; //$NON-NLS-1$	
 	private LinkedList<IConfigurationElement> introActions;
 
 	private void buildOpenPerspectiveGroup() {

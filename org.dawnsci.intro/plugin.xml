@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension-point id="uk.ac.diamond.scisoft.introRegister" name="IntroRegister" schema="schema/uk.ac.diamond.scisoft.introRegister.exsd"/>
+   <extension-point id="org.dawnsci.introRegister" name="IntroRegister" schema="schema/org.dawnsci.introRegister.exsd"/>
    <extension
          point="org.eclipse.ui.intro">
       <!--<intro

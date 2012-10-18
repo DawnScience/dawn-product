@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="uk.ac.diamond.scisoft.intro" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.dawnsci.intro" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="uk.ac.diamond.scisoft.intro" id="uk.ac.diamond.scisoft.introRegister" name="IntroRegister"/>
+         <meta.schema plugin="org.dawnsci.intro" id="org.dawnsci.introRegister" name="IntroRegister"/>
       </appinfo>
       <documentation>
          This allows you to register Perspectives or Action that appear on the intro/welcome page and can be executed by the user on his first startup

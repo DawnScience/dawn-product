@@ -32,7 +32,7 @@ import org.eclipse.ui.intro.config.IIntroAction;
  */
 public class OpenPerspectiveAction implements IIntroAction {
 
-	private static final String INTROREGISTER_EXTENSION_ID = "uk.ac.diamond.scisoft.introRegister"; //$NON-NLS-1$	
+	private static final String INTROREGISTER_EXTENSION_ID = "org.dawnsci.introRegister"; //$NON-NLS-1$	
 	private static final String ATT_CLASS = "class"; //$NON-NLS-1$
 
 	@Override
