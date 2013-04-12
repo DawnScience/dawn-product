@@ -79,7 +79,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
     public void postWindowOpen() {
     	
 		try {
-	    	InterpreterUtils.createJythonInterpreter("jython", new NullProgressMonitor());
+//	    	InterpreterUtils.createJythonInterpreter("jython", new NullProgressMonitor());
 	    	InterpreterUtils.createPythonInterpreter("python", new NullProgressMonitor());
 		} catch (Exception e) {
 			logger.error("Cannot create default projects or python interpreter.", e);
