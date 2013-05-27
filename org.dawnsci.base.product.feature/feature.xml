@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.dawnsci.base.product.feature"
-      label="DAWN Science"
+      label="dViewer"
       version="1.1.0.qualifier"
       provider-name="DAWN Collaboration">
 
@@ -96,6 +96,56 @@
    <includes
          id="uk.ac.diamond.scisoft.icat.actors.feature"
          version="0.0.0"/>
+
+   <requires>
+      <import plugin="org.eclipse.ui.cheatsheets"/>
+      <import plugin="org.eclipse.core.variables"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="uk.ac.diamond.scisoft.analysis.rcp" version="1.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.dawb.common.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="uk.ac.diamond.scisoft.analysis" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.dawb.common.services" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.cheatsheets" version="3.4.100" match="greaterOrEqual"/>
+      <import plugin="org.dawnsci.common.widgets" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.dawnsci.plotting.api" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.springsource.slf4j.api"/>
+      <import plugin="uk.ac.diamond.scisoft.system.info" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.intro"/>
+      <import plugin="org.dawnsci.plotting.jreality" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.core.resources" version="3.5.2" match="greaterOrEqual"/>
+      <import plugin="org.python.pydev" version="2.6.0.2012080908" match="equivalent"/>
+      <import plugin="org.python.pydev.core" version="2.6.0.2012080908" match="equivalent"/>
+      <import plugin="org.python.pydev.debug" version="2.6.0.2012080908" match="equivalent"/>
+      <import plugin="com.springsource.org.apache.commons.io" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="com.springsource.ch.qos.logback.classic"/>
+      <import plugin="com.springsource.ch.qos.logback.core"/>
+      <import plugin="org.apache.commons.math3" version="3.2.0" match="equivalent"/>
+      <import plugin="org.dawb.passerelle.actors" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.views.properties.tabbed"/>
+      <import plugin="org.eclipse.ui.navigator" version="3.5.101" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="uk.ac.diamond.scisoft.analysis.api"/>
+      <import plugin="uk.ac.diamond.scisoft.analysis" version="1.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.osgi" version="3.7.2" match="greaterOrEqual"/>
+      <import plugin="uk.ac.diamond.scisoft.analysis.api" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.dawb.gda.extensions" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="com.google.gson" version="2.2.2" match="greaterOrEqual"/>
+      <import plugin="javax.vecmath" version="1.5.2" match="greaterOrEqual"/>
+      <import plugin="org.dawb.hdf5" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="ncsa.hdf" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.dawnsci.io" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.dawb.common.util"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="org.dawb.common.services" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.monte.media" version="0.7.7" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.preferences"/>
+   </requires>
 
    <plugin
          id="uk.ac.diamond.scisoft.analysis.rcp.contributions"
