@@ -3,14 +3,14 @@
 <plugin>
 
    <extension
-         id="DAWN"
+         id="dViewer"
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="DAWN Science">
+            name="dViewer">
          <property
                name="appName"
-               value="DAWN Science">
+               value="dViewer">
          </property>
          <property
                name="startupForegroundColor"
@@ -18,11 +18,11 @@
          </property>
          <property
                name="startupMessageRect"
-               value="5,220,590,20">
+               value="10,10,200,20">
          </property>
          <property
                name="startupProgressRect"
-               value="5,240,590,15">
+               value="0,513,1224,15">
          </property>
          <property
                name="preferenceCustomization"
@@ -42,7 +42,7 @@
          </property>
          <property
                name="introTitle"
-               value="Welcome to DAWN">
+               value="Welcome to dViewer">
          </property>
       </product>
    </extension>
