@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.dawnsci.base.product.feature"
-      label="dViewer"
+      label="dViewerEMBL"
       version="1.3.0.qualifier"
       provider-name="DAWN Collaboration">
 
@@ -96,6 +96,11 @@
    <includes
          id="uk.ac.diamond.scisoft.icat.actors.feature"
          version="0.0.0"/>
+
+   <includes
+         id="org.embl.cca.dviewerP.feature"
+         version="0.0.0"/>
+
 
    <plugin
          id="uk.ac.diamond.scisoft.analysis.rcp.contributions"
