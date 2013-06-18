@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.dawnsci.base.product.feature"
-      label="dViewer"
+      label="dViewerEMBL"
       version="1.1.0.qualifier"
       provider-name="DAWN Collaboration">
 
@@ -97,6 +97,10 @@
          id="uk.ac.diamond.scisoft.icat.actors.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.embl.cca.dviewerP.feature"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.ui.cheatsheets"/>
       <import plugin="org.eclipse.core.variables"/>
@@ -140,7 +144,6 @@
       <import plugin="ncsa.hdf" version="2.8.0" match="greaterOrEqual"/>
       <import plugin="org.dawnsci.io" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.dawb.common.util"/>
-      <import plugin="org.apache.log4j"/>
       <import plugin="org.dawb.common.services" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.monte.media" version="0.7.7" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui" version="3.8.0" match="greaterOrEqual"/>
