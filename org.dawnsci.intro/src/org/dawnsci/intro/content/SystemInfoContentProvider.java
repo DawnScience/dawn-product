@@ -104,11 +104,11 @@ public class SystemInfoContentProvider implements IIntroXHTMLContentProvider{
 
 		String color = SystemInformation.writeHTMLInfo(SystemInformation.SUPPORTOPENGL)[0];
 		String content = SystemInformation.writeHTMLInfo(SystemInformation.SUPPORTOPENGL)[1];
-		spanOpenGL14.setAttribute("style", "color:"+color);
-		spanOpenGL14.appendChild(dom.createTextNode(content));
-		parent.appendChild(dom.createTextNode("...Support OpenGL feature level 1.4........................"));
-		spanOpenGL14.appendChild(br1);
-		parent.appendChild(spanOpenGL14);
+//		spanOpenGL14.setAttribute("style", "color:"+color);
+//		spanOpenGL14.appendChild(dom.createTextNode(content));
+//		parent.appendChild(dom.createTextNode("...Support OpenGL feature level 1.4........................"));
+//		spanOpenGL14.appendChild(br1);
+//		parent.appendChild(spanOpenGL14);
 
 //		color = SystemInformation.writeHTMLInfo(SystemInformation.SUPPORTGLSL)[0];
 //		content = SystemInformation.writeHTMLInfo(SystemInformation.SUPPORTGLSL)[1];
