@@ -15,7 +15,7 @@
             id="org.dawnsci.intro">
       </intro>
       <introProductBinding
-            introId="org.dawnsci.intro"
+            introId="org.eclipse.ui.intro.universal"
             productId="org.dawnsci.product.plugin.DAWN">
       </introProductBinding>
       <intro
@@ -223,6 +223,10 @@
                value="$theme$graphics/icons/etool/wb48.gif">
          </property>
       </theme>
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="intro/introContribution.xml">
+      </configExtension>
    </extension>
 
 </plugin>

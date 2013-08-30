@@ -1,0 +1,14 @@
+a#workbench-browsing img { background-image : url(graphics/data_browsing_intro45.jpg); }
+a#workbench-browsing:hover img { background-image : url(graphics/data_browsing_intro52.jpg); }
+
+a#analysisrcp-dExplore img { background-image : url(graphics/dexplore_intro45.jpg); }
+a#analysisrcp-dExplore:hover img { background-image : url(graphics/dexplore_intro52.jpg); }
+
+a#analysisrcp-diva img { background-image : url(graphics/diva_intro45.jpg); }
+a#analysisrcp-diva:hover img { background-image : url(graphics/diva_intro52.jpg); }
+
+a#analysisrcp-python img { background-image : url(graphics/python_intro45.jpg); }
+a#analysisrcp-python:hover img { background-image : url(graphics/python_intro52.jpg); }
+
+a#scisoft-arpes img { background-image : url(graphics/ARPES_intro45.jpg); }
+a#scisoft-arpes:hover img { background-image : url(graphics/ARPES_intro52.jpg); }
