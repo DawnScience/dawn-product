@@ -15,7 +15,7 @@
             id="org.dawnsci.intro">
       </intro>
       <introProductBinding
-            introId="org.eclipse.ui.intro.universal"
+            introId="org.dawnsci.intro"
             productId="org.dawnsci.product.plugin.DAWN">
       </introProductBinding>
       <intro
