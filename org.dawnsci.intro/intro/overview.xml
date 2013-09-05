@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="org.dawnsci.intro.workbench" style="css/style.css" name="DAWN Workbench" path="overview/@">
+		<group style-id="content-group" id="workbench-group">
+       		<link label="What is DAWN" url="http://org.eclipse.ui.intro/showPage?id=whatisdawn" id="dawnitem" style-id="content-link">
+          		<text>DAWN is a complete workbench and platform for life science. Learn here what this means.</text>
+       		</link>
+       		<link label="DAWN concepts" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/perspectivesintro.html" id="concitem" style-id="content-link">
+          		<text>Learn the basic DAWN concepts, such as View, Editor, Perspective etc.</text>
+       		</link>
+       		<link label="License" url="http://org.eclipse.ui.intro/showPage?id=licenses" id="paraitem" style-id="content-link">
+          		<text>A description of DAWN license.</text>
+       		</link>
+       		<link label="Download additional features" url="http://org.eclipse.ui.intro/runAction?pluginId=net.bioclipse.ui&amp;class=net.bioclipse.ui.actions.LaunchUpdateIntroAction" id="updateitem" style-id="content-link">
+          		<text>Search, download, and install additional features from one or more DAWN update sites.</text>
+       		</link>
+       		<link label="Go to workbench but keep introduction open" url="http://org.eclipse.ui.intro/setStandbyMode?standby=true" id="wbitem">
+   		         <text>Go to workbench but keep introduction window open on side for assistance</text>
+            </link>
+       		<link label="Documentation" url="http://org.eclipse.ui.intro/showPage?id=documentation" id="docitem" style-id="content-link">
+            	<text>The various ways for finding out about the different sources of documentation that exists for DAWN</text>
+         	</link>
+       	</group>
+  	</extensionContent>
+
+	<page id="whatisdawn" style-id="page">
+
+      <title style-id="intro-header">What is DAWN</title>
+      <include path="overview/navigation-links"/>
+      <group id="page-content">
+            <group id="content-header" label="What is DAWN" filteredFrom="swt">
+            </group>
+            <img src="images/OpusData_2dsurface500x299.png" style-id="image-right" id="image-right"/>
+            
+            <text style-id="page-title" id="page-title" filteredFrom="html">What is DAWN</text>
+            <text style-id="page-description" id="page-description">
+DAWN is an open source software built on the Eclipse/RCP platform in order to scale to address 
+a wide range of applications and to benefit from the workbench and advanced plugin system 
+implemented in Eclipse. The main scientific domains which DAWN targets are powder diffraction, 
+macromolecular crystallography, and tomography. Any scientific domain which needs visualisation, 
+python and workflows can profit from DAWN.
+            </text>
+
+            <text style-id="page-description" id="page-description">
+DAWN is a Java-based open source project based on the Eclipse Rich Client Platform with its advanced plugin 
+architecture. This gives DAWN the possibility to be extended with 
+functionality in virtually any direction.
+            </text>
+
+            <text style-id="page-description" id="page-description">
+The main institutes developing DAWN are the Diamond Light Source (http://www.diamond.ac.uk/), and 
+the European Synchrotron Radiation Facility (http://www.esrf.eu/).
+            </text>
+			<!--link label="Bioclipse2 article (Open Access)" url="http://www.biomedcentral.com/1471-2105/10/397" id="weblink" style-id="weblink" /-->
+      </group>
+      </page>
+
+	<page id="licenses" style-id="page">
+      <title style-id="intro-header">License</title>
+      <include path="overview/navigation-links"/>
+      <group id="page-content">
+            <group id="content-header" label="License" filteredFrom="swt">
+            </group>
+            <text style-id="page-title" id="page-title" filteredFrom="html">License</text>
+	    <!-- Add content here -->
+        <text style-id="page-content" id="page-content">The DAWN Platform</text>
+            <text style-id="page-description" id="page-description">
+DAWN and the accompanying materials are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+            </text>
+       		<link label="Link to EPL license" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=http://www.eclipse.org/legal/epl-v10.html" class="link" id="weblink" style-id="content-link" />
+      </group>
+      </page>
+
+      <page id="documentation" style-id="page">
+      <title style-id="intro-header">Documentation</title>
+      <include path="overview/navigation-links"/>
+      <group id="page-content">
+            <group id="content-header" label="Sources for documentation" filteredFrom="swt">
+            </group>
+            <text style-id="page-title" id="page-title" filteredFrom="html">Sources of documentation</text>
+
+        <text style-id="page-content" id="page-content">DAWN help system</text>
+            <text style-id="page-description" id="page-description">
+            The DAWN help system is the main resource for documentation of DAWN. 
+            Here you find a searchable collection of documents, tutorials, and 
+            reference documentation for the various installed features.
+            The DAWN help system is accessible from inside the DAWN Workbench 
+            via the menu Help > Help Contents.
+            </text>
+            <link label="Link to DAWN Help" url="http://org.eclipse.ui.intro/showHelp" id="about" />
+
+        <text style-id="page-content" id="page-content">Help inside the workbench (Dynamic Help)</text>
+            <text style-id="page-description" id="page-description">
+	            DAWN is equipped with a Dynamic Help View which is available 
+	            from the Help menu. Once opened, it allows users to click on any part 
+	            of the workbench to get instant help.
+            </text>
+
+        <text style-id="page-content" id="page-content">DAWN Mailing list</text>
+       		<link label="Link to the DAWN mailing list on JiscMail" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://www.jiscmail.ac.uk/DAWN" id="weblink" style-id="content-link" />
+
+        <text style-id="page-content" id="page-content">DAWN Welcome page</text>
+            <text style-id="page-description" id="page-description">
+            This is the page you are currently reading! In the top menu you have many 
+            alternatives to discover the many features of DAWN.
+            </text>
+      </group>
+      </page>
+
+</introContent>

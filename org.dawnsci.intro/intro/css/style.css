@@ -1,0 +1,52 @@
+a#overview-whatisdawn img { background-image : url(graphics/sample.gif); }
+a#overview-whatisdawn:hover img { background-image : url(graphics/sample_hov.gif); }
+
+a#mainitem img { background-image : url(graphics/sample.gif); }
+a#mainitem:hover img { background-image : url(graphics/sample_hov.gif); }
+
+a#updateitem img { background-image : url(graphics/wn_updates48.gif); }
+a#updateitem:hover img { background-image : url(graphics/wn_updates48_hov.gif); }
+
+a#dawnitem img { background-image : url(graphics/dawn_icon48.png); }
+a#dawnitem:hover img { background-image : url(graphics/dawn_icon52.png); }
+
+a#concitem img { background-image : url(graphics/earth48.gif); }
+a#concitem:hover img { background-image : url(graphics/earth48.gif); }
+
+a#paraitem img { background-image : url(graphics/licenses-copyright48.png); }
+a#paraitem:hover img { background-image : url(graphics/licenses-copyright52.png); }
+
+a#docitem img { background-image : url(graphics/book48.png); }
+a#docitem:hover img { background-image : url(graphics/book52.png); }
+
+a#blogitem img { background-image : url(graphics/blog48.jpg); }
+a#blogitem:hover img { background-image : url(graphics/blog48.jpg); }
+
+a#webitem img { background-image : url(graphics/applications-internet48.png); }
+a#webitem:hover img { background-image : url(graphics/applications-internet52.png); }
+
+a#runitem img { background-image : url(graphics/runman48.png); }
+a#runitem:hover img { background-image : url(graphics/runman48.png); }
+
+a#starthereitem img { background-image : url(graphics/start-here48.png); }
+a#starthereitem:hover img { background-image : url(graphics/start-here52.png); }
+
+a#helpitem img { background-image : url(graphics/system-help48.png); }
+a#helpitem:hover img { background-image : url(graphics/system-help52.png); }
+
+a#downloaditem img { background-image : url(graphics/download48.gif); }
+a#downloaditem:hover img { background-image : url(graphics/download48.gif); }
+
+a#sheetitem img { background-image : url(graphics/sheetok.gif); }
+a#sheetitem:hover img { background-image : url(graphics/sheetok.gif); }
+
+a#youtubeitem img { background-image : url(graphics/youtube48.png); }
+a#youtubeitem:hover img { background-image : url(graphics/youtube52.png); }
+
+a#twitteritem img { background-image : url(graphics/twitter48.png); }
+a#twitteritem:hover img { background-image : url(graphics/twitter52.png); }
+
+a#weblink { text-align: left; }
+
+#weblink { text-align: left; color: #FF0000;}
+image-right {horizontal-align: right;}

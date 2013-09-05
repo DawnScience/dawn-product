@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<introContent>
+	<extensionContent id="org.dawnsci.intro.webresources" style="css/style.css" name="DAWN Web Resources" path="whatsnew/@">
+		<group style-id="content-group" id="whatsnew-group">
+
+<text style-id="page-title" filteredFrom="swt">
+	&lt;b&gt;DAWN 1.4 contains many new features, below are some of the main parts.&lt;&#47;b&gt;
+</text>
+
+<text style-id="test" filteredFrom="swt">
+&#8226; &lt;i&gt;New item 1&lt;&#47;i&gt;
+</text>
+
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;New item 2&lt;&#47;i&gt;
+</text>
+
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;New item 3&lt;&#47;i&gt;
+</text>
+
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;New item 4&lt;&#47;i&gt;
+</text>
+
+       	</group>
+  	</extensionContent>
+</introContent>
