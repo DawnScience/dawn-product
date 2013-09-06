@@ -103,6 +103,10 @@
    </extension>
    <extension
          point="org.eclipse.ui.intro.configExtension">
+      <standbyContentPart
+            id="org.dawnsci.intro.cheatsheet"
+            class="org.dawnsci.intro.CheatSheetStandbyContent"
+            pluginId="org.dawnsci.intro"/>
       <configExtension
             configId="org.dawnsci.intro.universalConfig"
             content="intro/firststeps.xml">
