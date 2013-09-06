@@ -5,8 +5,8 @@
        		<link label="DAWN website" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=http://www.dawnsci.org" id="webitem" style-id="content-link">
           		<text>Go to the DAWN website</text>
        		</link>
-       		<link label="DAWN development wiki" url="http://www.wiki.bioclipse.net" id="webitem" style-id="content-link">
-          		<text>Go to the DAWN development wiki</text>
+       		<link label="DAWN repositories on GitHub" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://github.com/DawnScience" id="githubitem" style-id="content-link">
+          		<text>Go to the GitHub repositories DAWN page</text>
        		</link>
        		<link label="DAWN Twitter feed" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://twitter.com/DAWNScience" id="twitteritem" style-id="content-link">
           		<text>Go to the DAWN Twitter feed</text>

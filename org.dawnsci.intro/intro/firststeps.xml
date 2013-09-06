@@ -2,8 +2,8 @@
 <introContent>
 	<extensionContent id="org.dawnsci.intro.firststeps" style="css/style.css" name="DAWN First Steps" path="firststeps/@">
 		<group style-id="content-group" id="firststep-group">
-			<link label="Introduction to DAWN, perspectives and views" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/perspectivesintro.html" id="starthereitem" style-id="content-link">
-				<text>Introduction to DAWN and its main components</text>
+			<link label="Introduction to DAWN" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/perspectivesintro.html" id="starthereitem" style-id="content-link">
+				<text>Introduction to DAWN, perspectives and views</text>
 			</link>
 			<link label="Introductory CheatSheet" url="http://org.eclipse.ui.intro/showStandby?partId=net.bioclipse.cheatsheet&amp;input=net.bioclipse.cheatsheets.basics" id="sheetitem">
 				<text>A CheatSheet is an interactive tutorial from inside the workbench.

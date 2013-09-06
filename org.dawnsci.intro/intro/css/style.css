@@ -37,14 +37,20 @@ a#helpitem:hover img { background-image : url(graphics/system-help52.png); }
 a#downloaditem img { background-image : url(graphics/download48.gif); }
 a#downloaditem:hover img { background-image : url(graphics/download48.gif); }
 
-a#sheetitem img { background-image : url(graphics/sheetok.gif); }
-a#sheetitem:hover img { background-image : url(graphics/sheetok.gif); }
+a#sheetitem img { background-image : url(graphics/text-readme48.png); }
+a#sheetitem:hover img { background-image : url(graphics/text-readme52.png); }
 
 a#youtubeitem img { background-image : url(graphics/youtube48.png); }
 a#youtubeitem:hover img { background-image : url(graphics/youtube52.png); }
 
 a#twitteritem img { background-image : url(graphics/twitter48.png); }
 a#twitteritem:hover img { background-image : url(graphics/twitter52.png); }
+
+a#githubitem img { background-image : url(graphics/github-logo48.png); }
+a#githubitem:hover img { background-image : url(graphics/github-logo52.png); }
+
+a#platformitem img { background-image : url(graphics/blockdevice48.png); }
+a#platformitem:hover img { background-image : url(graphics/blockdevice52.png); }
 
 a#weblink { text-align: left; }
 

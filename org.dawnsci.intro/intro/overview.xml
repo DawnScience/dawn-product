@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<introContent>
+<introContent style="css/style.css">
   	<extensionContent id="org.dawnsci.intro.workbench" style="css/style.css" name="DAWN Workbench" path="overview/@">
 		<group style-id="content-group" id="workbench-group">
        		<link label="What is DAWN" url="http://org.eclipse.ui.intro/showPage?id=whatisdawn" id="dawnitem" style-id="content-link">
           		<text>DAWN is a complete workbench and platform for life science. Learn here what this means.</text>
        		</link>
-       		<link label="DAWN concepts" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/perspectivesintro.html" id="concitem" style-id="content-link">
-          		<text>Learn the basic DAWN concepts, such as View, Editor, Perspective etc.</text>
+       		<link label="DAWN platform" url="http://org.eclipse.ui.intro/showPage?id=dawnplatform" id="platformitem" style-id="content-link">
+          		<text>Overview of the DAWN main platform architecture.</text>
        		</link>
        		<link label="License" url="http://org.eclipse.ui.intro/showPage?id=licenses" id="paraitem" style-id="content-link">
           		<text>A description of DAWN license.</text>
@@ -23,8 +23,7 @@
        	</group>
   	</extensionContent>
 
-	<page id="whatisdawn" style-id="page">
-
+	<page id="whatisdawn" style-id="page" style="css/style.css">
       <title style-id="intro-header">What is DAWN</title>
       <include path="overview/navigation-links"/>
       <group id="page-content">
@@ -55,7 +54,21 @@ the European Synchrotron Radiation Facility (http://www.esrf.eu/).
       </group>
       </page>
 
-	<page id="licenses" style-id="page">
+	<page id="dawnplatform" style-id="page" style="css/style.css">
+      <title style-id="intro-header">DAWN architecture</title>
+      <include path="overview/navigation-links"/>
+      <group id="page-content">
+            <group id="content-header" label="DAWN architecture" filteredFrom="swt">
+            </group>
+            <text style-id="page-title" id="page-title" filteredFrom="html">DAWN platform architecture</text>
+            <text style-id="page-description" id="page-description">
+Below is a basic diagram of the DAWN architecture.
+            </text>
+            <img src="images/DawnArchitecture.png" style-id="image-right" id="image-right"/>
+      </group>
+      </page>
+
+	<page id="licenses" style-id="page" style="css/style.css">
       <title style-id="intro-header">License</title>
       <include path="overview/navigation-links"/>
       <group id="page-content">
@@ -63,7 +76,6 @@ the European Synchrotron Radiation Facility (http://www.esrf.eu/).
             </group>
             <text style-id="page-title" id="page-title" filteredFrom="html">License</text>
 	    <!-- Add content here -->
-        <text style-id="page-content" id="page-content">The DAWN Platform</text>
             <text style-id="page-description" id="page-description">
 DAWN and the accompanying materials are made available under the terms of the Eclipse Public License v1.0
  which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
@@ -72,7 +84,7 @@ DAWN and the accompanying materials are made available under the terms of the Ec
       </group>
       </page>
 
-      <page id="documentation" style-id="page">
+      <page id="documentation" style-id="page" style="css/style.css">
       <title style-id="intro-header">Documentation</title>
       <include path="overview/navigation-links"/>
       <group id="page-content">
@@ -88,7 +100,7 @@ DAWN and the accompanying materials are made available under the terms of the Ec
             The DAWN help system is accessible from inside the DAWN Workbench 
             via the menu Help > Help Contents.
             </text>
-            <link label="Link to DAWN Help" url="http://org.eclipse.ui.intro/showHelp" id="about" />
+            <link label="Link to DAWN Help" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/contents.html" class="link" id="helpitem" style-id="content-link"/>
 
         <text style-id="page-content" id="page-content">Help inside the workbench (Dynamic Help)</text>
             <text style-id="page-description" id="page-description">
@@ -98,7 +110,11 @@ DAWN and the accompanying materials are made available under the terms of the Ec
             </text>
 
         <text style-id="page-content" id="page-content">DAWN Mailing list</text>
-       		<link label="Link to the DAWN mailing list on JiscMail" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://www.jiscmail.ac.uk/DAWN" id="weblink" style-id="content-link" />
+        	<text style-id="page-description" id="page-description">
+	            If the DAWN help system is missing the information you are looking for, 
+	            you can submit a feedback and/or question using the DAWN mailing list.
+            </text>
+       		<link label="Link to the DAWN mailing list on JiscMail" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://www.jiscmail.ac.uk/DAWN" class="link" id="weblink" style-id="content-link" />
 
         <text style-id="page-content" id="page-content">DAWN Welcome page</text>
             <text style-id="page-description" id="page-description">
@@ -107,5 +123,4 @@ DAWN and the accompanying materials are made available under the terms of the Ec
             </text>
       </group>
       </page>
-
 </introContent>
