@@ -17,13 +17,13 @@ a .link-extra-div {
 /* Link label properties */
 #page-links a .link-label {
 	top: -1.2em;
-	color:#0098DB;	/*#0098DB #00507C*/
+	color:#0098DB;	/* blue light*/
     font-family:Verdana,Arial,Helvetica;
     font-weight:bold;
 }
 
 #page-links a:hover .link-label {
-	color: #fac70c; /*69c */
+	color: #fac70c; /*yellow sun*/
 	text-decoration : underline;
 }
 
@@ -96,7 +96,7 @@ html, body {
 	font-family: Verdana, Arial, Helvetica; 
 	font-weight: bold; 
 	line-height:1.5;
-	color: #00507C;
+	color: #0096d6;
 }
 
 #page-links a p .text {
@@ -108,6 +108,11 @@ html, body {
 	margin-right: 53px;
 	font-family: Verdana, Arial, Helvetica; 
 	line-height: 1.3;
+	color: #818285;
+}
+
+#page-links a:hover .text {
+	color: #fac70c; /*yellow sun*/
 }
 
 #page-links a .background-image {

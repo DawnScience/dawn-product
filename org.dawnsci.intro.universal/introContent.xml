@@ -22,6 +22,9 @@
            <group id="page-links" computed="true"/>
         </group>
         <group id="action-links" computed="true">
+            <link url="http://org.eclipse.ui.intro/switchToLaunchBar" label="Workbench" id="workbench" style-id="$high-contrast$">
+                <text>Go to the workbench</text>
+            </link>
         </group>        
         <group id="branding">
         	<img src="$introBrandingImage$" alt="$introBrandingImageText$"/>
@@ -43,6 +46,9 @@
             </group>
         </group>
         <group id="action-links" computed="true">
+                <link url="http://org.eclipse.ui.intro/switchToLaunchBar" label="Workbench" id="workbench" style-id="$high-contrast$">
+                    <text>Go to the workbench</text>
+                </link>
         </group>        
         <group id="branding">
         	<img src="$introBrandingImage$" alt="$introBrandingImageText$"/>
