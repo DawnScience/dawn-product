@@ -102,12 +102,12 @@ DAWN and the accompanying materials are made available under the terms of the Ec
             </text>
             <link label="Link to DAWN Help" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/contents.html" class="link" id="helpitem" style-id="content-link"/>
 
-        <text style-id="page-content" id="page-content">Help inside the workbench (Dynamic Help)</text>
+        <text style-id="page-content" id="page-content">Help from the DAWN website</text>
             <text style-id="page-description" id="page-description">
-	            DAWN is equipped with a Dynamic Help View which is available 
-	            from the Help menu. Once opened, it allows users to click on any part 
-	            of the workbench to get instant help.
+	            Various documentation such as the user and/or developer manuals are also available on the DAWN website.
             </text>
+           <link label="Link to DAWN website documentation" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=http://www.dawnsci.org/documentation" class="link" id="weblink" style-id="content-link"/>
+            
 
         <text style-id="page-content" id="page-content">DAWN Mailing list</text>
         	<text style-id="page-description" id="page-description">
@@ -115,12 +115,6 @@ DAWN and the accompanying materials are made available under the terms of the Ec
 	            you can submit a feedback and/or question using the DAWN mailing list.
             </text>
        		<link label="Link to the DAWN mailing list on JiscMail" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://www.jiscmail.ac.uk/DAWN" class="link" id="weblink" style-id="content-link" />
-
-        <text style-id="page-content" id="page-content">DAWN Welcome page</text>
-            <text style-id="page-description" id="page-description">
-            This is the page you are currently reading! In the top menu you have many 
-            alternatives to discover the many features of DAWN.
-            </text>
       </group>
       </page>
 </introContent>
