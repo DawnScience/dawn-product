@@ -117,10 +117,6 @@
       </configExtension>
       <configExtension
             configId="org.dawnsci.intro.universalConfig"
-            content="intro/tutorials.xml">
-      </configExtension>
-      <configExtension
-            configId="org.dawnsci.intro.universalConfig"
             content="intro/webresources.xml">
       </configExtension>
       <configExtension
