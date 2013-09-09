@@ -5,7 +5,7 @@
 		<group style-id="content-group" id="whatsnew-group">
 
 <text style-id="page-title" filteredFrom="swt">
-	&lt;b&gt;DAWN 1.4 contains many new features, below are some of the main parts.&lt;&#47;b&gt;
+	&lt;b&gt;DAWN 1.3 contains many new features, below are some of the main parts.&lt;&#47;b&gt;
 </text>
 
 <text style-id="test" filteredFrom="swt">
@@ -18,15 +18,6 @@ Ability to ‘debug’ workflow in the UI. This means coupling the Passerelle de
 (available with the event director model) with the Eclipse RCP debug framework. 
 Using the RCP debug extensions means pydev and Passerelle debugging are linked i.e. 
 break points are hit in either system during the debugging of one workflow.
- &lt;&#47;i&gt;
-</text>
-<text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt; 
-Dry run ability:
-This is having a more user friendly/flexible ‘mock’ system than the previous one available. 
-For instance taking actors out of the loop, they grey out. Disconnecting and reconnecting 
-tango motors, data collection scripts run in a test or real environment. Validation of 
-spec scripts and GDA jython scripts.
  &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
