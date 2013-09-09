@@ -14,7 +14,7 @@
        		<link label="Download additional features" url="http://org.eclipse.ui.intro/runAction?pluginId=net.bioclipse.ui&amp;class=net.bioclipse.ui.actions.LaunchUpdateIntroAction" id="updateitem" style-id="content-link">
           		<text>Search, download, and install additional features from one or more DAWN update sites.</text>
        		</link>
-       		<link label="Go to workbench but keep introduction open" url="http://org.eclipse.ui.intro/setStandbyMode?standby=true" id="wbitem">
+       		<link label="Go to workbench but keep introduction open" url="http://org.eclipse.ui.intro/setStandbyMode?standby=true" id="workbench-browsing">
    		         <text>Go to workbench but keep introduction window open on side for assistance</text>
             </link>
        		<link label="Documentation" url="http://org.eclipse.ui.intro/showPage?id=documentation" id="docitem" style-id="content-link">

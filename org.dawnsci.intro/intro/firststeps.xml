@@ -2,7 +2,7 @@
 <introContent>
 	<extensionContent id="org.dawnsci.intro.firststeps" style="css/style.css" name="DAWN First Steps" path="firststeps/@">
 		<group style-id="content-group" id="firststep-group">
-			<link label="Introduction to DAWN" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/perspectivesintro.html" id="starthereitem" style-id="content-link">
+			<link label="Introductory DAWN tutorial" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/perspectivesintro.html" id="starthereitem" style-id="content-link">
 				<text>Introduction to DAWN, perspectives and views</text>
 			</link>
 			<link label="Introductory CheatSheet" url="http://org.eclipse.ui.intro/showStandby?partId=org.dawnsci.intro.cheatsheet&amp;input=org.dawb.workbench.ui.editors.imagesbasic" id="sheetitem">

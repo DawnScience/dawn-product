@@ -52,6 +52,9 @@ a#githubitem:hover img { background-image : url(graphics/github-logo52.png); }
 a#platformitem img { background-image : url(graphics/blockdevice48.png); }
 a#platformitem:hover img { background-image : url(graphics/blockdevice52.png); }
 
+a#workbench-browsing img { background-image : url(graphics/data_browsing_intro45.jpg); }
+a#workbench-browsing:hover img { background-image : url(graphics/data_browsing_intro52.jpg); }
+
 a#weblink { text-align: left; }
 
 #weblink { text-align: left; color: #FF0000;}
