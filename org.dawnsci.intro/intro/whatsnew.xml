@@ -9,19 +9,138 @@
 </text>
 
 <text style-id="test" filteredFrom="swt">
-&#8226; &lt;i&gt;New item 1&lt;&#47;i&gt;
+Workflow Upgrades:
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt; 
+Debug or "Stepping Mode":
+Ability to ‘debug’ workflow in the UI. This means coupling the Passerelle debug 
+(available with the event director model) with the Eclipse RCP debug framework. 
+Using the RCP debug extensions means pydev and Passerelle debugging are linked i.e. 
+break points are hit in either system during the debugging of one workflow.
+ &lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt; 
+Dry run ability:
+This is having a more user friendly/flexible ‘mock’ system than the previous one available. 
+For instance taking actors out of the loop, they grey out. Disconnecting and reconnecting 
+tango motors, data collection scripts run in a test or real environment. Validation of 
+spec scripts and GDA jython scripts.
+ &lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+More User friendly workflow development: With better error handling. In the previous version, when developing 
+a workflow you had to use the log file. Instead the user now sees an actor go red and a user 
+understandable message is shown with an additional link to the right part of the log stack for experts. 
+There is a tighter integration with eclipse parts – for instance the eclipse error log. This is 
+linked to debug as well in that it makes it easier and more precise in feel when you develop a workflow.
+&lt;&#47;i&gt;
 </text>
 
 <text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt;New item 2&lt;&#47;i&gt;
+New Workflow actors
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Interactive Plot Actor: This is an actor (to be used in the ARPES pipeline but it is generic) to simplify 
+the workflow and make it even easier to use. It will be a popup form similar to the review actor which shows 
+a plot of the incoming data in 1D or 2D (and 3D when the plotting API is upgraded). The data may be interacted 
+with tools and the resulting ROIs and other data (such as fit traces and smoothing) will be forwarded in the 
+workflow message.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Pydev Actor: Similar to the current python actor, this will allow python scripts to be run in the current 
+pydev configured interpreter. Breakpoints added with pydev will ideally be supported.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Tool Action actor: Ability to drive any 2D or 1D tool, for instance azimuthal integration, box profile etc. 
+from the workflow using a specific actor.
+&lt;&#47;i&gt;
 </text>
 
 <text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt;New item 3&lt;&#47;i&gt;
+Plotting API Upgrade
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+The plotting API now allows 3D. It has been extended to 3D the elegant API design which we have
+the benefit of for 1 and 2D plotting and allows new and interesting parts to be created using a 
+rational API. The prototype API also fixes a number of defects in the PlotView/PlotServer interaction and 
+simplifies Dawn code greatly at the point where the plot server connects to the user interface.
+&lt;&#47;i&gt;
 </text>
 
 <text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt;New item 4&lt;&#47;i&gt;
+Dawn Web Interface (DWI) Using RAP (Prototype made)
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+The new plotting in dawn is using draw2d which, with some modifications to existing Dawn source code, 
+is available in the RAP the web interface. The DWI feature allows remote log in back to the 
+visit space using fedid and password followed by the viewing of data collected. The RAP application 
+supports the project explorer for the remote file space (the visit) and allows the editor parts 
+used to visualise the data to run correctly (double click and open image). This has an advantage 
+that in order to be viewed the data does not have to be downloaded only the current image created 
+from it. In later Dawn releases, DWI could be extended to support more of the functionality of Dawn, 
+tools and ipython for instance. A server (hardware) would be required to support the RAP application 
+and the feature would be supported in a ‘Pre-release’ prototype format for Dawn 1.1.
+&lt;&#47;i&gt;
+</text>
+
+<text style-id="page-title" filteredFrom="swt">
+Other new features and improvements
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Toolbar Position: The plotting toolbar was long, for instance the zoom actions and the image 
+tools were many. Coolbar docking has been allowed around plots meaning users can 
+click and drag toolbars to the side of the plot. For instance the image tools may automatically 
+appear to the side of the plot unless switched off.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Colour Scale for Intensity: This feature was discussed for Dawn 1.0. There was hope that 
+the scale already existing in SWT XY-Graph would be available in time for Dawn 1.0. The 
+feature is to provide a third axis apart from the positional ones correlating colour used 
+with intensity value.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Masking Upgrade: This upgrade is to allow masks to be saveable and choosable from 
+a list so that a user can create a mask and apply it to many images using HDF5. 
+The first version will allow masks to be saved to file. Later the concept of an 
+active mask may be introduced so that and image loaded of the correct size will have 
+the mask applied automatically.
+In addition masking has improvements for how the user interacts with the 
+drawing of regions. A new method of masking has been introduced to allow single 
+pixel tools to be created. The tools requires the use to zoom until no-downsampling 
+is done so that individual pixels can be edited without the use of regions which are 
+less precise.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Image Stack Loading: Allows the loading of a stack/directory of images as a volume, 
+and displayed as such with the slicing tools.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Colour Mapping Update: Updates colour mapping tool to deal correctly with RGB images.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Java7 Support: A new Java7 based build of Dawn has been produced and tested in the course of Raptor.
+&lt;&#47;i&gt;
 </text>
 
        	</group>
