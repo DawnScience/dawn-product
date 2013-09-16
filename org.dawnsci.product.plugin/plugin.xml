@@ -42,7 +42,7 @@
          </property>
          <property
                name="introTitle"
-               value="Welcome to dViewer">
+               value="Welcome to dViewerEMBL">
          </property>
          <property
                name="aboutText"
