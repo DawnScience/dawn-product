@@ -11,16 +11,16 @@
       </intro>-->
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            icon="icons/Temp-16x16-icon.png"
+            icon="icons/dViewer-16x16-icon.png"
             id="org.dawnsci.intro">
       </intro>
       <introProductBinding
             introId="org.dawnsci.intro"
-            productId="org.dawnsci.product.plugin.DAWN">
+            productId="org.dawnsci.product.plugin.dViewer">
       </introProductBinding>
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            icon="icons/Temp-16x16-icon.png"
+            icon="icons/dViewer-16x16-icon.png"
             id="uk.ac.diamond.dawn.intro">
       </intro>
       <introProductBinding

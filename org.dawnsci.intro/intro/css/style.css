@@ -7,8 +7,8 @@ a#mainitem:hover img { background-image : url(graphics/sample_hov.gif); }
 a#updateitem img { background-image : url(graphics/wn_updates48.gif); }
 a#updateitem:hover img { background-image : url(graphics/wn_updates48_hov.gif); }
 
-a#dawnitem img { background-image : url(graphics/dawn_icon48.png); }
-a#dawnitem:hover img { background-image : url(graphics/dawn_icon52.png); }
+a#dawnitem img { background-image : url(graphics/dViewer-48x48-icon.png); }
+a#dawnitem:hover img { background-image : url(graphics/dViewer-52x52-icon.png); }
 
 a#concitem img { background-image : url(graphics/earth48.gif); }
 a#concitem:hover img { background-image : url(graphics/earth48.gif); }
