@@ -46,7 +46,7 @@
          </property>
          <property
                name="aboutText"
-               value="Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis&#x0A;Copyright, 2010 - 2012 Diamond Light Source and ESRF&#x0A;&#x0A;Version 1.1 Beta&#x0A;&#x0A;This version of dViewer is licensed under&#x0A;the Eclipse Public License version 1.0.&#x0A;&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.dawnsci.org&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;Diamond Light Source and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
+               value="Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis&#x0A;Copyright, 2010 - 2013 Diamond Light Source and ESRF&#x0A;&#x0A;Version 1.3 Beta&#x0A;&#x0A;This version of dViewer is licensed under&#x0A;the Eclipse Public License version 1.0.&#x0A;&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.dawnsci.org&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;Diamond Light Source and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
          </property>
       </product>
    </extension>
