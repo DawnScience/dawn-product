@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.ui.intro.config.IntroElement;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -58,7 +59,7 @@ public class PageData {
 			groups.add(gd);
 	}
 
-	public void addAnchors(List<?> result, String groupId) {
+	public void addAnchors(List<IntroElement> result, String groupId) {
 		GroupData group = findGroup(groupId);
 		if (group==null) return;
 		group.addAnchors(result);

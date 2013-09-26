@@ -57,6 +57,7 @@ public class SystemInfoContentProvider implements IIntroXHTMLContentProvider{
 	private boolean hasJOGL = false;
 	private boolean hasJOGLshaders = false;
 
+	@SuppressWarnings("unused")
 	@Override
 	public void createContent(String id, Element parent) {
 		SystemInformation.initialize();

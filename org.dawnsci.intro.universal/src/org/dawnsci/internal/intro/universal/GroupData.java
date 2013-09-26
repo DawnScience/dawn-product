@@ -23,7 +23,7 @@ import org.w3c.dom.NodeList;
 public class GroupData {
 	boolean fDefault=false;
 	private String path;
-	private ArrayList children = new ArrayList();
+	private ArrayList<BaseData> children = new ArrayList<BaseData>();
 	
 	public GroupData(String path, boolean defaultGroup) {
 		fDefault = defaultGroup;
@@ -60,7 +60,7 @@ public class GroupData {
 		return fDefault;
 	}
 
-	public void addAnchors(List result) {
+	public void addAnchors(List<IntroElement> result) {
 		for (int i = 0; i < children.size(); i++) {
 			BaseData edata = (BaseData) children.get(i);
 			String id = edata.getId();
