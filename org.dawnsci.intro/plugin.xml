@@ -15,7 +15,7 @@
             id="org.dawnsci.intro">
       </intro>
       <introProductBinding
-            introId="org.dawnsci.intro"
+            introId="org.dawnsci.intro.universal"
             productId="org.dawnsci.product.plugin.DAWN">
       </introProductBinding>
       <intro
