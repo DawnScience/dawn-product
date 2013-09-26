@@ -133,9 +133,11 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				
 				URL bundleURL = FileLocator.find(Platform.getBundle(contribName),
 						new Path(config.getAttribute(ATT_ICON)), null);
-				logger.debug(bundleURL.getPath());
-				URL imgURL = FileLocator.toFileURL(bundleURL);
-
+				URL imgURL = null;
+				if (bundleURL != null) {
+					imgURL = FileLocator.toFileURL(bundleURL);
+				}
+				
 				Element div = dom.createElement("div");
 				Element a = dom.createElement("a");
 				Element span = dom.createElement("span");
