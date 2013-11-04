@@ -1,4 +1,6 @@
 #!/bin/bash
+#Input: JRE_INSTALLER_PATH
+#Output: materialized and built product in products folder
 
 PRODUCT_NAME_VERSION="dawn master"
 BUILD_LOG_FILE="build.log"
@@ -52,6 +54,28 @@ while true; do
       break
     fi
     cd "${cur_path}"
+  fi
+  #Updating the git repositories
+  for d in "${PRODUCT_WORKSPACE_FOLDER}_git/"*.git; do
+    if [ -d "${d}" ]; then
+      echo "Updating ${d} by git pull."
+      cd "${d}"
+      error=$?
+      if [ ${error} -ne 0 ]; then
+        echo "Error (${error}): can not change to ${d} folder"
+        break
+      fi
+      git pull
+      error=$?
+      if [ ${error} -ne 0 ]; then
+        echo "Error (${error}): can not update the ${d} repository"
+        break
+      fi
+      cd "${cur_path}"
+    fi
+  done
+  if [ ${error} -ne 0 ]; then
+    break
   fi
   PRODUCT_SITE_JRE_FOLDER="${PRODUCT_SITE_FOLDER}/jre-images/dawn-*/installed/"
   cd ${PRODUCT_SITE_JRE_FOLDER}
