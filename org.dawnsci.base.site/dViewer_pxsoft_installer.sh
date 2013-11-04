@@ -4,6 +4,8 @@
 
 [ "${BASH_SOURCE[0]}" != "${0}" ] && THIS_SOURCED=1 || THIS_SOURCED=0
 
+LINK_CREATOR_FILE="dViewer_create_links.sh"
+
 CURRENT_PATH=`pwd`
 
 #Give group write right to pxsoft members
@@ -28,6 +30,8 @@ while true; do
     echo "Error (${error}): can not query pxsoft target folder"
     break
   fi
+  LINK_CREATOR_FOLDER_PATH="${pxsoft_target}/${PRODUCT_ID}/generic"
+  LINK_CREATOR_FILE_PATH="${LINK_CREATOR_FOLDER_PATH}/${LINK_CREATOR_FILE}"
   PRODUCT_TARGET_PATH="${pxsoft_target}/${PRODUCT_ID}/${VERSION}"
   if [ -d "${PRODUCT_TARGET_PATH}" ]; then
     echo "Cleaning ${PRODUCT_TARGET_PATH} folder in pxsoft."
@@ -70,9 +74,16 @@ while true; do
     echo "Error (${error}): can not extract compressed products in ${PRODUCT_TARGET_PATH} folder"
     break
   fi
-  #dViewer_create_links could be copied from builder to pxsoft
+  #Copying ${LINK_CREATOR_FILE} from builder to pxsoft
+  echo "Copying symbolic link creator to pxsoft."
+  cp -pf "${BUCKMINSTER_WORKSPACE_PATH}/${LINK_CREATOR_FILE}" "${LINK_CREATOR_FOLDER_PATH}"
+  error=$?
+  if [ ${error} -ne 0 ]; then
+    echo "Error (${error}): can not copy compressed products to ${PRODUCT_TARGET_PATH} folder"
+    break
+  fi
   echo "Creating symbolic links for operating systems."
-  ../generic/dViewer_create_links
+  ${LINK_CREATOR_FILE_PATH}
   error=$?
   if [ ${error} -ne 0 ]; then
     echo "Error (${error}): can not create symbolic links for operating systems in ${PRODUCT_TARGET_PATH} folder"
