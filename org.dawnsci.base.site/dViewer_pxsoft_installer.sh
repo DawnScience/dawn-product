@@ -34,19 +34,19 @@ while true; do
   LINK_CREATOR_FILE_PATH="${LINK_CREATOR_FOLDER_PATH}/${LINK_CREATOR_FILE}"
   PRODUCT_TARGET_PATH="${pxsoft_target}/${PRODUCT_ID}/${VERSION}"
   if [ -d "${PRODUCT_TARGET_PATH}" ]; then
-    echo "Cleaning ${PRODUCT_TARGET_PATH} folder in pxsoft."
+    echo "Cleaning ${PRODUCT_TARGET_PATH} folder."
     rm -rf "${PRODUCT_TARGET_PATH}/"*
     error=$?
     if [ ${error} -ne 0 ]; then
-      echo "Error (${error}): can not delete content of ${PRODUCT_TARGET_PATH} folder in pxsoft"
+      echo "Error (${error}): can not delete content of ${PRODUCT_TARGET_PATH} folder"
       break
     fi
   else
-    echo "Creating ${PRODUCT_TARGET_PATH} folder in pxsoft."
+    echo "Creating ${PRODUCT_TARGET_PATH} folder."
     mkdir -p "${PRODUCT_TARGET_PATH}"
     error=$?
     if [ ${error} -ne 0 ]; then
-      echo "Error (${error}): can not make ${PRODUCT_TARGET_PATH} folder in pxsoft"
+      echo "Error (${error}): can not make ${PRODUCT_TARGET_PATH} folder"
       break
     fi
   fi
@@ -87,6 +87,13 @@ while true; do
   error=$?
   if [ ${error} -ne 0 ]; then
     echo "Error (${error}): can not create symbolic links for operating systems in ${PRODUCT_TARGET_PATH} folder"
+    break
+  fi
+  echo "Deleting compressed products."
+  rm -f "${PRODUCT_TARGET_PATH}/"*.zip
+  error=$?
+  if [ ${error} -ne 0 ]; then
+    echo "Error (${error}): can not delete compressed products in ${PRODUCT_TARGET_PATH} folder"
     break
   fi
   echo "${PRODUCT_ID} is installed in ${PRODUCT_TARGET_PATH} succesfully."
