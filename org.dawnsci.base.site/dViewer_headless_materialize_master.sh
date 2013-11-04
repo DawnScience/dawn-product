@@ -18,6 +18,11 @@ while true; do
     echo "Error (${error}): BUILDER_WITH_COMMON_ARGS is not specified"
     break
   fi
+  if [ -z "${JRE_INSTALLER_PATH}" ] || [ ! -d "${JRE_INSTALLER_PATH}" ]; then
+    error=1
+    echo "Error (${error}): JRE_INSTALLER_PATH is not specified or ${JRE_INSTALLER_PATH} does not exist"
+    break
+  fi
   #python ${BUILDER_WITH_COMMON_ARGS} --delete -Ddownload.location.common=public materialize dawnbase dawn master
   echo "Materializing ${PRODUCT_NAME_VERSION} component and its dependencies."
   python ${BUILDER_WITH_COMMON_ARGS} -Ddownload.location.common=public materialize ${PRODUCT_WORKSPACE_FOLDER} ${PRODUCT_NAME_VERSION}
@@ -35,15 +40,48 @@ while true; do
   #Small hack to use dViewer product instead of Dawn product
   if [ ${PRODUCT_ID} == "dViewer" ]; then
     cd ${PRODUCT_SITE_FOLDER}
+    error=$?
+    if [ ${error} -ne 0 ]; then
+      echo "Error (${error}): can not change to ${PRODUCT_SITE_FOLDER} folder"
+      break
+    fi
     git checkout ${PRODUCT_ID}
     error=$?
     if [ ${error} -ne 0 ]; then
       echo "Error (${error}): can not switch to ${PRODUCT_ID} branch"
       break
     fi
-    cd ${cur_path}
+    cd "${cur_path}"
   fi
-
+  PRODUCT_SITE_JRE_FOLDER="${PRODUCT_SITE_FOLDER}/jre-images/dawn-*/installed/"
+  cd ${PRODUCT_SITE_JRE_FOLDER}
+  error=$?
+  if [ ${error} -ne 0 ]; then
+    echo "Error (${error}): can not change to ${PRODUCT_SITE_JRE_FOLDER} folder"
+    break
+  fi
+  echo "Creating jre symbolic links in ${PRODUCT_SITE_JRE_FOLDER} folder in ${PRODUCT_NAME_VERSION} workspace."
+  #shopt for avoiding the loop if there is no such file
+  shopt -s nullglob
+  for f in "${JRE_INSTALLER_PATH}/"jre-*; do
+    filename=`basename "${f}"`
+    rm -f "${filename}"
+    ln -s "${f}" "${filename}"
+    error=$?
+    if [ ${error} -ne 0 ]; then
+      echo "Error (${error}): can not create symbolic link in ${PRODUCT_SITE_JRE_FOLDER} folder"
+      break
+    fi
+  done
+  if [ ${error} -ne 0 ]; then
+    break
+  fi
+  error=$?
+  if [ ${error} -ne 0 ]; then
+    echo "Error (${error}): can not copy jre files to ${PRODUCT_SITE_JRE_FOLDER} folder"
+    break
+  fi
+  cd "${cur_path}"
   echo "Cleaning ${PRODUCT_NAME_VERSION} workspace."
   python ${BUILDER_WITH_COMMON_ARGS} clean
   error=$?
@@ -51,13 +89,14 @@ while true; do
     echo "Error (${error}): can not clean the workspace (by clean)"
     break
   fi
-#  echo "Building ${PRODUCT_NAME_VERSION} workspace."
-#  python ${BUILDER_WITH_COMMON_ARGS} build
-#  error=$?
-#  if [ ${error} -ne 0 ]; then
-#    echo "Error (${error}): can not build the workspace"
-#    break
-#  fi
+##  We do not need pure building, because building the product includes pure building
+##  echo "Building ${PRODUCT_NAME_VERSION} workspace."
+##  python ${BUILDER_WITH_COMMON_ARGS} build
+##  error=$?
+##  if [ ${error} -ne 0 ]; then
+##    echo "Error (${error}): can not build the workspace"
+##    break
+##  fi
   echo "Cleaning ${PRODUCT_NAME_VERSION} previous buckminster output."
   python ${BUILDER_WITH_COMMON_ARGS} bmclean
   error=$?
@@ -80,18 +119,19 @@ while true; do
     echo "Error (${error}): can not clean previous buckminster products"
     break
   fi
-  echo "Building ${PRODUCT_NAME_VERSION} workspace and Eclipse product, then zip the product."
+  echo "Building ${PRODUCT_NAME_VERSION} workspace and ${PRODUCT_ID} Eclipse based product(s), then zip the product(s)."
   python ${BUILDER_WITH_COMMON_ARGS} product.zip org.dawnsci.base.site linux32 linux64 >${BUILD_LOG_FILE} 2>&1
   error=$?
   if [ ${error} -ne 0 ]; then
-    grep Error ${BUILD_LOG_FILE}
-    echo "Error (${error}): can not build workspace and Eclipse product, thus can not zip the product"
+    grep 'Error:' -i ${BUILD_LOG_FILE}
+    echo "Error (${error}): can not build workspace and ${PRODUCT_ID} Eclipse based product(s), thus can not zip the product(s)"
     break
   fi
+  echo "Product successfully built into "`pwd`"/products folder."
   break
 done
-cd ${CURRENT_PATH}
-if [ ${error} -eq 0 ]; then
-  echo "Product successfully built into "`pwd`"/products folder."
+if [ ${error} -ne 0 ]; then
+  echo "Error (${error}): headless buckminster materializer and builder failed"
 fi
+cd ${CURRENT_PATH}
 [[ "${THIS_SOURCED}" -ne 0 ]] && return ${error} || exit ${error}
