@@ -76,7 +76,7 @@ while true; do
   fi
   #Copying ${LINK_CREATOR_FILE} from builder to pxsoft
   echo "Copying symbolic link creator to pxsoft."
-  cp -pf "${BUCKMINSTER_WORKSPACE_PATH}/${LINK_CREATOR_FILE}" "${LINK_CREATOR_FOLDER_PATH}"
+  cp -pf "${BUCKMINSTER_WORKSPACE_PATH}/${LINK_CREATOR_FILE}" "${LINK_CREATOR_FOLDER_PATH}/"
   error=$?
   if [ ${error} -ne 0 ]; then
     echo "Error (${error}): can not copy compressed products to ${PRODUCT_TARGET_PATH} folder"
