@@ -23,7 +23,7 @@ a .link-extra-div {
 }
 
 #page-links a:hover .link-label {
-	color: #fac70c; /*yellow sun*/
+	color: #FAE60C; /* #fac70c; yellow sun*/
 	text-decoration : underline;
 }
 
@@ -118,7 +118,7 @@ html, body {
 }
 
 #page-links a:hover .text {
-	color: #fac70c; /*yellow sun*/
+	color: #FAE60C; /*#fac70c; yellow sun*/
 }
 
 #page-links a .background-image {
