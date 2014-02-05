@@ -115,27 +115,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
          id="org.dawb.workflow.feature"
          version="1.0.0.qualifier"/>
 
-   <requires>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.ui.intro"/>
-      <import plugin="org.eclipse.ui.forms"/>
-      <import plugin="org.dawb.common.util"/>
-      <import plugin="org.dawb.common.ui"/>
-      <import plugin="org.eclipse.jdt.launching"/>
-      <import plugin="org.python.pydev"/>
-      <import plugin="org.python.pydev.core"/>
-      <import plugin="org.eclipse.ui.cheatsheets" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="com.springsource.slf4j.org.apache.log4j"/>
-      <import plugin="org.eclipse.core.filesystem"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.debug.ui"/>
-      <import plugin="org.eclipse.ui.console"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.dawb.pydev.extensions"/>
-      <import plugin="com.springsource.slf4j.api"/>
-   </requires>
-
    <plugin
          id="org.dawb.workbench.application"
          download-size="0"
