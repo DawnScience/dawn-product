@@ -9,7 +9,7 @@
          Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis
 Copyright, 2010 - 2013 Diamond Light Source and ESRF
 
-Version 1.3 Beta
+Version 1.4 Beta
 
 This version of dViewer is licensed under
 the Eclipse Public License version 1.0.
@@ -35,6 +35,7 @@ All other trademarks are the property of their respective owners.
 -Xmx1024m
 -XX:PermSize=128m
 -XX:MaxPermSize=256m
+-Dosgi.requiredJavaVersion=1.7.0
 -Dcolour=on
 -Dcom.isencia.require.file.source=true
 -Ddbconnect=config/dbconnect.ispyb.properties
@@ -61,7 +62,6 @@ All other trademarks are the property of their respective owners.
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>
