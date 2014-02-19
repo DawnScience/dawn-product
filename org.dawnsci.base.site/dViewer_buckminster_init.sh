@@ -14,7 +14,7 @@ BUILDER_FILE="dawn.py" #This could be "${PRODUCT_ID}.py" if it would be customis
 UPDATE_BUILDER="" #Set this to anything to update the BUILDER_FILE
 PYTHON_VERSION_REQUIRED="2.6"
 USE_JAVA_VERSION="v1.7.0-45"
-export PRODUCT_WORKSPACE_FOLDER="dawnbase" #This could be "${PRODUCT_ID}_base" if the buckminster files would be customised as well
+export PRODUCT_WORKSPACE_FOLDER="dawnvanilla" #This could be "${PRODUCT_ID}_base" if the buckminster files would be customised as well
 
 export CURRENT_PATH=`pwd`
 
