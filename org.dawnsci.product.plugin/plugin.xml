@@ -42,10 +42,6 @@
          </property>
          <property
                name="introTitle"
-               value="Welcome to dViewer">
-         </property>
-         <property
-               name="introTitle"
                value="Welcome to dViewer product of DAWN collaboration">
          </property>
       </product>
