@@ -45,7 +45,10 @@ All other trademarks are the property of their respective owners.
 -Dorg.embl.cca.dviewer.enabled=true
 -Dorg.dawb.workbench.ui.editors.plotimageeditor.disabled=false
 -Duk.ac.diamond.sda.navigator.FileviewContentProvider=org.embl.cca.dviewer/org.embl.cca.dviewer.io.FileviewContentProvider
--Dorg.dawb.editor.ascii.hide.diamond.image.editor=true</vmArgs>
+-Dorg.dawb.editor.ascii.hide.diamond.image.editor=true
+-DdViewer=true
+-DdViewerImagePort=5000
+-DdViewerLogSettings=logging/log_configuration.xml</vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
