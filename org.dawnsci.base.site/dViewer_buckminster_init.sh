@@ -98,6 +98,7 @@ while true; do
   error=0
   #Switching to excepted java version
   use_pxsoft_package use_java --PXSOFT_VERSION ${USE_JAVA_VERSION} -version
+  error=0
 #This error handler does not work now, because always getting error 1
 #  error=$?
 #  if [ ${error} -ne 0 ]; then
