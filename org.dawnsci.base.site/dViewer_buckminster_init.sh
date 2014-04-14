@@ -98,11 +98,12 @@ while true; do
   error=0
   #Switching to excepted java version
   use_pxsoft_package use_java --PXSOFT_VERSION ${USE_JAVA_VERSION} -version
-  error=$?
-  if [ ${error} -ne 0 ]; then
-    echo "Error (${error}): can not switch to ${USE_JAVA_VERSION} in pxsoft"
-    break
-  fi
+#This error handler does not work now, because always getting error 1
+#  error=$?
+#  if [ ${error} -ne 0 ]; then
+#    echo "Error (${error}): can not switch to java ${USE_JAVA_VERSION} in pxsoft"
+#    break
+#  fi
   if [ ! -r "${DIRECTOR_FILE}" ]; then
     echo "Downloading ${DIRECTOR_FILE}."
     wget -O "${DIRECTOR_FILE}" "${DIRECTOR_URL1}"
