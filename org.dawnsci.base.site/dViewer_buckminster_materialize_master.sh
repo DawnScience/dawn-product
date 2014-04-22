@@ -3,6 +3,7 @@
 #Output: materialized and built product in products folder
 
 PRODUCT_NAME_VERSION="dawn master"
+MATERIALIZE_LOG_FILE="materialize.log"
 BUILD_LOG_FILE="build.log"
 
 source dViewer_buckminster_init.sh $@
@@ -10,6 +11,7 @@ error=$?
 [ "${BASH_SOURCE[0]}" != "${0}" ] && THIS_SOURCED=1 || THIS_SOURCED=0
 
 while true; do
+  rm -rf ${MATERIALIZE_LOG_FILE}
   cur_path=`pwd`
   if [ ${error} -ne 0 ]; then
     echo "Error (${error}): ${PRODUCT_ID} buckminster initialization failed"
@@ -27,9 +29,10 @@ while true; do
   fi
   #python ${BUILDER_WITH_COMMON_ARGS} --delete -Ddownload.location.common=public materialize dawnbase dawn master
   echo "Materializing ${PRODUCT_NAME_VERSION} component and its dependencies."
-  python ${BUILDER_WITH_COMMON_ARGS} -Ddownload.location.common=public materialize ${PRODUCT_WORKSPACE_FOLDER} ${PRODUCT_NAME_VERSION}
+  python ${BUILDER_WITH_COMMON_ARGS} -Ddownload.location.common=public materialize ${PRODUCT_WORKSPACE_FOLDER} ${PRODUCT_NAME_VERSION} >>${MATERIALIZE_LOG_FILE} 2>&1
   error=$?
   if [ ${error} -ne 0 ]; then
+    grep 'ERROR' -i ${MATERIALIZE_LOG_FILE}
     echo "Error (${error}): can not materialize component and its dependencies"
     break
   fi
@@ -107,9 +110,10 @@ while true; do
   fi
   cd "${cur_path}"
   echo "Cleaning ${PRODUCT_NAME_VERSION} workspace."
-  python ${BUILDER_WITH_COMMON_ARGS} clean
+  python ${BUILDER_WITH_COMMON_ARGS} clean >>${MATERIALIZE_LOG_FILE} 2>&1
   error=$?
   if [ ${error} -ne 0 ]; then
+    grep 'ERROR' -i ${MATERIALIZE_LOG_FILE}
     echo "Error (${error}): can not clean the workspace (by clean)"
     break
   fi
@@ -122,9 +126,10 @@ while true; do
 ##    break
 ##  fi
   echo "Cleaning ${PRODUCT_NAME_VERSION} previous buckminster output."
-  python ${BUILDER_WITH_COMMON_ARGS} bmclean
+  python ${BUILDER_WITH_COMMON_ARGS} bmclean >>${MATERIALIZE_LOG_FILE} 2>&1
   error=$?
   if [ ${error} -ne 0 ]; then
+    grep 'ERROR' -i ${MATERIALIZE_LOG_FILE}
     echo "Error (${error}): can not clean previous buckminster output (by bmclean)"
     break
   fi
