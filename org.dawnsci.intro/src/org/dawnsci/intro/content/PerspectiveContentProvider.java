@@ -130,12 +130,14 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				IContributor contrib = config.getContributor();
 				String contribName = contrib instanceof RegistryContributor ? ((RegistryContributor) contrib)
 						.getActualName() : contrib.getName();
-				URL bundleURL = FileLocator.find(
-						Platform.getBundle(contribName),
+				
+				URL bundleURL = FileLocator.find(Platform.getBundle(contribName),
 						new Path(config.getAttribute(ATT_ICON)), null);
 				URL imgURL = null;
-
-				imgURL = FileLocator.toFileURL(bundleURL);
+				if (bundleURL != null) {
+					imgURL = FileLocator.toFileURL(bundleURL);
+				}
+				
 				Element div = dom.createElement("div");
 				Element a = dom.createElement("a");
 				Element span = dom.createElement("span");
@@ -155,10 +157,14 @@ public class PerspectiveContentProvider implements IIntroXHTMLContentProvider {
 				// a.setAttribute("onClick", "sessionStorage.id=");
 				a.setAttribute("class", "tooltip portfolio_item float");
 				//a.setAttribute("class", "tooltip");
-				String imgPath = imgURL.getPath();
-				if(isWindows())
-					imgPath = "file:/"+imgPath;//.substring(1);
-				img.setAttribute("src", imgPath);
+
+				if (imgURL != null) {
+					String imgPath = imgURL.getPath();
+					if(isWindows())
+						imgPath = "file:/"+imgPath;//.substring(1);
+					img.setAttribute("src", imgPath);
+				}
+
 				img.setAttribute("class", "tooltip portfolio_item float");
 				//img.setAttribute("alt", "");
 				span.setAttribute("class", "classic info");

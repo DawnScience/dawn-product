@@ -57,6 +57,7 @@ public class SystemInfoContentProvider implements IIntroXHTMLContentProvider{
 	private boolean hasJOGL = false;
 	private boolean hasJOGLshaders = false;
 
+	@SuppressWarnings("unused")
 	@Override
 	public void createContent(String id, Element parent) {
 		SystemInformation.initialize();
@@ -73,7 +74,7 @@ public class SystemInfoContentProvider implements IIntroXHTMLContentProvider{
 		// check if there is an overwrite
 //		IntroLogo logoComp;
 //		logoComp = new IntroLogo(comp,SWT.DOUBLE_BUFFERED,hasJOGL);
-		String propString = System.getProperty("uk.ac.diamond.analysis.rcp.plotting.useGL13");
+		String propString = System.getProperty(JOGLChecker.RENDER_HYBRID_PROPERTY_STRING);
 		if (propString != null && propString.toLowerCase().equals("true")) {
 			hasJOGLshaders = false;
 		}

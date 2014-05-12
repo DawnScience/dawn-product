@@ -43,6 +43,7 @@ import org.osgi.framework.Bundle;
  * 
  * @since 3.2
  */
+@SuppressWarnings("restriction")
 public class UniversalIntroConfigurer extends IntroConfigurer implements
 		IUniversalIntroConstants {
 	
@@ -233,7 +234,7 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 	}
 
 	public IntroElement[] getLaunchBarShortcuts() {
-		ArrayList links = new ArrayList();
+		ArrayList<IntroElement> links = new ArrayList<IntroElement>();
 		String ids = getVariable(VAR_INTRO_ROOT_PAGES);
 		if (ids != null) {
 			StringTokenizer stok = new StringTokenizer(ids, ","); //$NON-NLS-1$
@@ -248,7 +249,7 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 	}
 
 	private IntroElement[] getRootPageLinks(boolean standby) {
-		ArrayList links = new ArrayList();
+		ArrayList<IntroElement> links = new ArrayList<IntroElement>();
 		String ids = getVariable(VAR_INTRO_ROOT_PAGES);
 		if (ids != null) {
 			StringTokenizer stok = new StringTokenizer(ids, ","); //$NON-NLS-1$
@@ -282,7 +283,7 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 	}
 
 	private IntroElement[] getNavLinks(String pageId) {
-		ArrayList links = new ArrayList();
+		ArrayList<IntroElement> links = new ArrayList<IntroElement>();
 		String ids = getVariable(VAR_INTRO_ROOT_PAGES);		
 		/*
 		 * In high contrast mode the workbench link must be generated in the nav links 
@@ -522,7 +523,7 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 			}
 		}
 		// load all other installed (but not running) products' intro data
-		List result = new ArrayList();
+		List<IntroData> result = new ArrayList<IntroData>();
 		Properties[] prefs = ProductPreferences.getProductPreferences(false);
 		for (int i=0;i<prefs.length;++i) {
 			String key = UniversalIntroPlugin.PLUGIN_ID + '/' + VAR_INTRO_DATA;
@@ -541,14 +542,14 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 	}
 
 	private IntroElement[] getContent(String pageId, String groupId) {
-		List result = new ArrayList();
+		List<IntroElement> result = new ArrayList<IntroElement>();
 		if (!ContentDetector.getNewContributors().isEmpty()) {
 			// Add a new content fallback anchor
 			IntroElement fallback = new IntroElement("anchor"); //$NON-NLS-1$
 			fallback.setAttribute("id", NEW_CONTENT_ANCHOR); //$NON-NLS-1$
 			result.add(fallback);
 		}
-		List anchors = getAnchors(pageId, groupId);
+		List<IntroElement> anchors = getAnchors(pageId, groupId);
 		if (anchors != null) {
 			result.addAll(anchors);
 		}
@@ -559,18 +560,19 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 		return (IntroElement[]) result.toArray(new IntroElement[result.size()]);
 	}
 
-	private List getAnchors(String pageId, String groupId) {
-		List primaryAnchors = null;
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private List<IntroElement> getAnchors(String pageId, String groupId) {
+		List<IntroElement> primaryAnchors = null;
 		if (primaryIntroData != null) {
 			primaryAnchors = getAnchors(primaryIntroData, pageId, groupId);
 		}
 		if (primaryAnchors == null) {
 			primaryAnchors = Collections.EMPTY_LIST;
 		}
-		List secondaryAnchorsList = new ArrayList();
+		List<List<IntroElement>> secondaryAnchorsList = new ArrayList<List<IntroElement>>();
 		for (int i=0;i<secondaryIntroData.length;++i) {
 			IntroData idata = secondaryIntroData[i];
-			List anchors = getAnchors(idata, pageId, groupId);
+			List<IntroElement> anchors = getAnchors(idata, pageId, groupId);
 			if (anchors != null) {
 				secondaryAnchorsList.add(anchors);
 			}
@@ -582,10 +584,10 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 		return sequenceResolver.getSequence(primaryAnchors, secondaryAnchors);
 	}
 	
-	private List getAnchors(IntroData data, String pageId, String groupId) {
+	private List<IntroElement> getAnchors(IntroData data, String pageId, String groupId) {
 		PageData pdata = data.getPage(pageId);
 		if (pdata != null) {
-			List anchors = new ArrayList();
+			List<IntroElement> anchors = new ArrayList<IntroElement>();
 			pdata.addAnchors(anchors, groupId);
 			return anchors;
 		}
@@ -686,6 +688,7 @@ public class UniversalIntroConfigurer extends IntroConfigurer implements
 		return false;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void init(IIntroSite site, Map themeProperties) {
 		super.init(site, themeProperties);
 		Action customizeAction = new CustomizeAction(site);

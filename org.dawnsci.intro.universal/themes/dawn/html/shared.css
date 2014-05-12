@@ -231,7 +231,7 @@ body, .page{
 
 #navigation-links a:hover, 
 #navigation-links a:focus 
-#navigation-links a:active { border-right : 0px;}
+#navigation-links a:active { border-right : 0px; }
 
 /* properties for each of the navigation-links  */
 #navigation-links a#overview img { background-image : url(../graphics/icons/etool/overview48.gif); }
@@ -409,7 +409,10 @@ h1, p { margin-left : 10px; } /* required in mozilla so the page description is 
 	color: #00507C;
 }
 
-.content-link:hover { border-right : 0px; }
+.content-link:hover { 
+	border-right : 0px;
+	color:#0098DB;	/* blue light*/
+}
 
 iframe {
 	position:relative;
