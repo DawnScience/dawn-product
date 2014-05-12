@@ -2,7 +2,7 @@
 <feature
       id="org.dawnsci.base.product.feature"
       label="dViewer"
-      version="1.4.1.qualifier"
+      version="1.5.0.qualifier"
       provider-name="DAWN Collaboration">
 
    <description url="http://www.example.com/description">
@@ -10,7 +10,7 @@
    </description>
 
    <copyright url="http://www.example.com/copyright">
-      Copyright (c) 2013 DAWN Collaboration
+      Copyright (c) 2014 DAWN Collaboration
    </copyright>
 
    <license url="http://www.eclipse.org/legal/epl-v10.html">
@@ -206,6 +206,13 @@
 
    <plugin
          id="com.fasterxml.jackson.core.jackson-annotations"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.org.castor"
          download-size="0"
          install-size="0"
          version="0.0.0"
