@@ -7,22 +7,9 @@
       <image path="/org.dawnsci.product.plugin/icons/dViewer-48x48-icon.png"/>
       <text>
          Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis
-Copyright, 2010 - 2014 Diamond Light Source and ESRF
+Copyright, 2010 - 2014, DAWN Collaboration
 
-Version 1.5 Beta
-
-This version of dViewer is licensed under
-the Eclipse Public License version 1.0.
-
-Please see the license file in the installation directory and 
-contact us if you cannot locate it. More details can be found at
-http://www.dawnsci.org
-
-Based on Eclipse, www.eclipse.org 
-Uses: Java, GEF, Log4J, Passerelle
-
-Diamond Light Source and ESRF are registered trade marks 
-All other trademarks are the property of their respective owners.
+Version 1.6 Beta
       </text>
    </aboutInfo>
 
@@ -30,18 +17,19 @@ All other trademarks are the property of their respective owners.
    </configIni>
 
    <launcherArgs>
-      <programArgs>-showLocation</programArgs>
+      <programArgs>-showLocation
+--launcher.defaultAction
+openFile
+--launcher.appendVmargs</programArgs>
       <vmArgs>-Xms256m
 -Xmx1024m
 -XX:PermSize=128m
 -XX:MaxPermSize=256m
 -Dosgi.requiredJavaVersion=1.7.0
--Dcolour=on
 -Dcom.isencia.require.file.source=true
--Ddbconnect=config/dbconnect.ispyb.properties
--Dentry=MyVisitsEntryPoint
 -Dorg.dawb.editor.h5.use.default=true
 -Dosgi.locking=none
+-Dorg.dawnsci.passerelle.do.not.break.osgi=true
 -Dorg.embl.cca.dviewer.enabled=true
 -Dorg.dawb.workbench.ui.editors.plotimageeditor.disabled=false
 -Duk.ac.diamond.sda.navigator.FileviewContentProvider=org.embl.cca.dviewer/org.embl.cca.dviewer.io.FileviewContentProvider
@@ -93,14 +81,12 @@ See the License for the specific language governing permissions and limitations 
    </features>
 
    <configurations>
-      <plugin id="com.isencia.passerelle.workbench.starter" autoStart="true" startLevel="5" />
       <plugin id="org.dawnsci.conversion" autoStart="true" startLevel="2" />
       <plugin id="org.dawnsci.jexl" autoStart="true" startLevel="2" />
       <plugin id="org.dawnsci.persistence" autoStart="true" startLevel="2" />
       <plugin id="uk.ac.diamond.scisoft" autoStart="true" startLevel="1" />
       <plugin id="uk.ac.diamond.scisoft.analysis" autoStart="true" startLevel="2" />
       <plugin id="uk.ac.diamond.scisoft.analysis.osgi" autoStart="true" startLevel="2" />
-      <plugin id="uk.ac.diamond.scisoft.analysis.rcp" autoStart="true" startLevel="6" />
    </configurations>
 
 </product>

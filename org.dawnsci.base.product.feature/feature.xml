@@ -9,7 +9,7 @@
       Diffraction viewer
    </description>
 
-   <copyright url="http://www.example.com/copyright">
+   <copyright url="http://www.dawnsci.org/">
       Copyright (c) 2014 DAWN Collaboration
    </copyright>
 
@@ -164,13 +164,6 @@
          unpack="false"/>
 
    <plugin
-         id="com.isencia.passerelle.workbench.starter"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.dawnsci.conversion"
          download-size="0"
          install-size="0"
@@ -213,6 +206,13 @@
 
    <plugin
          id="com.springsource.org.castor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.desy.file.loader"
          download-size="0"
          install-size="0"
          version="0.0.0"
