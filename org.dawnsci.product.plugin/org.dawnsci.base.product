@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="dViewer" uid="org.dawnsci.base.product" id="org.dawnsci.product.plugin.dViewer" application="org.eclipse.ui.ide.workbench" version="1.5.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="dViewer" uid="org.dawnsci.base.product" id="org.dawnsci.product.plugin.dViewer" application="org.eclipse.ui.ide.workbench" version="1.6.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.dawnsci.product.plugin/icons/dViewer-48x48-icon.png"/>
@@ -9,7 +9,7 @@
          Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis
 Copyright, 2010 - 2014, DAWN Collaboration
 
-Version 1.6 Beta
+Version 1.6
       </text>
    </aboutInfo>
 
@@ -81,8 +81,6 @@ See the License for the specific language governing permissions and limitations 
    </features>
 
    <configurations>
-      <plugin id="org.dawnsci.conversion" autoStart="true" startLevel="2" />
-      <plugin id="org.dawnsci.jexl" autoStart="true" startLevel="2" />
       <plugin id="org.dawnsci.persistence" autoStart="true" startLevel="2" />
       <plugin id="uk.ac.diamond.scisoft" autoStart="true" startLevel="1" />
       <plugin id="uk.ac.diamond.scisoft.analysis" autoStart="true" startLevel="2" />

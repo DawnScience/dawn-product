@@ -46,7 +46,7 @@
          </property>
          <property
                name="aboutText"
-               value="Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis&#x0A;Copyright, 2010 - 2014, DAWN Collaboration&#x0A;&#x0A;Version 1.6 Beta">
+               value="Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis&#x0A;Copyright, 2010 - 2014, DAWN Collaboration&#x0A;&#x0A;Version 1.6">
          </property>
       </product>
    </extension>
