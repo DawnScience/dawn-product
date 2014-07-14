@@ -17,5 +17,6 @@ Bundle-ActivationPolicy: lazy;exclude:="org.dawnsci.internal.intro.
 Bundle-Vendor: %provider_name
 Bundle-Name: %plugin_name
 Eclipse-BundleShape: dir
-Import-Package: javax.xml.parsers,org.w3c.dom,org.xml.sax
+Import-Package: org.w3c.dom,
+ org.xml.sax
 Bundle-ManifestVersion: 2
