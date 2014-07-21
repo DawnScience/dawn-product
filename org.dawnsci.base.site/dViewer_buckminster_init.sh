@@ -148,6 +148,15 @@ while true; do
 #      echo "Error (${error}): can not copy ${CURRENT_PATH}/${BUILDER_FILE} to ${WORKSPACE_PATH}"
 #      break
 #    fi
+    rm -f ${BUILDER_FILE}.prev
+    if [ -r "${BUILDER_FILE}" ]; then
+      mv ${BUILDER_FILE} ${BUILDER_FILE}.prev
+      error=$?
+      if [ ${error} -ne 0 ]; then
+        echo "Error (${error}): can not rename previous ${BUILDER_FILE}"
+        break
+      fi
+    fi
     echo "Downloading ${BUILDER_FILE}."
     #http://www.opengda.org/documentation/manuals/Infrastructure_Guide/trunk/software_required/dawn_py.html
     wget --tries=1 --timeout=5 --no-cache "http://www.opengda.org/buckminster/software/${BUILDER_FILE}"
