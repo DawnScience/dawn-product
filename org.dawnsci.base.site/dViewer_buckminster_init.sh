@@ -1,14 +1,7 @@
 #!/bin/bash
 #Input: output folder
-#Output: CURRENT_PATH, PATH, BUILDER_WITH_COMMON_ARGS, PRODUCT_ID, PRODUCT_FOLDER, and installed buckminster
+#Output: CURRENT_PATH, PATH, BUILDER_WITH_COMMON_ARGS, PRODUCT_ID, PRODUCT_WORKSPACE_FOLDER, and installed buckminster
 
-[ "${BASH_SOURCE[0]}" != "${0}" ] && THIS_SOURCED=1 || THIS_SOURCED=0
-if [ -z "${1}" ] || [ ! -d "${1}" ]; then
-  echo "Usage: ${0} <output folder>"
-  echo "output folder: it must exist, and it must not be in git repository (it would interfere)."
-  echo "The products folder in the output folder will contain the built products."
-  [[ "${THIS_SOURCED}" -ne 0 ]] && return 1 || exit 1
-fi
 export PRODUCT_ID="dViewer"
 BUCKMINSTER_URL="http://download.eclipse.org/tools/buckminster/headless-4.2/"
 DIRECTOR_FILE="director_latest.zip"
@@ -20,8 +13,14 @@ DIRECTOR_FOLDER="director"
 BUILDER_FILE="dawn.py" #This could be "${PRODUCT_ID}.py" if it would be customised, but currently there is no need
 UPDATE_BUILDER="1" #Set this to anything to update the BUILDER_FILE
 PYTHON_VERSION_REQUIRED="2.6"
-export PRODUCT_FOLDER="dawnbase" #This could be "${PRODUCT_ID}_base" if the buckminster files would be customised as well
+USE_JAVA_VERSION="v1.7.0-45"
+export PRODUCT_WORKSPACE_FOLDER="dawnvanilla" #This could be "${PRODUCT_ID}_base" if the buckminster files would be customised as well
+
 export CURRENT_PATH=`pwd`
+
+[ "${BASH_SOURCE[0]}" != "${0}" ] && THIS_SOURCED=1 || THIS_SOURCED=0
+[ -z "$PXSOFT" ] && pxsoft="/opt/pxsoft" || pxsoft="$PXSOFT"
+pxsoft_basedir="${PRODUCT_ID}"
 
 is_equallessthan() {
   [ "$1" = "`echo -e "$1\n$2" | sort -V | head -n1`" ]
@@ -33,10 +32,23 @@ is_lessthan() {
 
 error=0
 while true; do
+  if [ -z "${1}" ] || [ ! -d "${1}" ]; then
+    error=1
+    echo "Usage: ${0} <output folder>"
+    echo "output folder: it must exist, and it must not be in git repository (it would interfere)."
+    echo "The products folder in the output folder will contain the built products."
+    break
+  fi
   #Checking if is_lessthan works
   if ! is_lessthan "1" "2"; then
     error=1
     echo "Error (${error}): can not compare versions (probably too old sort)"
+    break
+  fi
+  . ${pxsoft}/bin/.pxsoft_wrapper_functions ${pxsoft}/bin/${pxsoft_basedir}
+  error=$?
+  if [ ${error} -ne 0 ]; then
+    echo "Error (${error}): can not initialize pxsoft functions"
     break
   fi
   #Checking python version
@@ -84,6 +96,15 @@ while true; do
     break
   fi
   error=0
+  #Switching to excepted java version
+  use_pxsoft_package use_java --PXSOFT_VERSION ${USE_JAVA_VERSION} -version
+  error=0
+#This error handler does not work now, because always getting error 1
+#  error=$?
+#  if [ ${error} -ne 0 ]; then
+#    echo "Error (${error}): can not switch to java ${USE_JAVA_VERSION} in pxsoft"
+#    break
+#  fi
   if [ ! -r "${DIRECTOR_FILE}" ]; then
     echo "Downloading ${DIRECTOR_FILE}."
     wget -O "${DIRECTOR_FILE}" "${DIRECTOR_URL1}"
@@ -175,7 +196,7 @@ while true; do
       break
     fi
   fi
-  export BUILDER_WITH_COMMON_ARGS="${WORKSPACE_PATH}/${BUILDER_FILE} --keep-proxy --buckminster.root.prefix=${WORKSPACE_PATH} --log-level=DEBUG --workspace ${WORKSPACE_PATH}/${PRODUCT_FOLDER} --keyring ${WORKSPACE_PATH}/.keyring"
+  export BUILDER_WITH_COMMON_ARGS="${WORKSPACE_PATH}/${BUILDER_FILE} --keep-proxy --buckminster.root.prefix=${WORKSPACE_PATH} --log-level=DEBUG --workspace ${WORKSPACE_PATH}/${PRODUCT_WORKSPACE_FOLDER} --keyring ${WORKSPACE_PATH}/.keyring"
   export PATH=${WORKSPACE_PATH}/${BUCKMINSTER_FOLDER}:$PATH
   break
 done

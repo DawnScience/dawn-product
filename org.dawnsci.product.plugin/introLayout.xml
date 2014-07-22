@@ -51,6 +51,7 @@
       <group path="page-content/bottom-right" default="true">
       </group>
       <group path="page-content/top-left">
+         <extension id="dviewer-perspective-extension" importance="low"/>
          <extension id="databrowsing-perspective-extension" importance="low"/>
          <extension id="dexplore-perspective-extension" importance="low"/>
          <extension id="prerelease-perspectives" importance="low"/>

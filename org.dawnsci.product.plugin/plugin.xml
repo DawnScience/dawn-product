@@ -3,18 +3,26 @@
 <plugin>
 
    <extension
-         id="DAWN"
+         id="dViewer"
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="DAWN Science">
+            name="dViewer">
          <property
                name="appName"
-               value="DAWN Science">
+               value="dViewer">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="FFFFFF">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="10,10,200,20">
          </property>
          <property
                name="startupProgressRect"
-               value="5,240,590,15">
+               value="0,513,1224,15">
          </property>
          <property
                name="preferenceCustomization"
@@ -22,27 +30,23 @@
          </property>
          <property
                name="windowImages"
-               value="icons/Temp-16x16-icon.png,icons/Temp-48x48-icon.png">
+               value="icons/dViewer-16x16-icon.png,icons/dViewer-48x48-icon.png">
          </property>
          <property
                name="aboutImage"
-               value="icons/Dawn-210x238-about.png">
+               value="icons/dViewer-210x238-about.png">
          </property>
          <property
                name="introBrandingImage"
-               value="product:icons/Temp-3Col-Splash.png">
+               value="product:icons/dViewer-3Col-Splash.png">
          </property>
          <property
                name="introTitle"
-               value="Welcome to DAWN">
+               value="Welcome to dViewer">
          </property>
          <property
                name="aboutText"
-               value="Data Analysis WorkbeNch &#x0A;Copyright, 2010 - 2014, Diamond Light Source&#x0A;&#x0A;Version 1.6">
-         </property>
-         <property
-               name="aboutText"
-               value="Welcome to dViewer product of DAWN collaboration, the tools set for online data analysis&#x0A;Copyright, 2010 - 2013 Diamond Light Source and ESRF&#x0A;&#x0A;Version 1.4 Beta&#x0A;&#x0A;This version of dViewer is licensed under&#x0A;the Eclipse Public License version 1.0.&#x0A;&#x0A;Please see the license file in the installation directory and &#x0A;contact us if you cannot locate it. More details can be found at&#x0A;http://www.dawnsci.org&#x0A;&#x0A;Based on Eclipse, www.eclipse.org &#x0A;Uses: Java, GEF, Log4J, Passerelle&#x0A;&#x0A;Diamond Light Source and ESRF are registered trade marks &#x0A;All other trademarks are the property of their respective owners.">
+               value="dViewer (Diffraction Viewer based on Data Analysis Workbench [DAWN])&#x0A;Copyright, 2010 - 2014, DAWN Collaboration&#x0A;&#x0A;Version 1.6">
          </property>
       </product>
    </extension>

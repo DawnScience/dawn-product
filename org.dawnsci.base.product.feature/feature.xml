@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.dawnsci.base.product.feature"
-      label="DAWN Science"
+      label="dViewer"
       version="1.6.0.qualifier"
       provider-name="DAWN Collaboration">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description>
+      Diffraction viewer
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      Copyright (c) 2012 Diamond Light Source Ltd.
+   <copyright url="http://www.dawnsci.org/">
+      Copyright (c) 2014 DAWN Collaboration
    </copyright>
 
    <license url="http://www.eclipse.org/legal/epl-v10.html">

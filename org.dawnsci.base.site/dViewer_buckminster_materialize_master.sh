@@ -148,7 +148,7 @@ while true; do
     echo "Error (${error}): can not clean previous buckminster products"
     break
   fi
-  echo "Building ${PRODUCT_NAME_VERSION} workspace and ${PRODUCT_ID} Eclipse based product(s), then zip the product(s)."
+  echo "Building ${PRODUCT_NAME_VERSION} workspace and ${PRODUCT_ID} Eclipse based product(s), then zip the product(s), this will take time."
   python ${BUILDER_WITH_COMMON_ARGS} product.zip org.dawnsci.base.site linux32 linux64 >${BUILD_LOG_FILE} 2>&1
   error=$?
   if [ ${error} -ne 0 ]; then
@@ -160,7 +160,7 @@ while true; do
   break
 done
 if [ ${error} -ne 0 ]; then
-  echo "Error (${error}): headless buckminster materializer and builder failed"
+  echo "Error (${error}): buckminster materializer and builder failed"
 fi
 cd ${CURRENT_PATH}
 [[ "${THIS_SOURCED}" -ne 0 ]] && return ${error} || exit ${error}
