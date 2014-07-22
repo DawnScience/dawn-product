@@ -93,9 +93,10 @@
                id="org.dawnsci.intro.show.welcome"
                label="Show Welcome Screen">
             <command
-                  commandId="org.dawnsci.intro.show.welcome"
+                  commandId="org.eclipse.ui.help.quickStartAction"
                   icon="icons/nav_home.gif"
                   label="Home"
+                  mnemonic="W"
                   tooltip="Show Welcome Screen">
             </command>
          </toolbar>

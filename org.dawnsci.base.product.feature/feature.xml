@@ -2,7 +2,7 @@
 <feature
       id="org.dawnsci.base.product.feature"
       label="dViewer"
-      version="1.5.0.qualifier"
+      version="1.6.0.qualifier"
       provider-name="DAWN Collaboration">
 
    <description>
@@ -217,5 +217,12 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.dawnsci.product.logging"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
 
 </feature>

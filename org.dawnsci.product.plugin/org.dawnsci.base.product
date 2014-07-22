@@ -32,7 +32,6 @@ openFile
 -Dorg.dawnsci.passerelle.do.not.break.osgi=true
 -Dorg.embl.cca.dviewer.enabled=true
 -Dorg.dawb.workbench.ui.editors.plotimageeditor.disabled=false
--Duk.ac.diamond.sda.navigator.FileviewContentProvider=org.embl.cca.dviewer/org.embl.cca.dviewer.io.FileviewContentProvider
 -Dorg.dawb.editor.ascii.hide.diamond.image.editor=true
 -DdViewer=true
 -DdViewerImagePort=5000
