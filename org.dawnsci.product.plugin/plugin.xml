@@ -34,7 +34,7 @@
          </property>
          <property
                name="aboutImage"
-               value="icons/dViewer-48x48-icon.png">
+               value="icons/dViewer-210x238-about.png">
          </property>
          <property
                name="introBrandingImage"
