@@ -11,7 +11,7 @@ DIRECTOR_URL2="http://eclipse.ialto.com/tools/buckminster/products/director_late
 BUCKMINSTER_FOLDER="buckminster"
 DIRECTOR_FOLDER="director"
 BUILDER_FILE="dawn.py" #This could be "${PRODUCT_ID}.py" if it would be customised, but currently there is no need
-UPDATE_BUILDER="" #Set this to anything to update the BUILDER_FILE
+UPDATE_BUILDER="1" #Set this to anything to update the BUILDER_FILE
 PYTHON_VERSION_REQUIRED="2.6"
 USE_JAVA_VERSION="v1.7.0-45"
 export PRODUCT_WORKSPACE_FOLDER="dawnvanilla" #This could be "${PRODUCT_ID}_base" if the buckminster files would be customised as well
@@ -169,6 +169,15 @@ while true; do
 #      echo "Error (${error}): can not copy ${CURRENT_PATH}/${BUILDER_FILE} to ${WORKSPACE_PATH}"
 #      break
 #    fi
+    rm -f ${BUILDER_FILE}.prev
+    if [ -r "${BUILDER_FILE}" ]; then
+      mv ${BUILDER_FILE} ${BUILDER_FILE}.prev
+      error=$?
+      if [ ${error} -ne 0 ]; then
+        echo "Error (${error}): can not rename previous ${BUILDER_FILE}"
+        break
+      fi
+    fi
     echo "Downloading ${BUILDER_FILE}."
     #http://www.opengda.org/documentation/manuals/Infrastructure_Guide/trunk/software_required/dawn_py.html
     wget --tries=1 --timeout=5 --no-cache "http://www.opengda.org/buckminster/software/${BUILDER_FILE}"
