@@ -8,8 +8,8 @@
        		<link label="DAWN platform" url="http://org.eclipse.ui.intro/showPage?id=dawnplatform" id="platformitem" style-id="content-link">
           		<text>Overview of the DAWN main platform architecture.</text>
        		</link>
-       		<link label="License" url="http://org.eclipse.ui.intro/showPage?id=licenses" id="paraitem" style-id="content-link">
-          		<text>A description of DAWN license.</text>
+       		<link label="License" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=http://www.eclipse.org/legal/epl-v10.html" id="paraitem" style-id="content-link">
+          		<text>Link to the description of the EPL license used in DAWN.</text>
        		</link>
        		<link label="Download additional features" url="http://org.eclipse.ui.intro/runAction?pluginId=net.bioclipse.ui&amp;class=net.bioclipse.ui.actions.LaunchUpdateIntroAction" id="updateitem" style-id="content-link">
           		<text>Search, download, and install additional features from one or more DAWN update sites.</text>
@@ -68,53 +68,41 @@ Below is a basic diagram of the DAWN architecture.
       </group>
       </page>
 
-	<page id="licenses" style-id="page" style="css/style.css">
-      <title style-id="intro-header">License</title>
-      <include path="overview/navigation-links"/>
-      <group id="page-content">
-            <group id="content-header" label="License" filteredFrom="swt">
-            </group>
-            <text style-id="page-title" id="page-title" filteredFrom="html">License</text>
-	    <!-- Add content here -->
-            <text style-id="page-description" id="page-description">
-DAWN and the accompanying materials are made available under the terms of the Eclipse Public License v1.0
- which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
-            </text>
-       		<link label="Link to EPL license" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=http://www.eclipse.org/legal/epl-v10.html" class="link" id="weblink" style-id="content-link" />
-      </group>
-      </page>
-
-      <page id="documentation" style-id="page" style="css/style.css">
-      <title style-id="intro-header">Documentation</title>
-      <include path="overview/navigation-links"/>
-      <group id="page-content">
-            <group id="content-header" label="Sources for documentation" filteredFrom="swt">
-            </group>
-            <text style-id="page-title" id="page-title" filteredFrom="html">Sources of documentation</text>
-
-        <text style-id="page-content" id="page-content">DAWN help system</text>
-            <text style-id="page-description" id="page-description">
-            The DAWN help system is the main resource for documentation of DAWN. 
-            Here you find a searchable collection of documents, tutorials, and 
-            reference documentation for the various installed features.
-            The DAWN help system is accessible from inside the DAWN Workbench 
-            via the menu Help > Help Contents.
-            </text>
-            <link label="Link to DAWN Help" url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/contents.html" class="link" id="helpitem" style-id="content-link"/>
-
-        <text style-id="page-content" id="page-content">Help from the DAWN website</text>
-            <text style-id="page-description" id="page-description">
-	            Various documentation such as the user and/or developer manuals are also available on the DAWN website.
-            </text>
-           <link label="Link to DAWN website documentation" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=http://www.dawnsci.org/documentation" class="link" id="weblink" style-id="content-link"/>
-            
-
-        <text style-id="page-content" id="page-content">DAWN Mailing list</text>
-        	<text style-id="page-description" id="page-description">
-	            If the DAWN help system is missing the information you are looking for, 
+	<page id="documentation" style-id="page" style="css/style.css">
+	<title style-id="intro-header">Documentation</title>
+	<include path="overview/navigation-links" />
+	<group id="page-content">
+		<group id="content-header" label="Sources for documentation"
+			filteredFrom="swt">
+		</group>
+		<group style-id="content-group" id="doc-group">
+			<link label="DAWN help system"
+				url="http://org.eclipse.ui.intro/showHelpTopic?id=/org.dawnsci.documentation.user/html/contents.html" 
+				id="doc-dawnhelp" style-id="content-link">
+				<text> The DAWN help system is the main resource for documentation of
+					DAWN.
+					Here you find a searchable collection of documents, tutorials, and
+					reference documentation for the various installed features.
+					The DAWN help system is accessible from inside the DAWN Workbench
+					via the menu Help > Help Contents.
+				</text>
+			</link>
+			<link label="Help from DAWN website"
+				url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=http://www.dawnsci.org/documentation" 
+				id="doc-onlinehelp"
+				style-id="content-link">
+				<text>Various documentation such as the user and/or developer manuals are also available on the DAWN website.
+				</text>
+			</link>
+			<link label="DAWN Mailing list"
+				url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://www.jiscmail.ac.uk/DAWN" 
+				id="doc-mailhelp"
+				style-id="content-link">
+				<text>If the DAWN help system is missing the information you are looking for, 
 	            you can submit a feedback and/or question using the DAWN mailing list.
-            </text>
-       		<link label="Link to the DAWN mailing list on JiscMail" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenWebBrowserAction&amp;url=https://www.jiscmail.ac.uk/DAWN" class="link" id="weblink" style-id="content-link" />
-      </group>
-      </page>
+				</text>
+			</link>
+		</group>
+		</group>
+	</page>
 </introContent>

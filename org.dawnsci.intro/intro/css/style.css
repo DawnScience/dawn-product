@@ -55,6 +55,15 @@ a#platformitem:hover img { background-image : url(graphics/blockdevice52.png); }
 a#workbench-browsing img { background-image : url(graphics/data_browsing_intro45.jpg); }
 a#workbench-browsing:hover img { background-image : url(graphics/data_browsing_intro52.jpg); }
 
+a#doc-dawnhelp img { background-image : url(graphics/help_contents48.png); }
+a#doc-dawnhelp:hover img { background-image : url(graphics/help_contents52.png); }
+
+a#doc-onlinehelp img { background-image : url(graphics/help_online48.png); }
+a#doc-onlinehelp:hover img { background-image : url(graphics/help_online52.png); }
+
+a#doc-mailhelp img { background-image : url(graphics/help_forum48.png); }
+a#doc-mailhelp:hover img { background-image : url(graphics/help_forum52.png); }
+
 a#weblink { text-align: left; }
 
 #weblink { text-align: left; color: #FF0000;}
