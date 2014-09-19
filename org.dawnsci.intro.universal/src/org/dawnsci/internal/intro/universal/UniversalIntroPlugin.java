@@ -1,13 +1,11 @@
-/*******************************************************************************
- * Copyright (c) 2004, 2006 IBM Corporation and others.
+/*
+ * Copyright (c) 2012 Diamond Light Source Ltd.
+ *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *******************************************************************************/
+ */
 package org.dawnsci.internal.intro.universal;
 
 import org.dawnsci.internal.intro.universal.util.Log;
