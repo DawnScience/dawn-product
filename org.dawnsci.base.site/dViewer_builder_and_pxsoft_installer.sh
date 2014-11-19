@@ -32,7 +32,7 @@ while true; do
   fi
   #Checking if git command is available and if yes, the output folder is not in git repository
   echo "Checking if output folder ${WORKSPACE_PATH} is not in git repository."
-  git --version >/dev/null
+  (git --version >/dev/null)
   error=$?
   if [ ${error} -ne 0 ]; then
     echo "Error (${error}): git command is unavailable"
@@ -46,7 +46,7 @@ while true; do
     break
   fi
   #Checking if zip is available
-  (zip 1>/dev/nul 2>&1)
+  (zip 1>/dev/null 2>&1)
   error=$?
   if [ ${error} -ne 0 ]; then
     printf "Error (${error}): zip does not exist\n"
