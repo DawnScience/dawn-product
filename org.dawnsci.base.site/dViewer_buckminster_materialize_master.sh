@@ -149,7 +149,7 @@ while true; do
     break
   fi
   DVIEWER_JRE_PATH="dawnvanilla_git/dawn-product.git/org.dawnsci.base.site/jre-images/dawn-${DVIEWER_VERSION}/installed"
-  if [[ ! -d "dawnvanilla_git/dawn-product.git/.git" ]; then
+  if [[ ! -d "dawnvanilla_git/dawn-product.git/.git" ]]; then
     error=1
     echo "Error (${error}): dawn-product.git does not exist"
     break
