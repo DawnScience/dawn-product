@@ -148,6 +148,16 @@ while true; do
     echo "Error (${error}): can not clean previous buckminster products"
     break
   fi
+  DVIEWER_JRE_PATH="dawnvanilla_git/dawn-product.git/org.dawnsci.base.site/jre-images/dawn-${DVIEWER_VERSION}/installed"
+  if [[ ! -d "dawnvanilla_git/dawn-product.git/.git" ]; then
+    error=1
+    echo "Error (${error}): dawn-product.git does not exist"
+    break
+  fi
+  mkdir -p "${DVIEWER_JRE_PATH}"
+  JRE_RELPATH="../../../../../../.."
+  ln -s "${JRE_RELPATH}/jre-7u45-linux-i586.tar.gz" "${DVIEWER_JRE_PATH}/jre-7u45-linux-i586.tar.gz"
+  ln -s "${JRE_RELPATH}/jre-7u45-linux-x64.tar.gz" "${DVIEWER_JRE_PATH}/jre-7u45-linux-x64.tar.gz"
   echo "Building ${PRODUCT_NAME_VERSION} workspace and ${PRODUCT_ID} Eclipse based product(s), then zip the product(s), this will take time."
   python ${BUILDER_WITH_COMMON_ARGS} product.zip org.dawnsci.base.site linux32 linux64 >${BUILD_LOG_FILE} 2>&1
   error=$?
