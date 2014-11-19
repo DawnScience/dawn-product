@@ -30,8 +30,6 @@ openFile
 -Dorg.dawb.editor.h5.use.default=true
 -Dosgi.locking=none
 -Dorg.dawnsci.passerelle.do.not.break.osgi=true
--Dorg.embl.cca.dviewer.enabled=true
--Dorg.dawb.workbench.ui.editors.plotimageeditor.disabled=false
 -Dorg.dawb.editor.ascii.hide.diamond.image.editor=true
 -DdViewer=true
 -DdViewerImagePort=5000
@@ -52,7 +50,6 @@ openFile
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>
