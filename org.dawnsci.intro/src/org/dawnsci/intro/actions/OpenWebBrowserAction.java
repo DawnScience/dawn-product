@@ -1,6 +1,5 @@
-/*-
- * Copyright (c) 2012 European Synchrotron Radiation Facility,
- *                    Diamond Light Source Ltd.
+/*
+ * Copyright (c) 2012 Diamond Light Source Ltd.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -9,13 +8,10 @@
  */
 package org.dawnsci.intro.actions;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Properties;
 
+import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.intro.IIntroSite;
 import org.eclipse.ui.intro.config.IIntroAction;
 
@@ -32,22 +28,13 @@ public class OpenWebBrowserAction implements IIntroAction {
 	@Override
 	public void run(IIntroSite site, Properties params) {
 		final String url = params.getProperty(ATT_URL);
-		
+
 		//run the appropriate launcher
 		Display.getDefault().asyncExec(new Runnable(){
 			@Override
 			public void run() {
-				try {
-					PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser().openURL(new URL(url));
-				} catch (PartInitException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Program.launch(url);
 			}
-			
 		});
 	}
 }
