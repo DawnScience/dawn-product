@@ -24,6 +24,12 @@ BUILDER_PATH="${WORKSPACE_PATH}/${BUILDER_FOLDER}"
 umask g+w
 error=0
 while true; do
+  #Checking if dViewer version is specified  
+  if [[ "${DVIEWER_VERSION}" == "" ]]; then
+    error=1
+    printf "Error (${error}): DVIEWER_VERSION is not specified\n"
+    break
+  fi
   #Checking if git command is available and if yes, the output folder is not in git repository
   echo "Checking if output folder ${WORKSPACE_PATH} is not in git repository."
   git --version >/dev/null
@@ -37,6 +43,13 @@ while true; do
   if [ ${error} -eq 0 ]; then
     error=1
     echo "Error (${error}): output folder ${WORKSPACE_PATH} is in git repository"
+    break
+  fi
+  #Checking if zip is available
+  (zip 1>/dev/nul 2>&1)
+  error=$?
+  if [ ${error} -ne 0 ]; then
+    printf "Error (${error}): zip does not exist\n"
     break
   fi
   error=0
