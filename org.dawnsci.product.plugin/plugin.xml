@@ -46,7 +46,7 @@
          </property>
          <property
                name="aboutText"
-               value="dViewer (Diffraction Viewer based on Data Analysis Workbench [DAWN])&#x0A;Copyright, 2010 - 2014, DAWN Collaboration&#x0A;&#x0A;Version 1.6">
+               value="dViewer (Diffraction Viewer based on Data Analysis Workbench [DAWN])&#x0A;Copyright, 2010 - 2014, DAWN Collaboration&#x0A;&#x0A;Version 1.7">
          </property>
       </product>
    </extension>
