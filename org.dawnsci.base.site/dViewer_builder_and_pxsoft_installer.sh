@@ -46,7 +46,7 @@ while true; do
     break
   fi
   #Checking if zip is available
-  (zip 1>/dev/null 2>&1)
+  (zip -h 1>/dev/null 2>&1)
   error=$?
   if [ ${error} -ne 0 ]; then
     printf "Error (${error}): zip does not exist\n"
