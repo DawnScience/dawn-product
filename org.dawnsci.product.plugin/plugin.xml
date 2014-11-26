@@ -3,7 +3,7 @@
 <plugin>
 
    <extension
-         id="dViewer"
+         id="DAWN"
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
