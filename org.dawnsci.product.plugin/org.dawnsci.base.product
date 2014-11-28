@@ -20,7 +20,8 @@ Version 1.7
       <programArgs>-showLocation
 --launcher.defaultAction
 openFile
---launcher.appendVmargs</programArgs>
+--launcher.appendVmargs
+-hkl</programArgs>
       <vmArgs>-Xms256m
 -Xmx1024m
 -XX:PermSize=128m
