@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Dawn" uid="org.dawnsci.nano.product" id="org.dawnsci.nano.product.plugin.DAWN" application="org.eclipse.ui.ide.workbench" version="1.7.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/org.dawnsci.nano.product.plugin/icons/Dawn-210x238-about.png"/>
+      <text>
+         Data Analysis WorkbeNch 
+Copyright, 2010 - 2014, Diamond Light Source
+
+Version 1.6
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-showLocation
+--launcher.defaultAction
+openFile
+--launcher.appendVmargs</programArgs>
+      <vmArgs>-Xms256m
+-Xmx1024m
+-XX:PermSize=128m
+-XX:MaxPermSize=256m
+-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false
+-Dorg.eclipse.swt.internal.gtk.useCairo=false
+-Dosgi.requiredJavaVersion=1.7.0
+-Dcom.isencia.require.file.source=true
+-Dorg.dawb.editor.h5.use.default=true
+-Dosgi.locking=non
+-Dorg.dawnsci.passerelle.do.not.break.osgi=true</vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/org.dawnsci.nano.product.plugin/icons/Temp-16x16-icon.png" i48="/org.dawnsci.nano.product.plugin/icons/Temp-48x48-icon.png"/>
+
+   <splash
+      location="org.dawnsci.nano.product.plugin"
+      startupProgressRect="0,245,600,15"
+      startupMessageRect="0,20,200,20"
+      startupForegroundColor="000000" />
+   <launcher name="dawn">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <intro introId="org.dawnsci.intro.intro"/>
+
+   <vm>
+   </vm>
+
+   <license>
+        <url>http://www.apache.org/licenses/</url>
+        <text>
+   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+
+See the License for the specific language governing permissions and limitations under the License.
+         </text>
+   </license>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.dawnsci.nano.product.feature" version="1.8.0.qualifier"/>
+   </features>
+
+   <configurations>
+      <property name="preferenceCustomization" value="platform:/feature/uk.ac.diamond.dawn.base.product.feature/plugin_customization.ini" />
+   </configurations>
+
+</product>
