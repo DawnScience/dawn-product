@@ -43,7 +43,7 @@
             id="org.dawnsci.intro.configId"
             introId="org.dawnsci.intro">
          <presentation
-               home-page-id="root">
+               home-page-id="perspectives">
             <implementation
                   kind="html"
                   os="win32,linux,macosx">
@@ -55,7 +55,7 @@
             id="uk.ac.diamond.dawn.intro.introConfigId"
             introId="uk.ac.diamond.dawn.intro">
          <presentation
-               home-page-id="root">
+               home-page-id="perspectives">
             <implementation
                   kind="html"
                   os="win32,linux,macosx"
@@ -68,7 +68,7 @@
             id="uk.ac.diamond.dawn.base.intro.introConfigId"
             introId="uk.ac.diamond.dawn.base.intro">
          <presentation
-               home-page-id="root">
+               home-page-id="perspectives">
             <implementation
                   kind="html"
                   os="win32,linux,macosx"
