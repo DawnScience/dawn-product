@@ -5,57 +5,83 @@
 		<group style-id="content-group" id="whatsnew-group">
 
 <text style-id="page-title" filteredFrom="swt">
-	&lt;b&gt;DAWN 1.6 contains many new features, and bug fixes; below are some of the main ones.&lt;&#47;b&gt;
+	RELEASE NOTES FOR DAWN 1.9.0 'Owl'
 </text>
+
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-New UI for the Region Editor: TableViewer replaced by a TreeViewer in order to support other ROIs (only lines and box were supported in the previous one) and various bug fixes for value editing, updates, etc.
-&lt;&#47;i&gt;
-</text>
-<text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt;
-New MAR3450 loader available.
-&lt;&#47;i&gt;
-</text>
-<text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt;
-New ROI interfaces (backward compatible additions) available.
+1. Use the '-data' switch to specify a different workspace if the disk access at your facility
+   is slow or restricted in the default location. 
+   For instance: dawn -data /scratch/dawn_workspace
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Jython linespace and logspace bug fixes.
+2. Toolbar actions on linux can be hidden using the plotting. If the part becomes small, instead 
+   of wrapping, some toolbar actions disappear. They can normally be found on the menu to the 
+   right of the toolbar (the white down arrow).
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Selection regions refactored .
+3. To reliably find the Dawn version you are using go to:
+   * Help->About Dawn.
+&lt;&#47;i&gt;
+</text>
+
+
+<text style-id="page-title" filteredFrom="swt">
+
+Workflows:
+---------------
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+1. Workflows are not supported on Windows XP, 32-bit.
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-All ROIs made by regions are now named.
+2. Workflows do not support Jython actors.
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Renamed ADataset interface to Dataset and recommend using Dataset.FLOAT64 etc instead of AbstractDataset.FLOAT64, with a plan to migrate slowly over to using Dataset and its new factory class instead of AbstractDataset and add a CompoundDataset sub-interface too.
+3. If using the .zip download version of Dawn, on Linux 32: It is sometimes necessary to delete 
+   the 'jre' folder from the install location. This is due to file permissions. 
+   Try doing this if your version does not work on linux and you installed it from a .zip file.
 &lt;&#47;i&gt;
-</text><text style-id="page-title" filteredFrom="swt">
+</text>
+<text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Implemented an algorithm for identifying bad frames in processed data (eg. radiation damage) for exclusion from the final averaging stage in NCD.
+4. If using workflows at Diamond using 'module load dawn/beta' they may not run. In this case do the following:
+   * Try to run a workflow, get a cryptic error about the "jre".
+   * Open the run configuration 'WorkflowConfiguration' go to the runtime jre setting and click on 'installed jres...'
+   * Define a jre with the location on linux64 at Diamond of '/dls_sw/apps/java/x64/jdk1.6.0_38/jre' for linux 64-bit.
 &lt;&#47;i&gt;
-</text><text style-id="page-title" filteredFrom="swt">
+</text>
+<text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Calculate true SAXS invariant value instead of total scattered intensity using Porod fit data.
+5. On windows the firewall can sometimes block the workflow which brings up a windows firewall dialog 
+   and stops the workflow from working. If this happens allow the connection and restart the workflow.
 &lt;&#47;i&gt;
-</text><text style-id="page-title" filteredFrom="swt">
+</text>
+<text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Powder integration tool which allows 2D powder images to be reduced to 1D data (~ 10 fps) if a calibrated nexus file is supplied.
+6. If you try to run a workflow from a workspace path with spaces, the run/debug configuration 
+   has to be changed to include quotes around the model path: -Dmodel="${workspace_loc}${selected_resource_path}" 
 &lt;&#47;i&gt;
-</text><text style-id="page-title" filteredFrom="swt">
+</text>
+<text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Image integration routines can also be called from Jython.
+ Alternatively you can start dawn with a different workspace path 'dawn -data [another path]' one 
+ without spaces in the path. Edna actors usually do not work with spaces in the run path.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+7. When using the Python actor in the workflows, you must declare something for 'Dataset Outputs'. 
+   If you do not read information back into the workflow, create a dummy variable for this.
 &lt;&#47;i&gt;
 </text>
        	</group>
