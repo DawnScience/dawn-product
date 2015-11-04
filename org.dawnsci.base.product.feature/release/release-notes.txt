@@ -18,6 +18,7 @@ New features:
 *Spline baseline subtraction added to processing perspective.
 *New Terrain colour map.
 *Ability to turn on/off the display of intensity labels on zoomed-in images.
+*Wildcard loading and combining XY wizard added to Trace perspective.
 
 Improvements and bug fixes:
 *Improvements to the Powder diffraction calibration – better optimizer giving more precise and slightly faster calibration.
