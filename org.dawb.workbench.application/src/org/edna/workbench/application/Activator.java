@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.dawb.common.util.eclipse.BundleUtils;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -42,21 +43,20 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		
-		Activator.createLoggingProperties(context);
-		Activator.createJavaProperties(context);
-		Activator.createJythonProperties(context);
-		//Environment.createEnvironmentVariables("uk.ac.gda.nexus", "LD_LIBRARY_PATH", "PATH");
+		File appHome = BundleUtils.getBundleLocation(context.getBundle());
+
+		createLoggingProperties(appHome);
+		createJavaProperties(appHome);
+		createJythonProperties(appHome);
 		
 		super.start(context);
 		plugin = this;
 	}
 
-	private static void createJythonProperties(BundleContext context) throws IOException {
-		
+	private static void createJythonProperties(File appHome) throws IOException {
 		if (System.getProperty("python.cachedir")!=null) return;
 		
-		final File appHome   = org.dawb.common.util.eclipse.BundleUtils.getBundleLocation(context.getBundle());
-		final File cacheDir  = new File(appHome+"/../python-cache");
+		final File cacheDir  = new File(appHome.getParentFile(), "python-cache");
 		if (!cacheDir.exists()) cacheDir.mkdirs();
 		System.setProperty("python.cachedir", cacheDir.getAbsolutePath());
 	}
@@ -64,15 +64,14 @@ public class Activator extends AbstractUIPlugin {
 	/**
 	 * Simply sets the configuration property. For some reason even though we have logback.xml
 	 * in the class path, we need to set the property.
-	 * @param context
+	 * @param appHome
 	 * @throws IOException 
 	 */
-	private static void createLoggingProperties(BundleContext context) throws IOException {
+	private static void createLoggingProperties(File appHome) throws IOException {
 		
 		if (System.getProperty("logback.configurationFile")!=null) return;
 		
-		final File appHome   = org.dawb.common.util.eclipse.BundleUtils.getBundleLocation(context.getBundle());
-		final File propsFile = new File(appHome+"/config/logback.xml");
+		final File propsFile = new File(new File(appHome, "config"), "logback.xml");
 		System.setProperty("logback.configurationFile", propsFile.getAbsolutePath());
 		
 		// For some reason slf4j still gives log4j errors, so we also configure log4j here:
@@ -82,14 +81,13 @@ public class Activator extends AbstractUIPlugin {
 
 	/**
 	 * Adds to the system properties from a file called java.properties.
-	 * @param context
+	 * @param appHome
 	 * @throws IOException
 	 */
-	private static void createJavaProperties(BundleContext context) throws IOException {
+	private static void createJavaProperties(File appHome) throws IOException {
 		
 		// See if we have a java.properties and load it if do
-		final File appHome   = org.dawb.common.util.eclipse.BundleUtils.getBundleLocation(context.getBundle());
-		final File propsFile = new File(appHome+"/config/java.properties");
+		final File propsFile = new File(new File(appHome, "config"), "java.properties");
 		if (propsFile.exists()) {
 			// TODO Find PropUtils that was a trusty old class for doing this.
 			final Properties existingProps = System.getProperties();
