@@ -1,0 +1,20 @@
+--- dawn/plugin.xml.tmp	2016-03-19 14:54:45.172761544 +0000
++++ dViewer/plugin.xml.tmp	2016-03-20 17:39:31.176026201 +0000
+@@ -11,7 +11,7 @@
+       </intro>-->
+       <intro
+             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+-            icon="icons/Temp-16x16-icon.png"
++            icon="icons/dViewer-16x16-icon.png"
+             id="org.dawnsci.intro">
+       </intro>
+       <introProductBinding
+@@ -20,7 +20,7 @@
+       </introProductBinding>
+       <intro
+             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+-            icon="icons/Temp-16x16-icon.png"
++            icon="icons/dViewer-16x16-icon.png"
+             id="uk.ac.diamond.dawn.intro">
+       </intro>
+       <introProductBinding

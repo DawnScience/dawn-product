@@ -1,0 +1,158 @@
+#!/bin/bash
+
+#TODO: Checking if a file is already patched. It is important after an interrupted patching.
+VERSION_ID="_VERSION_"
+DATEYEAR_ID="_DATEYEAR_"
+TMP_END=".tmp" #Do not change it, because it's hardcoded in patch files!
+DVIEWER_PATCH_END=".dViewer.patch"
+
+#Do not change FILES[0], because it's used to determine RELEASE_VERSION and RELEASE_DATEYEAR!
+FILES=(
+ "org.dawnsci.base.product.feature/feature.xml"
+ "org.dawnsci.base.product.feature/release/release-notes.txt"
+ "org.dawnsci.product.plugin/org.dawnsci.base.product"
+ "org.dawnsci.product.plugin/plugin.xml"
+ "org.dawnsci.base.site/feature.xml"
+ "org.dawnsci.base.site/buckminster.diamond.jenkins.properties"
+ "org.dawnsci.base.site/buckminster.properties"
+ "org.dawnsci.intro/plugin.xml"
+ "org.dawnsci.product.plugin/plugin_customization.ini"
+ "org.dawnsci.product.plugin/introLayout.xml"
+ "org.dawnsci.product.plugin/build.properties"
+ "org.dawnsci.intro/content/about.html"
+ "org.dawnsci.intro/content/contact.html"
+ "org.dawnsci.intro/content/help.html"
+ "org.dawnsci.intro/content/inprogress.html"
+ "org.dawnsci.intro/content/perspectives.html"
+ "org.dawnsci.intro/content/singleperspective.html"
+ "org.dawnsci.intro/intro/whatsnew.xml"
+)
+
+PRODUCT_FEATURE_FILE="${FILES[0]}"
+#Get the release date
+RELEASE_DATEYEAR=$(grep -o "Copyright (c) 20[[:digit:]][[:digit:]]" "${PRODUCT_FEATURE_FILE}" | grep -o "20[[:digit:]][[:digit:]]")
+#"
+if [[ -z ${RELEASE_DATEYEAR} ]]; then
+  printf "RELEASE_DATEYEAR could not be found\n"
+  exit 1
+fi
+#Get the release version
+RELEASE_VERSION=$(grep -o "version=\"[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\.qualifier" "${PRODUCT_FEATURE_FILE}" | grep -o "[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+")
+if [[ -z ${RELEASE_VERSION} ]]; then
+  printf "RELEASE_VERSION could not be found\n"
+  exit 1
+fi
+
+BEFORE_PATCH=(
+ "sed -r -e s/version=\"[0-9]+(.[0-9]+)*.qualifier/version=\"${VERSION_ID}.qualifier/ \
+ -e s/Copyright\ \\\(c\\\)\ 20[0-9][0-9]/Copyright\ \\\(c\\\)\ ${DATEYEAR_ID}/"
+ "sed -r -e s/FOR\ DAWN\ [0-9]+(.[0-9]+)*/FOR\ DAWN\ ${VERSION_ID}/"
+ "sed -r -e s/version=\"[0-9]+(.[0-9]+)*.qualifier/version=\"${VERSION_ID}.qualifier/ \
+ -e s/Copyright,\ 2010\ -\ 20[0-9][0-9]/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/ \
+ -e s/Version\ 1.6/Version\ ${VERSION_ID}/"
+ "sed -r -e s/Copyright,\ 2010\ -\ 20[0-9][0-9]/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/ \
+ -e s/Version\ [0-9]+(.[0-9]+)*/Version\ ${VERSION_ID}/"
+ "sed -r -e s/version=\"[0-9]+(.[0-9]+)*.qualifier/version=\"${VERSION_ID}.qualifier/"
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ "sed -r -e s/FOR\ DAWN\ [0-9]+(.[0-9]+)*/FOR\ DAWN\ ${VERSION_ID}/"
+)
+AFTER_PATCH=(
+ "sed -i -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/ \
+ -e s/Copyright\ \\\(c\\\)\ ${DATEYEAR_ID}/Copyright\ \\\(c\\\)\ ${RELEASE_DATEYEAR}/"
+ "sed -i -r -e s/FOR\ DAWN\ ${VERSION_ID}/FOR\ DAWN\ ${RELEASE_VERSION}/"
+ "sed -i -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/ \
+ -e s/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/Copyright,\ 2010\ -\ ${RELEASE_DATEYEAR}/ \
+ -e s/Version\ ${VERSION_ID}/Version\ ${RELEASE_VERSION}/"
+ "sed -i -r -e s/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/Copyright,\ 2010\ -\ ${RELEASE_DATEYEAR}/ \
+ -e s/Version\ ${VERSION_ID}/Version\ ${RELEASE_VERSION}/"
+ "sed -i -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/"
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ ""
+ "sed -i -r -e s/FOR\ DAWN\ ${VERSION_ID}/FOR\ DAWN\ ${RELEASE_VERSION}/"
+)
+
+error=0
+for i in "${!FILES[@]}"; do
+  FILENAME="${FILES[$i]}"
+  PRE_PATCH="${BEFORE_PATCH[$i]}"
+  POST_PATCH="${AFTER_PATCH[$i]}"
+  FILENAME_TMP="${FILENAME}${TMP_END}"
+  PATCH_FILENAME="${FILENAME}${DVIEWER_PATCH_END}"
+
+  #Restore HEAD version of file
+  git reset HEAD "${FILENAME}"
+  if [[ ${?} -ne 0 ]]; then
+    printf "Restoring HEAD version of ${FILENAME} failed\n"
+    error=10
+    break
+  fi
+  #Preprocess file (replace <DATE>s and <VERSION>s with ${VERSION_ID} and ${DATEYEAR_ID}) into tmp file before patching
+  if [[ -n "${PRE_PATCH}" ]]; then
+    read -a arr <<< "${PRE_PATCH}"
+    $("${arr[@]}" "${FILENAME}" >"${FILENAME_TMP}")
+    if [[ ${?} -ne 0 ]]; then
+      printf "Preprocessing (preparing) ${FILENAME} failed\n"
+      error=2
+      break
+    fi
+  else
+    cp -f "${FILENAME}" "${FILENAME_TMP}"
+    if [[ ${?} -ne 0 ]]; then
+      printf "Preprocessing (copying) ${FILENAME} failed\n"
+      error=3
+      break
+    fi
+  fi
+  #Apply patch in tmp file
+  if [[ -f "${PATCH_FILENAME}" ]]; then
+    patch -d "$(dirname "${FILENAME_TMP}")" -p1 <"${PATCH_FILENAME}" >/dev/null
+    if [[ ${?} -ne 0 ]]; then
+      printf "Patching ${FILENAME} by ${PATCH_FILENAME} failed\n"
+      error=4
+      break
+    fi
+  fi
+  #Postprocess file (replace ${VERSION_ID} and ${DATEYEAR_ID} with ${RELEASE_DATEYEAR} and ${RELEASE_VERSION}) in tmp file after patching
+  if [[ -n "${POST_PATCH}" ]]; then
+    read -a arr <<< "${POST_PATCH}"
+    $("${arr[@]}" "${FILENAME_TMP}")
+    if [[ ${?} -ne 0 ]]; then
+      printf "Postprocessing ${FILENAME_TMP} failed\n"
+      error=5
+      break
+    fi
+  fi
+  #Finalize changes
+  mv -f "${FILENAME_TMP}" "${FILENAME}"
+  if [[ ${?} -ne 0 ]]; then
+    printf "Preprocessing (copying) ${FILENAME} failed\n"
+    error=6
+    break
+  fi
+done
+if [[ ${error} -ne 0 ]]; then
+  exit ${error}
+fi
+
+exit 0

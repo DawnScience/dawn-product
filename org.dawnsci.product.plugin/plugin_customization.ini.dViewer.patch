@@ -1,0 +1,11 @@
+--- dawn/plugin_customization.ini.tmp	2016-03-17 16:37:12.000000000 +0000
++++ dViewer/plugin_customization.ini.tmp	2016-03-18 15:25:08.728734133 +0000
+@@ -15,7 +15,7 @@
+ org.eclipse.ui.editors/showWhitespaceCharacters = true
+ org.eclipse.ui.editors/spacesForTabs = true
+ org.eclipse.ui/DOCK_PERSPECTIVE_BAR = topRight
+-org.eclipse.ui/defaultPerspectiveId = org.edna.workbench.application.perspective.DataPerspective
++org.eclipse.ui/defaultPerspectiveId = org.embl.cca.dviewer.rcp.perspectives.DViewerPerspective
+ org.eclipse.ui/SHOW_TRADITIONAL_STYLE_TABS = false
+ org.eclipse.ui.intro/INTRO_THEME = org.dawnsci.intro.universal.dawn
+ 

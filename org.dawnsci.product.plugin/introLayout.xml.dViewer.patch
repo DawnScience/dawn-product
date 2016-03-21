@@ -1,0 +1,10 @@
+--- dawn/introLayout.xml.tmp	2016-03-17 16:37:12.000000000 +0000
++++ dViewer/introLayout.xml.tmp	2016-03-17 10:18:01.000000000 +0000
+@@ -51,6 +51,7 @@
+       <group path="page-content/bottom-right" default="true">
+       </group>
+       <group path="page-content/top-left">
++         <extension id="dviewer-perspective-extension" importance="low"/>
+          <extension id="databrowsing-perspective-extension" importance="low"/>
+          <extension id="dexplore-perspective-extension" importance="low"/>
+          <extension id="prerelease-perspectives" importance="low"/>

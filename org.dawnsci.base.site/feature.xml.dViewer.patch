@@ -1,0 +1,25 @@
+--- dawn/feature.xml.tmp	2016-03-17 16:37:11.000000000 +0000
++++ dViewer/feature.xml.tmp	2016-03-17 10:18:01.000000000 +0000
+@@ -5,16 +5,16 @@
+       version="_VERSION_.qualifier"
+       provider-name="Dawn Collaboration">
+ 
+-   <description url="http://www.example.com/description">
+-      [Enter Feature Description here.]
++   <description url="http://www.dawnsci.org/">
++      Data Analysis WorkbeNch (DAWN) is an eclipse based workbench for doing scientific data analysis.
+    </description>
+ 
+-   <copyright url="http://www.example.com/copyright">
+-      [Enter Copyright Description here.]
++   <copyright url="http://www.dawnsci.org/">
++      See webpage.
+    </copyright>
+ 
+-   <license url="http://www.example.com/license">
+-      [Enter License Description here.]
++   <license url="http://www.dawnsci.org/collaborate">
++      See webpage.
+    </license>
+ 
+    <includes

@@ -1,0 +1,11 @@
+--- dawn/buckminster.diamond.jenkins.properties.tmp	2016-03-17 10:18:01.000000000 +0000
++++ dViewer/buckminster.diamond.jenkins.properties.tmp	2016-03-19 09:49:32.837316262 +0000
+@@ -25,7 +25,7 @@
+ # ${action.datetime}                                                            20130228-1202 (nb: not the same date and time as product.version.qualifier)
+ # ${action.date}                                                                20130228
+ product.parent.directory.location=${buckminster.root.prefix}/products
+-product.directory.name=DawnVanilla-${product.version.full}-${product.osname}${product.bits}
++product.directory.name=dViewer-${product.version.full}-${product.osname}${product.bits}
+ product.directory.fail.if.already.exists=true
+ zip.file.name=${product.directory.name}
+ zip.include.parent.directory=true

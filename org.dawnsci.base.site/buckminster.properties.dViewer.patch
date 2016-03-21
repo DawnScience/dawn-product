@@ -1,0 +1,29 @@
+--- dawn/buckminster.properties.tmp	2016-03-17 16:37:11.000000000 +0000
++++ dViewer/buckminster.properties.tmp	2016-03-18 10:45:04.698417398 +0000
+@@ -3,7 +3,7 @@
+ ###
+ # Where the intermediate output should go. You do not normally need to delete previous output (if it is incomplete or out of date, it will be rebuilt as necessary).
+ # On Linux, ${java.io.tmpdir} defaults to /tmp. On Windows, ${java.io.tmpdir} defaults to the results of Window's GetTempPath API.
+-buckminster.root.prefix=${java.io.tmpdir}/org.dawnsci.base.site
++buckminster.root.prefix=${java.io.tmpdir}/org.dawnsci.base.site.dViewer
+ buckminster.output.root=${buckminster.root.prefix}/output
+ buckminster.temp.root=${buckminster.root.prefix}/buildtmp
+ buckminster.output.root.delete.previous=true
+@@ -23,7 +23,7 @@
+ # ${action.datetime}                                                            20130228-1202 (nb: not the same date and time as product.version.qualifier)
+ # ${action.date}                                                                20130228
+ product.parent.directory.location=${buckminster.root.prefix}/products
+-product.directory.name=DawnVanilla-${product.version.full}-${product.osname}${product.bits}
++product.directory.name=dViewer-${product.version.full}-${product.osname}${product.bits}
+ product.directory.fail.if.already.exists=false
+ zip.file.name=${product.directory.name}
+ zip.include.parent.directory=true
+@@ -35,7 +35,7 @@
+ # A JRE can optionally be included in the created product for selected platforms.
+ # Such JREs need to be provided to the build in ${include.jre.parent.loc}/${include.jre.release}/*
+ jre.include=false
+-jre.include.parent.loc=/path/to/jre-images
++jre.include.parent.loc=jre-images
+ jre.include.release=dawn-${product.version.major.minor}/installers
+ # JREs can be included in builds for either "all" platforms, or just those specified in a comma separated list
+ #jre.include.platforms=all
