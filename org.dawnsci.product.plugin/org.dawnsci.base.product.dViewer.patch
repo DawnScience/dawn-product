@@ -1,6 +1,6 @@
---- dawn/org.dawnsci.base.product.tmp	2016-03-17 16:37:12.000000000 +0000
-+++ dViewer/org.dawnsci.base.product.tmp	2016-03-17 10:18:01.000000000 +0000
-@@ -1,15 +1,15 @@
+--- dawn/org.dawnsci.base.product.tmp	2016-03-21 18:19:46.461972862 +0000
++++ dViewer/org.dawnsci.base.product.tmp	2016-03-21 18:21:27.323595277 +0000
+@@ -1,13 +1,13 @@
  <?xml version="1.0" encoding="UTF-8"?>
  <?pde version="3.5"?>
  
@@ -18,8 +18,6 @@
  
  Version _VERSION_
        </text>
-    </aboutInfo>
- 
 @@ -21,39 +21,39 @@
  --launcher.defaultAction
  openFile
