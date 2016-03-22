@@ -175,6 +175,13 @@ for i in "${!FILES[@]}"; do
       error=4
       break
     fi
+  else
+    cp -f "${FILENAME_TMP}" "${FILENAME}"
+    if [[ ${?} -ne 0 ]]; then
+      printf "Postprocessing (copying) ${FILENAME_TMP} failed\n"
+      error=51
+      break
+    fi
   fi
 done
 if [[ ${error} -ne 0 ]]; then
