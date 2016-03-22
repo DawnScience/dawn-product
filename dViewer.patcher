@@ -200,7 +200,7 @@ if [[ ${?} -ne 0 ]]; then
 fi
 
 #Rsync (mirroring) this directory into TMP_PATH omitting .git directory and TMP_END files
-rsync -a --exclude="*.${DVIEWER_PATCH_END}" --exclude="*${TMP_END}" --exclude="$(basename "${0}")" "${CURRENT_PATH}/" "${REPOSITORY_PATH}/"
+rsync -a --exclude="*${DVIEWER_PATCH_END}" --exclude="*${TMP_END}" --exclude="$(basename "${0}")" "${CURRENT_PATH}/" "${REPOSITORY_PATH}/"
 if [[ ${?} -ne 0 ]]; then
   printf "Rsyncing (mirroring) this directory ${CURRENT_PATH}/ into ${REPOSITORY_PATH}/ failed\n"
   exit 51
