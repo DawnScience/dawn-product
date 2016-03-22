@@ -37,9 +37,9 @@ openFile
    <windowImages i16="/org.dawnsci.product.plugin/icons/dViewer-16x16-icon.png" i48="/org.dawnsci.product.plugin/icons/dViewer-48x48-icon.png"/>
 
    <splash
-      location="org.embl.cca.dviewer"
+      location="org.dawnsci.product.plugin"
       startupProgressRect="0,513,1224,15"
-      startupMessageRect="10,10,200,20"
+      startupMessageRect="10,10,1204,15"
       startupForegroundColor="FFFFFF" />
    <launcher name="dViewer">
       <linux icon="/org.dawnsci.product.plugin/icons/dViewer-icon.xpm"/>
