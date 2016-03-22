@@ -17,9 +17,9 @@
 +               icons/dViewer-DAWN-96x96-icon.xcf,\
 +               icons/dViewer-controls-16x16-icon.xcf,\
 +               icons/dViewer-view-16x16-icon.xcf,\
-+               icons/dViewer-HKL-16x16-icon.xcf\
-+               icons/dViewer-256x256-icon.xcf\
-+               icons/dViewer-32x32-icon.xcf\
-+               icons/dViewer-64x64-icon.xcf\
++               icons/dViewer-HKL-16x16-icon.xcf,\
++               icons/dViewer-256x256-icon.xcf,\
++               icons/dViewer-32x32-icon.xcf,\
++               icons/dViewer-64x64-icon.xcf,\
 +               icons/dViewer-icon.xcf
  jre.compilation.profile = JavaSE-1.7
