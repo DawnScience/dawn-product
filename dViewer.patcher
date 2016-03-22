@@ -1,10 +1,32 @@
 #!/bin/bash
 
-#TODO: Checking if a file is already patched. It is important after an interrupted patching.
 VERSION_ID="_VERSION_"
 DATEYEAR_ID="_DATEYEAR_"
-TMP_END=".tmp" #Do not change it, because it's hardcoded in patch files!
+VARTMP_END=".var.tmp" #Ending of original file with replaced <DATE>s and <VERSION>s
+TMP_END=".tmp"
 DVIEWER_PATCH_END=".dViewer.patch"
+
+CURRENT_PATH="$(pwd)"
+TMP_PATH="$(dirname "${CURRENT_PATH}")/_dViewer.tmp_"
+
+#If not running in TMP_PATH, run this there, because switching branch must be done outside of branch
+if [[ ${CURRENT_PATH} != ${TMP_PATH} ]]; then
+  #Rsync (mirroring) this directory into TMP_PATH omitting .git directory and TMP_END files
+  rsync -a --delete-during --delete-excluded --exclude=".git" --exclude="*${TMP_END}" "${CURRENT_PATH}/" "${TMP_PATH}/"
+  if [[ ${?} -ne 0 ]]; then
+    printf "Rsyncing (mirroring) this directory ${CURRENT_PATH}/ into ${TMP_PATH}/ failed\n"
+    exit 51
+  fi
+  #Run this file in TMP_PATH
+  cd "${TMP_PATH}"
+  if [[ ${?} -ne 0 ]]; then
+    printf "Changing directory ${TMP_PATH} failed\n"
+    exit 54
+  fi
+  TMP_FILENAME="${TMP_PATH}/$(basename "${0}")"
+  "${TMP_FILENAME}" "${@}" "${CURRENT_PATH}"
+  exit ${?}
+fi
 
 #Do not change FILES[0], because it's used to determine RELEASE_VERSION and RELEASE_DATEYEAR!
 FILES=(
@@ -33,13 +55,13 @@ PRODUCT_FEATURE_FILE="${FILES[0]}"
 RELEASE_DATEYEAR=$(grep -o "Copyright (c) 20[[:digit:]][[:digit:]]" "${PRODUCT_FEATURE_FILE}" | grep -o "20[[:digit:]][[:digit:]]")
 #"
 if [[ -z ${RELEASE_DATEYEAR} ]]; then
-  printf "RELEASE_DATEYEAR could not be found\n"
+  printf "RELEASE_DATEYEAR could not be found in ${PRODUCT_FEATURE_FILE}\n"
   exit 1
 fi
 #Get the release version
 RELEASE_VERSION=$(grep -o "version=\"[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\.qualifier" "${PRODUCT_FEATURE_FILE}" | grep -o "[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+")
 if [[ -z ${RELEASE_VERSION} ]]; then
-  printf "RELEASE_VERSION could not be found\n"
+  printf "RELEASE_VERSION could not be found in ${PRODUCT_FEATURE_FILE}\n"
   exit 1
 fi
 
@@ -49,7 +71,7 @@ BEFORE_PATCH=(
  "sed -r -e s/FOR\ DAWN\ [0-9]+(.[0-9]+)*/FOR\ DAWN\ ${VERSION_ID}/"
  "sed -r -e s/version=\"[0-9]+(.[0-9]+)*.qualifier/version=\"${VERSION_ID}.qualifier/ \
  -e s/Copyright,\ 2010\ -\ 20[0-9][0-9]/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/ \
- -e s/Version\ 1.6/Version\ ${VERSION_ID}/"
+ -e s/Version\ [0-9]+(.[0-9]+)*/Version\ ${VERSION_ID}/"
  "sed -r -e s/Copyright,\ 2010\ -\ 20[0-9][0-9]/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/ \
  -e s/Version\ [0-9]+(.[0-9]+)*/Version\ ${VERSION_ID}/"
  "sed -r -e s/version=\"[0-9]+(.[0-9]+)*.qualifier/version=\"${VERSION_ID}.qualifier/"
@@ -68,15 +90,15 @@ BEFORE_PATCH=(
  "sed -r -e s/FOR\ DAWN\ [0-9]+(.[0-9]+)*/FOR\ DAWN\ ${VERSION_ID}/"
 )
 AFTER_PATCH=(
- "sed -i -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/ \
+ "sed -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/ \
  -e s/Copyright\ \\\(c\\\)\ ${DATEYEAR_ID}/Copyright\ \\\(c\\\)\ ${RELEASE_DATEYEAR}/"
- "sed -i -r -e s/FOR\ DAWN\ ${VERSION_ID}/FOR\ DAWN\ ${RELEASE_VERSION}/"
- "sed -i -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/ \
+ "sed -r -e s/FOR\ DAWN\ ${VERSION_ID}/FOR\ DAWN\ ${RELEASE_VERSION}/"
+ "sed -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/ \
  -e s/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/Copyright,\ 2010\ -\ ${RELEASE_DATEYEAR}/ \
  -e s/Version\ ${VERSION_ID}/Version\ ${RELEASE_VERSION}/"
- "sed -i -r -e s/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/Copyright,\ 2010\ -\ ${RELEASE_DATEYEAR}/ \
+ "sed -r -e s/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/Copyright,\ 2010\ -\ ${RELEASE_DATEYEAR}/ \
  -e s/Version\ ${VERSION_ID}/Version\ ${RELEASE_VERSION}/"
- "sed -i -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/"
+ "sed -r -e s/version=\"${VERSION_ID}.qualifier/version=\"${RELEASE_VERSION}.qualifier/"
  ""
  ""
  ""
@@ -89,70 +111,101 @@ AFTER_PATCH=(
  ""
  ""
  ""
- "sed -i -r -e s/FOR\ DAWN\ ${VERSION_ID}/FOR\ DAWN\ ${RELEASE_VERSION}/"
+ "sed -r -e s/FOR\ DAWN\ ${VERSION_ID}/FOR\ DAWN\ ${RELEASE_VERSION}/"
 )
+
+if [[ ${1} == "diff" ]]; then
+  DIFF_MODE=1
+  shift
+fi
+REPOSITORY_PATH="${1}"
 
 error=0
 for i in "${!FILES[@]}"; do
   FILENAME="${FILES[$i]}"
   PRE_PATCH="${BEFORE_PATCH[$i]}"
   POST_PATCH="${AFTER_PATCH[$i]}"
+  FILENAME_VARTMP="${FILENAME}${VARTMP_END}"
   FILENAME_TMP="${FILENAME}${TMP_END}"
   PATCH_FILENAME="${FILENAME}${DVIEWER_PATCH_END}"
 
-  #Restore HEAD version of file
-  git reset HEAD "${FILENAME}"
-  if [[ ${?} -ne 0 ]]; then
-    printf "Restoring HEAD version of ${FILENAME} failed\n"
-    error=10
-    break
-  fi
   #Preprocess file (replace <DATE>s and <VERSION>s with ${VERSION_ID} and ${DATEYEAR_ID}) into tmp file before patching
   if [[ -n "${PRE_PATCH}" ]]; then
     read -a arr <<< "${PRE_PATCH}"
-    $("${arr[@]}" "${FILENAME}" >"${FILENAME_TMP}")
+    $("${arr[@]}" "${FILENAME}" >"${FILENAME_VARTMP}")
     if [[ ${?} -ne 0 ]]; then
       printf "Preprocessing (preparing) ${FILENAME} failed\n"
       error=2
       break
     fi
   else
-    cp -f "${FILENAME}" "${FILENAME_TMP}"
+    cp -f "${FILENAME}" "${FILENAME_VARTMP}"
     if [[ ${?} -ne 0 ]]; then
       printf "Preprocessing (copying) ${FILENAME} failed\n"
-      error=3
+      error=51
       break
     fi
   fi
   #Apply patch in tmp file
   if [[ -f "${PATCH_FILENAME}" ]]; then
-    patch -d "$(dirname "${FILENAME_TMP}")" -p1 <"${PATCH_FILENAME}" >/dev/null
+    patch -o "${FILENAME_TMP}" "${FILENAME_VARTMP}" "${PATCH_FILENAME}" >/dev/null
     if [[ ${?} -ne 0 ]]; then
-      printf "Patching ${FILENAME} by ${PATCH_FILENAME} failed\n"
-      error=4
+      printf "Patching ${FILENAME_TMP} by ${PATCH_FILENAME} failed\n"
+      error=3
       break
     fi
+  else
+    cp -f "${FILENAME_VARTMP}" "${FILENAME_TMP}"
+    if [[ ${?} -ne 0 ]]; then
+      printf "Patching (copying) ${FILENAME_TMP} failed\n"
+      error=51
+      break
+    fi
+  fi
+  if [[ ${DIFF_MODE} -eq 1 ]]; then
+    echo "Skipping POSTPATCH"
+    continue;
   fi
   #Postprocess file (replace ${VERSION_ID} and ${DATEYEAR_ID} with ${RELEASE_DATEYEAR} and ${RELEASE_VERSION}) in tmp file after patching
   if [[ -n "${POST_PATCH}" ]]; then
     read -a arr <<< "${POST_PATCH}"
-    $("${arr[@]}" "${FILENAME_TMP}")
+    $("${arr[@]}" "${FILENAME_TMP}" >"${FILENAME}")
     if [[ ${?} -ne 0 ]]; then
       printf "Postprocessing ${FILENAME_TMP} failed\n"
-      error=5
+      error=4
       break
     fi
-  fi
-  #Finalize changes
-  mv -f "${FILENAME_TMP}" "${FILENAME}"
-  if [[ ${?} -ne 0 ]]; then
-    printf "Preprocessing (copying) ${FILENAME} failed\n"
-    error=6
-    break
   fi
 done
 if [[ ${error} -ne 0 ]]; then
   exit ${error}
 fi
+#In diff mode the files will not be copied to dViewer branch
+if [[ ${DIFF_MODE} -eq 1 ]]; then
+  exit 0
+fi
 
-exit 0
+#Finalize changes
+#Switch branch in REPOSITORY_PATH
+cd "${REPOSITORY_PATH}"
+if [[ ${?} -ne 0 ]]; then
+  printf "Changing directory ${REPOSITORY_PATH} failed\n"
+  exit 54
+fi
+#Switch to dViewer branch
+git checkout dViewer
+if [[ ${?} -ne 0 ]]; then
+  printf "Switching to dViewer branch failed\n"
+  exit 20
+fi
+
+#Rsync (mirroring) this directory into TMP_PATH omitting .git directory and TMP_END files
+rsync -a --exclude="*.${DVIEWER_PATCH_END}" --exclude="*${TMP_END}" --exclude="$(basename "${0}")" "${CURRENT_PATH}/" "${REPOSITORY_PATH}/"
+if [[ ${?} -ne 0 ]]; then
+  printf "Rsyncing (mirroring) this directory ${CURRENT_PATH}/ into ${REPOSITORY_PATH}/ failed\n"
+  exit 51
+fi
+
+#Delete remaining temporary patched files from previous update attempt
+#Last line in this file, because this file is also deleted, thus can not run it further
+rm -rf "${TMP_PATH}"
