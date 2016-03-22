@@ -44,15 +44,14 @@
 +   <windowImages i16="/org.dawnsci.product.plugin/icons/dViewer-16x16-icon.png" i48="/org.dawnsci.product.plugin/icons/dViewer-48x48-icon.png"/>
  
     <splash
--      location="org.dawnsci.product.plugin"
+       location="org.dawnsci.product.plugin"
 -      startupProgressRect="0,245,600,15"
 -      startupMessageRect="0,20,200,20"
 -      startupForegroundColor="000000" />
 -   <launcher name="dawn">
 -      <linux icon="/org.dawnsci.product.plugin/icons/dawn-icon.xpm"/>
-+      location="org.embl.cca.dviewer"
 +      startupProgressRect="0,513,1224,15"
-+      startupMessageRect="10,10,200,20"
++      startupMessageRect="10,10,1204,15"
 +      startupForegroundColor="FFFFFF" />
 +   <launcher name="dViewer">
 +      <linux icon="/org.dawnsci.product.plugin/icons/dViewer-icon.xpm"/>

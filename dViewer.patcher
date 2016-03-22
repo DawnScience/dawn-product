@@ -191,6 +191,13 @@ if [[ ${error} -ne 0 ]]; then
   exit ${error}
 fi
 
+#Replace splash.bmp (hardcoded), unfortunately there is no better solution
+mv org.dawnsci.product.plugin/dViewer-splash.bmp org.dawnsci.product.plugin/splash.bmp
+if [[ ${?} -ne 0 ]]; then
+  printf "Replacing splash.bmp failed\n"
+  exit 50
+fi
+
 #In diff mode the files will not be copied to dViewer branch
 if [[ ${DIFF_MODE} -eq 1 ]]; then
   exit 0
