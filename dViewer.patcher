@@ -58,6 +58,7 @@ if [[ -z ${RELEASE_DATEYEAR} ]]; then
   printf "RELEASE_DATEYEAR could not be found in ${PRODUCT_FEATURE_FILE}\n"
   exit 1
 fi
+
 #Get the release version
 RELEASE_VERSION=$(grep -o "version=\"[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\.qualifier" "${PRODUCT_FEATURE_FILE}" | grep -o "[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+")
 if [[ -z ${RELEASE_VERSION} ]]; then
@@ -146,6 +147,7 @@ for i in "${!FILES[@]}"; do
       break
     fi
   fi
+
   #Apply patch in tmp file
   if [[ -f "${PATCH_FILENAME}" ]]; then
     patch -o "${FILENAME_TMP}" "${FILENAME_VARTMP}" "${PATCH_FILENAME}" >/dev/null
@@ -166,6 +168,7 @@ for i in "${!FILES[@]}"; do
     echo "Skipping POSTPATCH"
     continue;
   fi
+
   #Postprocess file (replace ${VERSION_ID} and ${DATEYEAR_ID} with ${RELEASE_DATEYEAR} and ${RELEASE_VERSION}) in tmp file after patching
   if [[ -n "${POST_PATCH}" ]]; then
     read -a arr <<< "${POST_PATCH}"
@@ -187,6 +190,7 @@ done
 if [[ ${error} -ne 0 ]]; then
   exit ${error}
 fi
+
 #In diff mode the files will not be copied to dViewer branch
 if [[ ${DIFF_MODE} -eq 1 ]]; then
   exit 0
@@ -199,6 +203,7 @@ if [[ ${?} -ne 0 ]]; then
   printf "Changing directory ${REPOSITORY_PATH} failed\n"
   exit 54
 fi
+
 #Switch to dViewer branch
 git checkout dViewer
 if [[ ${?} -ne 0 ]]; then
@@ -206,8 +211,15 @@ if [[ ${?} -ne 0 ]]; then
   exit 20
 fi
 
-#Rsync (mirroring) this directory into TMP_PATH omitting .git directory and TMP_END files
-rsync -a --exclude="*${DVIEWER_PATCH_END}" --exclude="*${TMP_END}" --exclude="$(basename "${0}")" "${CURRENT_PATH}/" "${REPOSITORY_PATH}/"
+#Rsync (mirroring) .git directory into TMP_PATH in order to protect it from deletion in next rsyncing
+rsync -a "${REPOSITORY_PATH}/.git" "${CURRENT_PATH}/"
+if [[ ${?} -ne 0 ]]; then
+  printf "Rsyncing (mirroring) this directory ${REPOSITORY_PATH}/.git into ${CURRENT_PATH}/ failed\n"
+  exit 51
+fi
+
+#Rsync (mirroring) this directory into REPOSITORY_PATH omitting .git directory and TMP_END files
+rsync -a --delete-during --delete-excluded --exclude="*${DVIEWER_PATCH_END}" --exclude="*${TMP_END}" --exclude="$(basename "${0}")" "${CURRENT_PATH}/" "${REPOSITORY_PATH}/"
 if [[ ${?} -ne 0 ]]; then
   printf "Rsyncing (mirroring) this directory ${CURRENT_PATH}/ into ${REPOSITORY_PATH}/ failed\n"
   exit 51
