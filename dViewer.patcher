@@ -71,7 +71,7 @@ BEFORE_PATCH=(
  "sed -r -e s/FOR\ DAWN\ [0-9]+(.[0-9]+)*/FOR\ DAWN\ ${VERSION_ID}/"
  "sed -r -e s/version=\"[0-9]+(.[0-9]+)*.qualifier/version=\"${VERSION_ID}.qualifier/ \
  -e s/Copyright,\ 2010\ -\ 20[0-9][0-9]/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/ \
- -e s/Version\ [0-9]+(.[0-9]+)*/Version\ ${VERSION_ID}/"
+ -e s/Version\ [0-9]+(.[0-9]+)*\$/Version\ ${VERSION_ID}/"
  "sed -r -e s/Copyright,\ 2010\ -\ 20[0-9][0-9]/Copyright,\ 2010\ -\ ${DATEYEAR_ID}/ \
  -e s/Version\ [0-9]+(.[0-9]+)*/Version\ ${VERSION_ID}/"
  "sed -r -e s/version=\"[0-9]+(.[0-9]+)*.qualifier/version=\"${VERSION_ID}.qualifier/"
