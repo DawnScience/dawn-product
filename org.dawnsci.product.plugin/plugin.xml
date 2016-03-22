@@ -3,7 +3,7 @@
 <plugin>
 
    <extension
-         id="dViewer"
+         id="DAWN"
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
@@ -25,10 +25,6 @@
                value="0,513,1224,15">
          </property>
          <property
-               name="preferenceCustomization"
-               value="plugin_customization.ini">
-         </property>
-         <property
                name="windowImages"
                value="icons/dViewer-16x16-icon.png,icons/dViewer-48x48-icon.png">
          </property>
@@ -46,7 +42,11 @@
          </property>
          <property
                name="aboutText"
-               value="dViewer (Diffraction Viewer based on Data Analysis Workbench [DAWN])&#x0A;Copyright, 2010 - 2014, DAWN Collaboration&#x0A;&#x0A;Version 1.7">
+               value="dViewer (Diffraction Viewer based on Data Analysis Workbench [DAWN])&#x0A;Copyright, 2010 - 2016, DAWN Collaboration&#x0A;&#x0A;Version 2.1.0">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
          </property>
       </product>
    </extension>

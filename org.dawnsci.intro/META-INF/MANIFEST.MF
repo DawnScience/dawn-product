@@ -12,8 +12,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.cheatsheets;bundle-version="3.4.100",
  org.dawnsci.plotting.jreality;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.core.resources,
- org.slf4j;version="[1.7.6,1.7.7)"
+ org.slf4j;version="[1.7.2,2.0.0)"
 Bundle-Vendor: DAWN Collaboration
 Export-Package: org.dawnsci.intro

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-SymbolicName: org.dawnsci.intro.universal;singleton:=true
 Bundle-Activator: org.dawnsci.internal.intro.universal.UniversalIntroPlugin
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.6.0,4.0.0)

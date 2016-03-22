@@ -14,28 +14,6 @@
 	A content file for the DAWN Universal Welcome
 -->
 <introContent>
-	<!-- Root page -->
-	<page id="root" alt-style="$theme$/swt/root.properties" style="$theme$/html/root.css" style-id="page">
-		<anchor id="head-anchor"/>
-        <title style-id="intro-header">$introTitle$</title>
-        <group id="links-background">
-           <group id="page-links" computed="true"/>
-        </group>
-        <group id="action-links" computed="true">
-            <link url="http://org.eclipse.ui.intro/switchToLaunchBar" label="Workbench" id="workbench" style-id="$high-contrast$">
-                <text>Go to the workbench</text>
-            </link>
-        </group>        
-        <group id="branding">
-        	<img src="$introBrandingImage$" alt="$introBrandingImageText$"/>
-        </group>
-		<!-- General purpose groups for adding additional content -->
-		<group id="extra-group1" filteredFrom="swt"><anchor id="anchor"/></group>
-		<group id="extra-group2" filteredFrom="swt"><anchor id="anchor"/></group>
-		<group id="extra-group3" filteredFrom="swt"><anchor id="anchor"/></group>
-		<group id="extra-group4" filteredFrom="swt"><anchor id="anchor"/></group>
-		<group id="extra-group5" filteredFrom="swt"><anchor id="anchor"/></group>
-    </page>
 	
 	<!-- Standby page -->
     <page id="standby" alt-style="$theme$/swt/standby.properties" style="$theme$/html/standby.css" style-id="page">

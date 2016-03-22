@@ -2,15 +2,15 @@
 <feature
       id="org.dawnsci.base.product.feature"
       label="dViewer"
-      version="1.7.1.qualifier"
+      version="2.1.0.qualifier"
       provider-name="DAWN Collaboration">
 
-   <description>
+   <description url="http://www.dawnsci.org/">
       Diffraction viewer
    </description>
 
    <copyright url="http://www.dawnsci.org/">
-      Copyright (c) 2014 DAWN Collaboration
+      Copyright (c) 2016 DAWN Collaboration
    </copyright>
 
    <license url="http://www.eclipse.org/legal/epl-v10.html">
@@ -30,7 +30,7 @@
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.rcp"
+         id="org.eclipse.e4.rcp"
          version="0.0.0"/>
 
    <includes
@@ -89,6 +89,38 @@
          id="uk.ac.diamond.scisoft.icat.actors.feature"
          version="0.0.0"/>
 
+   <includes
+         id="uk.ac.diamond.scisoft.analysis.processing.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.dawnsci.macro.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.ecore"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.emf.common"
+         version="0.0.0"/>
+
+   <includes
+         id="org.dawnsci.dde.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.ecf.filetransfer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.dawnsci.fileviewer.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.dawnsci.marketplaceclient.feature"
+         version="0.0.0"/>
+
    <plugin
          id="uk.ac.diamond.scisoft.analysis.rcp.contributions"
          download-size="0"
@@ -108,13 +140,6 @@
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-
-   <plugin
-         id="org.apache.commons.math"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.dawnsci.intro"
@@ -224,5 +249,33 @@
          install-size="0"
          version="0.0.0"
          fragment="true"/>
+
+   <plugin
+         id="org.dawnsci.jgoogleanalytics"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.dawnsci.nexus"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.identity"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>

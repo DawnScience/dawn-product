@@ -2,10 +2,10 @@
 <feature
       id="org.dawnsci.base.site"
       label="Dawn p2 site and product"
-      version="1.0.0.qualifier"
+      version="2.1.0.qualifier"
       provider-name="Dawn Collaboration">
 
-   <description url="http://www.dawnsci.org/home">
+   <description url="http://www.dawnsci.org/">
       Data Analysis WorkbeNch (DAWN) is an eclipse based workbench for doing scientific data analysis.
    </description>
 

@@ -42,7 +42,7 @@
             id="org.dawnsci.intro.universalConfig"
             introId="org.dawnsci.intro.universal">
          <presentation
-               home-page-id="root" standby-page-id="standby">
+               home-page-id="perspectives" standby-page-id="standby">
             <implementation
                   style="themes/shared/html/shared.css,$theme$/html/shared.css,$theme$/html/font-$fontStyle$.css,$theme$/html/$direction$.css"
                   kind="html"
