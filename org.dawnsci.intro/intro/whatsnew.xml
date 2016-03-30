@@ -5,7 +5,7 @@
 		<group style-id="content-group" id="whatsnew-group">
 
 <text style-id="page-title" filteredFrom="swt">
-	RELEASE NOTES FOR DAWN 1.9.0 'Owl'
+	RELEASE NOTES FOR DAWN 2.0.0 'Boto'.
 </text>
 
 <text style-id="page-title" filteredFrom="swt">
@@ -29,32 +29,56 @@
 &lt;&#47;i&gt;
 </text>
 
-
 <text style-id="page-title" filteredFrom="swt">
-
-Workflows:
----------------
+NEW FEATURES:
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-1. Workflows are not supported on Windows XP, 32-bit.
+1. DAWN 2.0.0 has migrated to the Eclipse E4 application model.
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-2. Workflows do not support Jython actors.
+2. New Isosurface and Volume (Beta) plot mode with Java 8 support and Java FX has been implemented for three dimensional dataset.
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-3. If using the .zip download version of Dawn, on Linux 32: It is sometimes necessary to delete 
+3. DAWN4DAWN! Developers can use this functionality to develop their own plugin inside of DAWN 
+and then have those run in a new and/or their current instance of DAWN.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+4. New colour maps and colour categories are available in the histogram tool.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+5. The Eclipse Market Place client is now available. A custom DAWN market place server is being developed 
+and will be available soon.
+&lt;&#47;i&gt;
+</text>
+
+
+<text style-id="page-title" filteredFrom="swt">
+WORKFLOWS:
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+1. Workflows do not support Jython actors.
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+2. If using the .zip download version of Dawn, on Linux 32: It is sometimes necessary to delete 
    the 'jre' folder from the install location. This is due to file permissions. 
    Try doing this if your version does not work on linux and you installed it from a .zip file.
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-4. If using workflows at Diamond using 'module load dawn/beta' they may not run. In this case do the following:
+3. If using workflows at Diamond using 'module load dawn/beta' they may not run. In this case do the following:
    * Try to run a workflow, get a cryptic error about the "jre".
    * Open the run configuration 'WorkflowConfiguration' go to the runtime jre setting and click on 'installed jres...'
    * Define a jre with the location on linux64 at Diamond of '/dls_sw/apps/java/x64/jdk1.6.0_38/jre' for linux 64-bit.
@@ -62,13 +86,13 @@ Workflows:
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-5. On windows the firewall can sometimes block the workflow which brings up a windows firewall dialog 
+4. On windows the firewall can sometimes block the workflow which brings up a windows firewall dialog 
    and stops the workflow from working. If this happens allow the connection and restart the workflow.
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-6. If you try to run a workflow from a workspace path with spaces, the run/debug configuration 
+5. If you try to run a workflow from a workspace path with spaces, the run/debug configuration 
    has to be changed to include quotes around the model path: -Dmodel="${workspace_loc}${selected_resource_path}" 
 &lt;&#47;i&gt;
 </text>
@@ -80,7 +104,7 @@ Workflows:
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-7. When using the Python actor in the workflows, you must declare something for 'Dataset Outputs'. 
+6. When using the Python actor in the workflows, you must declare something for 'Dataset Outputs'. 
    If you do not read information back into the workflow, create a dummy variable for this.
 &lt;&#47;i&gt;
 </text>
