@@ -1,0 +1,2 @@
+a#dviewer-link img { background-image : url(graphics/dViewer-48x48-icon.png); }
+a#dviewer-link:hover img { background-image : url(graphics/dViewer-52x52-icon.png); }

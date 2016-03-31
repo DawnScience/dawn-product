@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<introContent>
+	<extensionContent id="dviewer-perspective-extension" style="style.css" name="dViewer Perspective" path="perspectives/@">
+		<group id="dviewer-perspective-group" style-id="content-group">
+		<link label="dViewer" url="http://org.eclipse.ui.intro/runAction?pluginId=org.dawnsci.intro&amp;class=org.dawnsci.intro.actions.OpenPerspectiveAction&amp;name=org.embl.cca.dviewer.rcp.perspectives.DViewerPerspectiveLaunch" id="dviewer-link" style-id="content-link">
+			<text>The starting place for diffraction viewing of data. The dViewer perspective is suitable for viewing 2D images of experiments. It features PHA for highlighting spots, and batching for summing up a range of images. In the future it will display HKL information of spots and more.</text>
+		</link>
+		</group>
+	</extensionContent>
+</introContent>

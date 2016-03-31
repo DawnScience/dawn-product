@@ -18,7 +18,7 @@
          </property>
          <property
                name="startupMessageRect"
-               value="10,10,1204,15">
+               value="10,10,200,20">
          </property>
          <property
                name="startupProgressRect"
@@ -57,5 +57,12 @@
             id="org.dawnsci.product.plugin.about.releasenotespage"
             name="Release Notes">
       </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="org.dawnsci.intro.universalConfig"
+            content="intro/introContribution.xml">
+      </configExtension>
    </extension>
 </plugin>
