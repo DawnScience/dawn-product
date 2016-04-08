@@ -14,7 +14,7 @@ RELEASE NOTES FOR DAWN 2.0.0 "BOTO"
 
 NEW FEATURES:
 ---------------
-1. DAWN 2.0.0 has migrated to the Eclipse E4 application model.
+1. DAWN 2.0.0 supports e4 plugins. Most of its existing plugins use the Eclipse 3.X compatibility layer in order to run in an e4 environment.
 
 2. A new Isosurface and volume (Beta) plot mode with Java 8 support and Java FX has been implemented for three dimensional dataset.
 
