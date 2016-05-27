@@ -13,7 +13,7 @@ RELEASE NOTES FOR DAWN 2.1.0
 
 New features:
 ---------------
-- Pydev update:
+- Pydev update: 5.0.0 (http://pydev.blogspot.co.uk/2016/05/pydev-500-pyunit-view-persists-state.html)
 - Iso-Surface / Volume Renderer: Reset transform button added, non indices axes support, screenshot/print enabled. 
 - FileViewer: sorting of files and folders.
 - NCD Processing: calculation of crystallite thickness T parameter.
@@ -23,7 +23,6 @@ New features:
 	for XMI-MSIM for a full Monte Carlo simulation. Access this tool through the menu (Tools -> XAS Sample Calculation) or
 	as a view (Window -> Show View -> Others -> Data Analysis - XAS -> XAS Sample Calculation).
 - PEEMA perspective: lazy-loading of data, Image grid viewer, Spectrum viewer.
-- 
 
 
 Bug fixes:
@@ -31,7 +30,7 @@ Bug fixes:
 - Volume Renderer: algorithm improvements
 - XRF analysis tool: add support for 10 eV channels
 - Colour mapping tool: Histogram plot updates correctly on a trace update
-- 
+- Multiple file selection drag&drop bug fixed: the first and last file opened both used to display the dataset of the first file.
 
 Workflows:
 ---------------
