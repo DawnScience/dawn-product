@@ -36,3 +36,9 @@ Workflows:
 ---------------
 - Workflows are not supported anymore in DAWN 2.1, although still present. They will be removed in DAWN 2.2 and accessible through the DAWN market place.
 
+
+NOTE for Mac OS X
+-----------------
+This release has been fixed to Java 1.8.0 update 92. Please install this version. 
+If a more up-to-date version is required then update line 63 of 
+Dawn.app/Contents/Info.plist accordingly.
