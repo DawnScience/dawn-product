@@ -40,17 +40,12 @@ New features:
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Pydev update
+Pydev update: 5.0.0 (http://pydev.blogspot.co.uk/2016/05/pydev-500-pyunit-view-persists-state.html)
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
-Iso-Surface / Volume Renderer: Reset transform button added, non indices axes support, screenshot/print enabled. 
-&lt;&#47;i&gt;
-</text>
-<text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt;
-FileViewer: sorting of files and folders.
+FileViewer (new FileNavigator replacement): sorting of files and folders.
 &lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
@@ -76,16 +71,16 @@ XAS Sample Calculation tool: get transmission and optical depth profiles as well
 PEEMA perspective: lazy-loading of data, Image grid viewer, Spectrum viewer.
 &lt;&#47;i&gt;
 </text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Iso-Surface / Volume Renderer (BETA): Reset transform button added, non indices axes support, screenshot/print enabled. 
+&lt;&#47;i&gt;
+</text>
 
 <text style-id="page-title" filteredFrom="swt">
 &lt;b&gt;
 Bug fixes:
 &lt;/b&gt;
-</text>
-<text style-id="page-title" filteredFrom="swt">
-&#8226; &lt;i&gt;
-Volume Renderer: algorithm improvements
-&lt;&#47;i&gt;
 </text>
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
@@ -95,6 +90,16 @@ XRF analysis tool: add support for 10 eV channels
 <text style-id="page-title" filteredFrom="swt">
 &#8226; &lt;i&gt;
 Colour mapping tool: Histogram plot updates correctly on a trace update
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Multiple file selection drag and drop bug fixed: the first and last file opened both used to display the dataset of the first file
+&lt;&#47;i&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+Volume Renderer (BETA): algorithm improvements
 &lt;&#47;i&gt;
 </text>
 
@@ -109,6 +114,18 @@ Workflows are not supported anymore in DAWN 2.1, although still present. They wi
 &lt;&#47;i&gt;
 </text>
 
+<text style-id="page-title" filteredFrom="swt">
+&lt;b&gt;
+NOTE for Mac OS X
+&lt;/b&gt;
+</text>
+<text style-id="page-title" filteredFrom="swt">
+&#8226; &lt;i&gt;
+This release has been fixed to Java 1.8.0 update 92. Please install this version. 
+If a more up-to-date version is required then update line 63 of 
+Dawn.app/Contents/Info.plist accordingly.
+&lt;&#47;i&gt;
+</text>
        	</group>
   	</extensionContent>
 </introContent>
