@@ -3,40 +3,6 @@
 <plugin>
    <extension-point id="org.dawnsci.introRegister" name="IntroRegister" schema="schema/org.dawnsci.introRegister.exsd"/>
    <extension
-         point="org.eclipse.ui.intro">
-      <!--<intro
-            class="uk.ac.diamond.scisoft.intro.IntroPart"
-            icon="icons/welcome16.gif"
-            id="uk.ac.diamond.scisoft.intro">
-      </intro>-->
-      <intro
-            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            icon="icons/Temp-16x16-icon.png"
-            id="org.dawnsci.intro">
-      </intro>
-      <introProductBinding
-            introId="org.dawnsci.intro.universal"
-            productId="org.dawnsci.product.plugin.DAWN">
-      </introProductBinding>
-      <intro
-            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            icon="icons/Temp-16x16-icon.png"
-            id="uk.ac.diamond.dawn.intro">
-      </intro>
-      <introProductBinding
-            introId="uk.ac.diamond.dawn.intro"
-            productId="uk.ac.diamond.dawn.product">
-      </introProductBinding>
-      <intro
-            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            id="uk.ac.diamond.dawn.base.intro">
-      </intro>
-      <introProductBinding
-            introId="uk.ac.diamond.dawn.base.intro"
-            productId="uk.ac.diamond.dawn.base.product">
-      </introProductBinding>
-   </extension>
-   <extension
          point="org.eclipse.ui.intro.config">
       <config
             content="introContent.xml"
