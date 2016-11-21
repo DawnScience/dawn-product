@@ -40,6 +40,7 @@ Bug fixes:
 ---------------
 - SCI-5729: 3D scatter plot supports different point sizes again
 - SCI-5716: X and Y Axis profile tool fix
+- SCI-5633: Direct draw in masking tool works with different image origins
 - SCI-5712: Y-axis in plotting takes in correctly dataset name
 - DDPR-98: NCD Invariance plug-in now displays its model & subsequently functions properly
 - SCI-5598: Circle brush unusual behaviour in free-draw mode fixed for Masking tool 
