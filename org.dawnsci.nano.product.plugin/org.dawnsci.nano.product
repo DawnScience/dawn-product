@@ -20,7 +20,11 @@ Version 1.6
       <programArgs>-showLocation
 --launcher.defaultAction
 openFile
---launcher.appendVmargs</programArgs>
+--launcher.appendVmargs
+      </programArgs>
+      <programArgsLin>--launcher.GTK_version
+2
+      </programArgsLin>
       <vmArgs>-Xms256m
 -Xmx1024m
 -XX:PermSize=128m
@@ -31,8 +35,10 @@ openFile
 -Dcom.isencia.require.file.source=true
 -Dorg.dawb.editor.h5.use.default=true
 -Dosgi.locking=non
--Dorg.dawnsci.passerelle.do.not.break.osgi=true</vmArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+-Dorg.dawnsci.passerelle.do.not.break.osgi=true
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="/org.dawnsci.nano.product.plugin/icons/Temp-16x16-icon.png" i48="/org.dawnsci.nano.product.plugin/icons/Temp-48x48-icon.png"/>
