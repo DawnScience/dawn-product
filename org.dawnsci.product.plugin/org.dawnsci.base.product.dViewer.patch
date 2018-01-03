@@ -1,5 +1,5 @@
---- dawn/org.dawnsci.base.product.tmp	2016-03-21 18:19:46.461972862 +0000
-+++ dViewer/org.dawnsci.base.product.tmp	2016-03-21 18:21:27.323595277 +0000
+--- org.dawnsci.base.product.var.tmp	2018-01-03 17:03:18.486083312 +0000
++++ org.dawnsci.base.product.tmp	2018-01-03 17:15:49.874119314 +0000
 @@ -1,13 +1,13 @@
  <?xml version="1.0" encoding="UTF-8"?>
  <?pde version="3.5"?>
@@ -18,30 +18,33 @@
  
  Version _VERSION_
        </text>
-@@ -21,39 +21,39 @@
+@@ -21,6 +21,7 @@
  --launcher.defaultAction
  openFile
  --launcher.appendVmargs
--      </programArgs>
-+-hkl</programArgs>
-       <vmArgs>-Xms256m
++-hkl
+       </programArgs>
+       <programArgsLin>--launcher.GTK_version
+ 2
+@@ -29,35 +30,37 @@
  -Xmx1024m
- -Dosgi.requiredJavaVersion=1.7.0
+ -Dosgi.requiredJavaVersion=1.8.0
  -Dcom.isencia.require.file.source=true
- -Dorg.dawb.editor.h5.use.default=true
 --Dosgi.locking=non
 +-Dosgi.locking=none
  -Dorg.dawnsci.passerelle.do.not.break.osgi=true
--      </vmArgs>
--      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
--      </vmArgsMac>
+ -Dpydev.funding.hide=true
+ -Dosgi.framework.extensions=org.eclipse.fx.osgi
+ -Dorg.eclipse.epp.internal.mpc.core.service.DefaultMarketplaceService.url=http://dmarket.diamond.ac.uk:8080/mpc -Dorg.eclipse.epp.internal.mpc.core.service.DefaultCatalogService.url=http://dmarket.diamond.ac.uk:8080/mpc
 +-DdViewer=true
-+-DdViewerImagePort=5000</vmArgs>
-+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
++-DdViewerImagePort=5000
+       </vmArgs>
+       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+       </vmArgsMac>
     </launcherArgs>
  
--   <windowImages i16="/org.dawnsci.product.plugin/icons/Temp-16x16-icon.png" i48="/org.dawnsci.product.plugin/icons/Temp-48x48-icon.png"/>
-+   <windowImages i16="/org.dawnsci.product.plugin/icons/dViewer-16x16-icon.png" i48="/org.dawnsci.product.plugin/icons/dViewer-48x48-icon.png"/>
+-   <windowImages i16="/org.dawnsci.product.plugin/icons/Temp-16x16-icon.png" i32="/org.dawnsci.product.plugin/icons/Temp-32x32-icon.png" i48="/org.dawnsci.product.plugin/icons/Temp-48x48-icon.png"/>
++   <windowImages i16="/org.dawnsci.product.plugin/icons/dViewer-16x16-icon.png" i32="/org.dawnsci.product.plugin/icons/dViewer-32x32-icon.png" i48="/org.dawnsci.product.plugin/icons/dViewer-48x48-icon.png"/>
  
     <splash
        location="org.dawnsci.product.plugin"
@@ -55,7 +58,6 @@
 +      startupForegroundColor="FFFFFF" />
 +   <launcher name="dViewer">
 +      <linux icon="/org.dawnsci.product.plugin/icons/dViewer-icon.xpm"/>
-       <solaris/>
        <win useIco="false">
 -         <ico path="/org.dawnsci.product.plugin/icons/dawn-icon.ico"/>
 +         <ico path="/org.dawnsci.product.plugin/icons/dViewer-icon.ico"/>
